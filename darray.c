@@ -62,7 +62,7 @@ int darray_foreach(darray *arrp, consumer fp) {
 }
 
 int darray_append(darray *arrp, void *itemp) {
-    if (arrp == NULL) {
+    if (arrp == NULL || itemp == NULL) {
         return 0;
     }
 
@@ -70,20 +70,72 @@ int darray_append(darray *arrp, void *itemp) {
         return 0;
     }
 
-    if (arrp->item_free == NULL) {
-        void *copyp = malloc(arrp->item_size);
-        if (itemp == NULL) {
-            return 0;
-        }
-        memcpy(copyp, itemp, arrp->item_size);
-        arrp->itempp[arrp->len] = copyp;
-    } else {
-        arrp->itempp[arrp->len] = itemp;
-    }
+    arrp->itempp[arrp->len] = itemp;
 
     arrp->len++;
 
     return 1;
+}
+
+void *darray_get(darray *arrp, size_t index) {
+    if (arrp == NULL || index >= arrp->len) {
+        return NULL;
+    }
+
+    return arrp->itempp[index];
+}
+
+int darray_pop(darray *arrp, size_t index) {
+    if (arrp == NULL || index >= arrp->len) {
+        return 0;
+    }
+
+    if (arrp->item_free != NULL) {
+        arrp->item_free(arrp->itempp[index]);
+    }
+    memcpy(arrp->itempp + index,
+            arrp->itempp + index + 1,
+            arrp->len - index - 1);
+    if (!_darray_resize(arrp, arrp->len - 1)) {
+        return 0;
+    }
+
+    arrp->len--;
+
+    return 1;
+}
+
+int darray_insert(darray *arrp, size_t index, void *itemp) {
+    if (arrp == NULL || index >= arrp->len || itemp == NULL) {
+        return 0;
+    }
+
+    if (!_darray_resize(arrp, arrp->len + 1)) {
+        return 0;
+    }
+    memcpy(arrp->itempp + index + 1,
+            arrp->itempp + index,
+            arrp->len - index - 1);
+
+    arrp->itempp[index] = itemp;
+
+    arrp->len++;
+
+    return 1;
+}
+
+ssize_t array_index(darray *arrp, void *itemp, comparator fp) {
+    if (arrp == NULL || itemp == NULL || fp == NULL) {
+        return -1;
+    }
+
+    for (size_t i = 0; i < arrp->len; i++) {
+        if (fp(arrp->itempp[i], itemp) == 0) {
+            return i;
+        }
+    }
+
+    return -1;
 }
 
 int darray_clear(darray *arrp) {
@@ -92,9 +144,7 @@ int darray_clear(darray *arrp) {
     }
 
     for (size_t i = 0; i < arrp->len; i++) {
-        if (arrp->item_free == NULL) {
-            free(arrp->itempp[i]);
-        } else {
+        if (arrp->item_free != NULL) {
             arrp->item_free(arrp->itempp[i]);
         }
     }

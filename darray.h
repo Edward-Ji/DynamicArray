@@ -33,6 +33,28 @@ int darray_foreach(darray *arrp, consumer fp);
 int darray_append(darray *arrp, void *itemp);
 
 /*
+ * Get the item at a given index in the array.
+ */
+void *darray_get(darray *arrp, size_t index);
+
+/*
+ * Remove the item at a given index in the array.
+ */
+int darray_pop(darray *arrp, size_t index);
+
+/*
+ * Insert the item at a given index in the array.
+ */
+int darray_insert(darray *arrp, size_t index, void *itemp);
+
+/*
+ * Search for the item in the array using the given camparator and return its
+ * index. The comparator should return 0 on equality and a non-zero value
+ * otherwise. If the item is not found, it returns a negative number.
+ */
+ssize_t array_index(darray *arrp, void *itemp, comparator fp);
+
+/*
  * Remove all items from the array.
  */
 int darray_clear(darray *arrp);
