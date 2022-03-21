@@ -48,11 +48,13 @@ int darray_pop(darray *arrp, size_t index);
 int darray_insert(darray *arrp, size_t index, void *itemp);
 
 /*
- * Search for the item in the array using the given camparator and return its
- * index. The comparator should return 0 on equality and a non-zero value
- * otherwise. If the item is not found, it returns a negative number.
+ * Search for the item in the array using the given camparator and stores its
+ * index in the index pointer. The comparator is called with array items as the
+ * first parameter, and should return 0 on equality and a
+ * non-zero value otherwise. This function returns 1 if there os a match, or 0
+ * otherwise.
  */
-ssize_t array_index(darray *arrp, void *itemp, comparator fp);
+int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp);
 
 /*
  * Remove all items from the array.

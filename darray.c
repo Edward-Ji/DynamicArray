@@ -93,9 +93,9 @@ int darray_pop(darray *arrp, size_t index) {
     if (arrp->item_free != NULL) {
         arrp->item_free(arrp->itempp[index]);
     }
-    memcpy(arrp->itempp + index,
+    memmove(arrp->itempp + index,
             arrp->itempp + index + 1,
-            arrp->len - index - 1);
+            sizeof(void *) * (arrp->len - index));
     if (!_darray_resize(arrp, arrp->len - 1)) {
         return 0;
     }
@@ -113,9 +113,9 @@ int darray_insert(darray *arrp, size_t index, void *itemp) {
     if (!_darray_resize(arrp, arrp->len + 1)) {
         return 0;
     }
-    memcpy(arrp->itempp + index + 1,
+    memmove(arrp->itempp + index + 1,
             arrp->itempp + index,
-            arrp->len - index - 1);
+            sizeof(void *) * (arrp->len - index));
 
     arrp->itempp[index] = itemp;
 
@@ -124,18 +124,19 @@ int darray_insert(darray *arrp, size_t index, void *itemp) {
     return 1;
 }
 
-ssize_t array_index(darray *arrp, void *itemp, comparator fp) {
-    if (arrp == NULL || itemp == NULL || fp == NULL) {
-        return -1;
+int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp) {
+    if (arrp == NULL || itemp == NULL || fp == NULL || indexp == NULL) {
+        return 0;
     }
 
     for (size_t i = 0; i < arrp->len; i++) {
         if (fp(arrp->itempp[i], itemp) == 0) {
-            return i;
+            *indexp = i;
+            return 1;
         }
     }
 
-    return -1;
+    return 0;
 }
 
 int darray_clear(darray *arrp) {
