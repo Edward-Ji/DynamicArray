@@ -1,4 +1,17 @@
-all: main.c darray.c darray.h
-	gcc -o main -Wall -Werror main.c darray.c
-test: main.c darray.c darray.h
-	gcc -O1 -g -fsanitize=address -o main -Wall -Werror main.c darray.c
+CC = gcc
+CFLAGS = -O1 -g -Wall -Werror
+LDFLAGS = -fsanitize=address,leak
+
+debug: bin demo_matrix demo_stu
+
+bin:
+	mkdir bin
+
+demo_matrix: demo_matrix.o darray.o
+	$(CC) $(LDFLAGS) $^ -o bin/$@
+
+demo_stu: demo_stu.o darray.o
+	$(CC) $(LDFLAGS) $^ -o bin/$@
+
+clean:
+	rm -rf bin *.o
