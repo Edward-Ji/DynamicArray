@@ -61,6 +61,16 @@ int darray_foreach(darray *arrp, consumer fp) {
     return 1;
 }
 
+void darray_aggregate(darray *arrp, void *resp, aggregate fp) {
+    if (arrp == NULL || fp == NULL) {
+        return;
+    }
+
+    for (size_t i = 0; i < arrp->len; i++) {
+        fp(arrp->itempp[i], resp);
+    }
+}
+
 int darray_append(darray *arrp, void *itemp) {
     if (arrp == NULL || itemp == NULL) {
         return 0;

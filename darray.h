@@ -4,6 +4,7 @@
 #include <stddef.h>
 
 typedef void (*consumer)(void *);
+typedef void (*aggregate)(void *, void *);
 typedef int (*comparator)(void *, void *);
 
 typedef struct darray darray;
@@ -26,6 +27,12 @@ darray *new_darray(size_t item_size, consumer item_free);
  * Call the given function on every object in the array sequentially.
  */
 int darray_foreach(darray *arrp, consumer fp);
+
+/*
+ * Call the aggregation function with every item in the array as the first
+ * argument, and the result pointer as the seconds argument.
+ */
+void darray_aggregate(darray *arrp, void *resp, aggregate fp);
 
 /*
  * Add a copy of the item at the end of the array.
