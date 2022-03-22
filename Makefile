@@ -2,15 +2,17 @@ CC = gcc
 CFLAGS = -O1 -g -Wall -Werror
 LDFLAGS = -fsanitize=address,leak
 
-TARGETS = demo_matrix demo_stu demo_vector
+BINDIR := ./bin
+SRC := $(shell find . -name 'demo_*.c')
+TARGETS := $(SRC:%.c=$(BINDIR)/%)
 
-debug: bin $(TARGETS)
+debug: $(BINDIR) $(TARGETS)
 
-bin:
-	mkdir bin
+$(BINDIR):
+	mkdir -p $(BINDIR)
 
-$(TARGETS): %: %.c darray.c
-	$(CC) $(LDFLAGS) $^ -o bin/$@
+$(TARGETS): $(BINDIR)/%: %.o darray.o
+	$(CC) $(LDFLAGS) $^ -o $@
 
 clean:
-	rm -rf bin *.o
+	rm -rf $(BINDIR) *.o
