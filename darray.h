@@ -56,11 +56,21 @@ int darray_insert(darray *arrp, size_t index, void *itemp);
 /*
  * Search for the item in the array using the given camparator and stores its
  * index in the index pointer. The comparator is called with array items as the
- * first parameter, and should return 0 on equality and a
- * non-zero value otherwise. This function returns 1 if there os a match, or 0
- * otherwise.
+ * first parameter, and should return 0 on equality and a non-zero value
+ * otherwise. This function returns 1 if there os a match, or 0 otherwise.
  */
 int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp);
+
+/*
+ * Insert all items of the second array at the given index in the first array in
+ * the order they appear in the second array.
+ */
+int darray_extend_at(darray *arrp1, size_t index, darray *arrp2);
+
+/*
+ * Append all items of the second array to the end of the first array.
+ */
+int darray_extend(darray *arrp1, darray *arrp2);
 
 /*
  * Remove all items from the array.

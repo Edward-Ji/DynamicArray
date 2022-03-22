@@ -161,6 +161,45 @@ int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp) {
     return 0;
 }
 
+int darray_extend_at(darray *arrp1, size_t index, darray *arrp2) {
+    if (arrp1 == NULL || index > arrp1->len || arrp2 == NULL) {
+        return 0;
+    }
+
+    if (!_darray_resize(arrp1, arrp1->len + arrp2->len)) {
+        return 0;
+    }
+    memmove(arrp1->itempp + index + arrp2->len,
+            arrp1->itempp + index,
+            sizeof(void *) * (arrp1->len - index));
+
+    for (size_t i = 0; i < arrp2->len; i++) {
+        arrp1->itempp[index + i] = darray_get(arrp2, i);
+    }
+
+    arrp1->len += arrp2->len;
+
+    return 1;
+}
+
+int darray_extend(darray *arrp1, darray *arrp2) {
+    if (arrp1 == NULL || arrp2 == NULL) {
+        return 0;
+    }
+
+    if (!_darray_resize(arrp1, arrp1->len + arrp2->len)) {
+        return 0;
+    }
+
+    for (size_t i = 0; i < arrp2->len; i++) {
+        arrp1->itempp[arrp1->len + i] = darray_get(arrp2, i);
+    }
+
+    arrp1->len += arrp2->len;
+
+    return 1;
+}
+
 int darray_clear(darray *arrp) {
     if (arrp == NULL) {
         return 0;
