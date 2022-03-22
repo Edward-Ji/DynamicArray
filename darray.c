@@ -1,3 +1,5 @@
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,6 +28,16 @@ darray *new_darray(consumer item_free) {
     }
 
     return arrp;
+}
+
+int darray_set_item_free(darray *arrp, consumer item_free) {
+    if (arrp == NULL) {
+        return 0;
+    }
+
+    arrp->item_free = item_free;
+
+    return 1;
 }
 
 int _darray_resize(darray *arrp, size_t len) {
@@ -127,6 +139,28 @@ int darray_pop(darray *arrp, size_t index) {
     return 1;
 }
 
+int darray_pop_range(darray *arrp, size_t start, size_t end) {
+    if (arrp == NULL || start > end || end > arrp->len) {
+        return 0;
+    }
+
+    if (arrp->item_free != NULL) {
+        for (size_t i = start; i < end; i++) {
+            arrp->item_free(arrp->itempp[i]);
+        }
+    }
+    memmove(arrp->itempp + start,
+            arrp->itempp + end,
+            sizeof(void *) * (arrp->len - end));
+    if (!_darray_resize(arrp, arrp->len - (end - start))) {
+        return 0;
+    }
+
+    arrp->len -= end - start;
+
+    return 1;
+}
+
 int darray_insert(darray *arrp, size_t index, void *itemp) {
     if (arrp == NULL || index > arrp->len || itemp == NULL) {
         return 0;
@@ -196,6 +230,58 @@ int darray_extend(darray *arrp1, darray *arrp2) {
     }
 
     arrp1->len += arrp2->len;
+
+    return 1;
+}
+
+int darray_reverse(darray *arrp) {
+    if (arrp == NULL) {
+        return 0;
+    }
+
+    for (size_t i = 0; i < arrp->len / 2; i++) {
+        void *temp = arrp->itempp[i];
+        arrp->itempp[i] = arrp->itempp[arrp->len - i - 1];
+        arrp->itempp[arrp->len - i - 1] = temp;
+    }
+
+    return 1;
+}
+
+int darray_unique(darray *arrp, comparator fp) {
+    if (arrp == NULL || fp == NULL) {
+        return 0;
+    }
+
+    void **itempp = arrp->itempp;
+    size_t m = 1;
+    size_t i = 1;
+    for (; i < arrp->len; i++) {
+        if (fp(itempp[i-1], itempp[i]) != 0) {
+            if (!darray_pop_range(arrp, m, i)) {
+                return 0;
+            }
+            i -= i - m;
+            m = i + 1;
+        }
+    }
+    if (!darray_pop_range(arrp, m, i)) {
+        return 0;
+    }
+
+    return 1;
+}
+
+int _compare_wrapper(const void *p1, const void *p2, void *fp) {
+    return ((comparator) fp)(*(void **) p1, *(void **) p2);
+}
+
+int darray_sort(darray *arrp, comparator fp) {
+    if (arrp == NULL || fp == NULL) {
+        return 0;
+    }
+
+    qsort_r(arrp->itempp, arrp->len, sizeof(void *), _compare_wrapper, fp);
 
     return 1;
 }
