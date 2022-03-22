@@ -2,15 +2,14 @@ CC = gcc
 CFLAGS = -O1 -g -Wall -Werror
 LDFLAGS = -fsanitize=address,leak
 
-debug: bin demo_matrix demo_stu
+TARGETS = demo_matrix demo_stu demo_vector
+
+debug: bin $(TARGETS)
 
 bin:
 	mkdir bin
 
-demo_matrix: demo_matrix.o darray.o
-	$(CC) $(LDFLAGS) $^ -o bin/$@
-
-demo_stu: demo_stu.o darray.o
+$(TARGETS): %: %.c darray.c
 	$(CC) $(LDFLAGS) $^ -o bin/$@
 
 clean:
