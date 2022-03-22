@@ -53,3 +53,6 @@ dkms.conf
 
 # Executables
 bin/
+
+# Vim session file
+Session.vim
