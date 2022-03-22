@@ -128,7 +128,7 @@ int darray_pop(darray *arrp, size_t index) {
 }
 
 int darray_insert(darray *arrp, size_t index, void *itemp) {
-    if (arrp == NULL || index >= arrp->len || itemp == NULL) {
+    if (arrp == NULL || index > arrp->len || itemp == NULL) {
         return 0;
     }
 
