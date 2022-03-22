@@ -7,18 +7,16 @@
 struct darray {
     void **itempp;
     consumer item_free;
-    size_t item_size;
     size_t len;
     size_t cap;
 };
 
 const size_t sizeof_darray = sizeof(darray);
 
-darray *new_darray(size_t item_size, consumer item_free) {
+darray *new_darray(consumer item_free) {
     darray *arrp = malloc(sizeof(darray));
     if (arrp != NULL) {
         arrp->item_free = item_free;
-        arrp->item_size = item_size;
         arrp->len = 0;
         arrp->cap = 1;
         arrp->itempp = malloc(sizeof(void *) * arrp->cap);

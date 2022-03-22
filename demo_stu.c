@@ -33,7 +33,7 @@ void student_age_add(student *stu, unsigned *sum) {
 }
 
 int main() {
-    darray *students = new_darray(sizeof(student), free);
+    darray *students = new_darray(free);
 
     darray_append(students, new_student("Edward", 19));
     darray_append(students, new_student("Somebody", 21));
@@ -46,7 +46,7 @@ int main() {
     darray_foreach(students, (consumer) student_print);
     putchar('\n');
 
-    darray *old_folks = new_darray(sizeof(student), NULL);
+    darray *old_folks = new_darray(NULL);
 
     for (size_t i = 0; i < darray_len(students); i++) {
         student *stu = darray_get(students, i);
