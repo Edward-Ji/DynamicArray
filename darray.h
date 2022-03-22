@@ -9,19 +9,18 @@ typedef int (*comparator)(void *, void *);
 
 typedef struct darray darray;
 
-struct darray {
-    void **itempp;
-    consumer item_free;
-    size_t item_size;
-    size_t len;
-    size_t cap;
-};
+extern const size_t sizeof_darray;
 
 /*
  * Creates a new dynamic array with items of a generic size. The free function
  * pointer must be provided to free any allocated memory of the items.
  */
 darray *new_darray(size_t item_size, consumer item_free);
+
+/*
+ * Returns the length of the given dynamic array.
+ */
+size_t darray_len(darray *arrp);
 
 /*
  * Call the given function on every object in the array sequentially.

@@ -48,7 +48,7 @@ int main() {
 
     darray *old_folks = new_darray(sizeof(student), NULL);
 
-    for (size_t i = 0; i < students->len; i++) {
+    for (size_t i = 0; i < darray_len(students); i++) {
         student *stu = darray_get(students, i);
         if (stu->age > 50) {
             darray_append(old_folks, stu);
@@ -67,7 +67,7 @@ int main() {
 
     unsigned age_sum = 0;
     darray_aggregate(students, &age_sum, (aggregate) student_age_add);
-    printf("Average age\n%lf\n\n", (double) age_sum / students->len);
+    printf("Average age\n%lf\n\n", (double) age_sum / darray_len(students));
 
     del_darray(old_folks);
 

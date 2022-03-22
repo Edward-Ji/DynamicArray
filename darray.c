@@ -4,6 +4,16 @@
 
 #include "darray.h"
 
+struct darray {
+    void **itempp;
+    consumer item_free;
+    size_t item_size;
+    size_t len;
+    size_t cap;
+};
+
+const size_t sizeof_darray = sizeof(darray);
+
 darray *new_darray(size_t item_size, consumer item_free) {
     darray *arrp = malloc(sizeof(darray));
     if (arrp != NULL) {
@@ -47,6 +57,10 @@ int _darray_resize(darray *arrp, size_t len) {
     }
 
     return arrp->cap;
+}
+
+size_t darray_len(darray *arrp) {
+    return arrp->len;
 }
 
 int darray_foreach(darray *arrp, consumer fp) {

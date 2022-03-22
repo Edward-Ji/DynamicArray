@@ -26,7 +26,7 @@ int *new_int(int x) {
 int main() {
     int num;
 
-    darray *matirxp = new_darray(sizeof(darray), (consumer) del_darray);
+    darray *matirxp = new_darray(sizeof_darray, (consumer) del_darray);
     darray *rowp;
     for (size_t i = 0; i < N_ROWS; i++) {
         rowp = new_darray(sizeof(int), free);
