@@ -24,11 +24,11 @@ void student_print(student *stu) {
     printf("%s %hhu\n", stu->name, stu->age);
 }
 
-int student_has_name(student *stu, char *name) {
+int student_has_name(const student *stu, const char *name) {
     return strcmp(stu->name, name);
 }
 
-void student_age_add(student *stu, unsigned *sum) {
+void student_age_add(const student *stu, unsigned *sum) {
     *sum += stu->age;
 }
 
