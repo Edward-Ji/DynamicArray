@@ -286,6 +286,23 @@ int darray_sort(darray *arrp, comparator fp) {
     return 1;
 }
 
+darray *darray_clone(darray *arrp, unary fp) {
+    if (arrp == NULL || fp == NULL) {
+        return NULL;
+    }
+
+    darray *clonep = (darray *) malloc(sizeof(darray));
+
+    memcpy(clonep, arrp, sizeof(darray));
+
+    clonep->itempp = (void **) malloc(sizeof(void *) * clonep->len);
+    for (size_t i = 0; i < clonep->len; i++) {
+        clonep->itempp[i] = fp(arrp->itempp[i]);
+    }
+
+    return clonep;
+}
+
 int darray_clear(darray *arrp) {
     if (arrp == NULL) {
         return 0;

@@ -6,6 +6,7 @@
 typedef void (*consumer)(void *);
 typedef void (*aggregate)(const void *, void *);
 typedef int (*comparator)(const void *, const void *);
+typedef void *(*unary)(void *);
 
 typedef struct darray darray;
 
@@ -102,6 +103,13 @@ int darray_unique(darray *arrp, comparator fp);
  * 0 if the items are equal, and a positive number if the first item is greater.
  */
 int darray_sort(darray *arrp, comparator fp);
+
+/*
+ * Returns a deep clone of the given array using the clone function. The clone
+ * function, given an item in the array, should return a deep clone of that
+ * item. This means that any allocated field is also cloned.
+ */
+darray *darray_clone(darray *arrp, unary fp);
 
 /*
  * Removes all items from the array.

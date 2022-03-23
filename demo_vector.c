@@ -80,8 +80,25 @@ int main() {
     darray_foreach(vec1, (consumer) print_int);
     puts("\n");
 
+    vec3 = darray_clone(vec1, (unary) int_clone);
+
+    puts("vector 3 as a clone of vector 1");
+    darray_foreach(vec3, (consumer) print_int);
+    puts("\n");
+
+    darray_clear(vec3);
+
+    puts("vector 3 after clearing vector 3");
+    darray_foreach(vec3, (consumer) print_int);
+    puts("\n");
+
+    puts("vector 1 after clearing vector 3");
+    darray_foreach(vec1, (consumer) print_int);
+    puts("\n");
+
     del_darray(vec1);
     del_darray(vec2);
+    del_darray(vec3);
 
     return 0;
 }
