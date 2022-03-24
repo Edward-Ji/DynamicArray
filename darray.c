@@ -292,6 +292,10 @@ size_t partition(void **itempp, int pindex, int pivot, comparator fp) {
 }
 
 void _darray_qsort(void **itempp, size_t pindex, size_t pivot, comparator fp) {
+    if (pindex >= pivot) {
+        return;
+    }
+
     size_t t = (rand() % (pivot - pindex + 1) + pindex);
     _swap_voidp(itempp[t], itempp[pivot]);
 
