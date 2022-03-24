@@ -24,9 +24,17 @@ int compare_int(const int *p1, const int *p2) {
     }
 }
 
+int *int_clone(int *intp) {
+    int *clonep = (int *) malloc(sizeof(int));
+    *clonep = *intp;
+
+    return clonep;
+}
+
 int main() {
     darray *vec1 = new_darray(free);
     darray *vec2 = new_darray(NULL);
+    darray *vec3;
 
     darray_append(vec1, new_int(2));
     darray_append(vec1, new_int(3));
