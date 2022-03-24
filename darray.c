@@ -277,24 +277,24 @@ void _swap_voidp(void **pp1, void **pp2) {
 }
 
 size_t partition(void **itempp, int pindex, int pivot, comparator fp) {
-	void *itemp = itempp[pivot];
-	size_t i = pindex - 1;
-	for (size_t j = pindex; j < pivot ; j++) {
-		if (fp(itempp[j], itemp) <= 0) {
+    void *itemp = itempp[pivot];
+    size_t i = pindex - 1;
+    for (size_t j = pindex; j < pivot ; j++) {
+        if (fp(itempp[j], itemp) <= 0) {
             i++;
-			_swap_voidp(itempp + i, itempp + j); 
-		}
-	}
+            _swap_voidp(itempp + i, itempp + j);
+        }
+    }
     i++;
-	_swap_voidp(itempp[i], itempp[pivot]);
+    _swap_voidp(itempp[i], itempp[pivot]);
 
-	return i;
+    return i;
 }
 
 void _darray_qsort(void **itempp, size_t pindex, size_t pivot, comparator fp) {
     size_t t = (rand() % (pivot - pindex + 1) + pindex);
-    _swap_voidp(itempp[t], itempp[pivot]); 
-    
+    _swap_voidp(itempp[t], itempp[pivot]);
+
     size_t q = partition(itempp, pindex, pivot, fp);
     _darray_qsort(itempp, pindex, q - 1, fp);
     _darray_qsort(itempp, q + 1, pivot, fp);
