@@ -2,22 +2,22 @@ CC = gcc
 CFLAGS = -O1 -g -Wall -Werror
 LDFLAGS = -fsanitize=address,leak -static-libasan
 
-BINDIR := ./bin
-OBJDIR := ./obj
+BINDIR := ./bin/
+OBJDIR := ./obj/
 DEMOSRC := $(shell find . -name 'demo_*.c')
-TARGETS := $(DEMOSRC:%.c=$(BINDIR)/%)
+TARGETS := $(DEMOSRC:./%.c=$(BINDIR)%)
 
-debug: dirs $(TARGETS)
+demo: $(BINDIR) $(OBJDIR) $(TARGETS)
 
-dirs:
-	mkdir -p $(BINDIR)
-	mkdir -p $(OBJDIR)
+./%/:
+	mkdir -p $@
 
-$(TARGETS): $(BINDIR)/%: $(OBJDIR)/%.o $(OBJDIR)/darray.o
+$(TARGETS): $(BINDIR)%: $(OBJDIR)%.o $(OBJDIR)darray.o
 	$(CC) $(LDFLAGS) $^ -o $@
 
-$(OBJDIR)/%.o: %.c
+$(OBJDIR)%.o: %.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 
+.PHONY:
 clean:
 	rm -rf $(BINDIR) $(OBJDIR)
