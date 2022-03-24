@@ -1,5 +1,3 @@
-#define _GNU_SOURCE
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -272,8 +270,34 @@ int darray_unique(darray *arrp, comparator fp) {
     return 1;
 }
 
-int _compare_wrapper(const void *p1, const void *p2, void *fp) {
-    return ((comparator) fp)(*(void **) p1, *(void **) p2);
+void _swap_voidp(void **pp1, void **pp2) {
+    void *tempp = *pp1;
+    *pp1 = *pp2;
+    *pp2 = tempp;
+}
+
+size_t partition(void **itempp, int pindex, int pivot, comparator fp) {
+	void *itemp = itempp[pivot];
+	size_t i = pindex - 1;
+	for (size_t j = pindex; j < pivot ; j++) {
+		if (fp(itempp[j], itemp) <= 0) {
+            i++;
+			_swap_voidp(itempp + i, itempp + j); 
+		}
+	}
+    i++;
+	_swap_voidp(itempp[i], itempp[pivot]);
+
+	return i;
+}
+
+void _darray_qsort(void **itempp, size_t pindex, size_t pivot, comparator fp) {
+    size_t t = (rand() % (pivot - pindex + 1) + pindex);
+    _swap_voidp(itempp[t], itempp[pivot]); 
+    
+    size_t q = partition(itempp, pindex, pivot, fp);
+    _darray_qsort(itempp, pindex, q - 1, fp);
+    _darray_qsort(itempp, q + 1, pivot, fp);
 }
 
 int darray_sort(darray *arrp, comparator fp) {
@@ -281,7 +305,7 @@ int darray_sort(darray *arrp, comparator fp) {
         return 0;
     }
 
-    qsort_r(arrp->itempp, arrp->len, sizeof(void *), _compare_wrapper, fp);
+    _darray_qsort(arrp->itempp, 0, arrp->len - 1, fp);
 
     return 1;
 }

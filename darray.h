@@ -101,6 +101,9 @@ int darray_unique(darray *arrp, comparator fp);
  * Sorts all items in the given array in place using the quick sort algorithm.
  * The comparator should return a negative number if the first item is smaller,
  * 0 if the items are equal, and a positive number if the first item is greater.
+ *
+ * The sorting algorithm is adopted from
+ * https://github.com/DaniloNovakovic/sorting-algorithms-in-c
  */
 int darray_sort(darray *arrp, comparator fp);
 
