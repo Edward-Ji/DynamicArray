@@ -320,7 +320,7 @@ darray *darray_clone(darray *arrp, unary fp) {
 
     memcpy(clonep, arrp, sizeof(darray));
 
-    clonep->itempp = (void **) malloc(sizeof(void *) * clonep->len);
+    clonep->itempp = (void **) malloc(sizeof(void *) * clonep->cap);
     for (size_t i = 0; i < clonep->len; i++) {
         clonep->itempp[i] = fp(arrp->itempp[i]);
     }
