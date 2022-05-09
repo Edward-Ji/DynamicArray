@@ -51,7 +51,7 @@ int _darray_resize(darray *arrp, size_t len) {
             cap *= 2;
         }
     } else {
-        while (len <= cap / 2 && cap > 1) {
+        while (len < cap / 2 && cap > 1) {
             cap /= 2;
         }
     }
@@ -127,7 +127,7 @@ int darray_pop(darray *arrp, size_t index) {
     }
     memmove(arrp->itempp + index,
             arrp->itempp + index + 1,
-            sizeof(void *) * (arrp->len - index));
+            sizeof(void *) * (arrp->len - index - 1));
     if (!_darray_resize(arrp, arrp->len - 1)) {
         return 0;
     }
