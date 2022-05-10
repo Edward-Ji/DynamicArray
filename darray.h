@@ -3,9 +3,34 @@
 
 #include <stddef.h>
 
+/*
+ * A function of this type should take in a pointer to some object and perform
+ * some operation on that object. The function should not return anything.
+ */
 typedef void (*consumer)(void *);
+
+/*
+ * A function of this type should take in a pointer to some object and modify
+ * the result given by the second pointer. The function should not return
+ * anything or modify the first object.
+ */
 typedef void (*aggregate)(const void *, void *);
+
+/*
+ * A function of this type should take in two pointers to objects and compare
+ * them. It should return:
+ * - a negative number if the first object is smaller;
+ * - zero if they are equal; or
+ * - a positive number if the first object is bigger.
+ * It should not modify either object or return anything.
+ */
 typedef int (*comparator)(const void *, const void *);
+
+/*
+ * A function of this type should take in a pointer to some object and return a
+ * pointer to another object associated with the given one (e.g. a copy of the
+ * original object).
+ */
 typedef void *(*unary)(void *);
 
 typedef struct darray darray;
