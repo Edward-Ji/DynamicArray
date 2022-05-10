@@ -38,7 +38,7 @@ int darray_set_item_free(darray *arrp, consumer item_free) {
     return 1;
 }
 
-int _darray_resize(darray *arrp, size_t len) {
+static int _darray_resize(darray *arrp, size_t len) {
     if (arrp == NULL) {
         return 0;
     }
@@ -270,13 +270,14 @@ int darray_unique(darray *arrp, comparator fp) {
     return 1;
 }
 
-void _swap_voidp(void **pp1, void **pp2) {
+static void _swap_voidp(void **pp1, void **pp2) {
     void *temp = *pp1;
     *pp1 = *pp2;
     *pp2 = temp;
 }
 
-ssize_t _partition(void **itempp, ssize_t low, ssize_t high, comparator cmp) {
+static ssize_t _partition(void **itempp,
+                          ssize_t low, ssize_t high, comparator cmp) {
     void *pivot = itempp[high];
     ssize_t i = low - 1;
 
