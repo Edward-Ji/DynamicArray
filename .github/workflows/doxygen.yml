@@ -35,3 +35,10 @@ jobs:
 
       # Runs doxygen action
       - uses: mattnotmitt/doxygen-action@v1.9.4
+      
+      # Deplot to Github Pages
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages
+          folder: html
