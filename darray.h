@@ -28,13 +28,23 @@ typedef int (*comparator)(const void *, const void *);
 
 /*
  * A function of this type should take in a pointer to some object and return a
- * pointer to another object associated with the given one (e.g. a copy of the
- * original object).
+ * pointer to that or some other object (e.g. a copy of the original object).
+ *
+ * It should not modify the object.
  */
 typedef void *(*unary)(void *);
 
+/*
+ * Represents a dynamic array.
+ */
 typedef struct darray darray;
 
+/*
+ * The size of the dynamic array structure.
+ *
+ * Use this instead of `sizeof(darray)` because the dynamic array structure
+ * definition is incomplete in the header.
+ */
 extern const size_t sizeof_darray;
 
 /*
@@ -140,7 +150,7 @@ int darray_sort(darray *arrp, comparator fp);
 darray *darray_clone(darray *arrp, unary fp);
 
 /*
- * Removes all items from the array.
+ * Clears all items from the array.
  */
 int darray_clear(darray *arrp);
 
