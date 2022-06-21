@@ -2,6 +2,10 @@
 
 Dynamic array of void pointers with automatic memory free in C language.
 
+## Documentation
+
+👉 https://edward-ji.github.io/DynamicArray/
+
 ## Demonstration
 
 Run `make demo` to compile the demonstration source files in the `demo`
