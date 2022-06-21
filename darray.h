@@ -32,7 +32,7 @@ typedef int (*comparator)(const void *, const void *);
  *
  * It should not modify the object.
  */
-typedef void *(*unary)(void *);
+typedef void *(*unary)(const void *);
 
 /*
  * Represents a dynamic array.
