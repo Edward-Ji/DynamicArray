@@ -4,11 +4,11 @@
 
 #include "../darray.h"
 
-#define NAMELEN 32
+#define NAMELEN 31
 #define BUFLEN 64
 
 typedef struct {
-    char name[NAMELEN];
+    char name[NAMELEN + 1];
     unsigned char age;
 } student;
 
