@@ -56,3 +56,7 @@ bin/
 
 # Vim session file
 Session.vim
+
+# Doxygen
+html/
+latex/
