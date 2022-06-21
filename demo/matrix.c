@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "darray.h"
+#include "../darray.h"
 
 #define N_ROWS 3
 #define N_COLS 4

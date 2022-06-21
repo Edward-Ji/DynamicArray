@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "darray.h"
+#include "../darray.h"
 
 int *new_int(int num) {
     int *intp = (int *) malloc(sizeof(int));

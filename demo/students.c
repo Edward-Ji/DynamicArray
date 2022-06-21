@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "darray.h"
+#include "../darray.h"
 
 #define NAMELEN 32
 #define BUFLEN 64
