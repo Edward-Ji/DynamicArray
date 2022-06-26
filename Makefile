@@ -1,10 +1,10 @@
 CC := gcc
 CFLAGS := -O2 -Wall -Werror
-LDFLAGS := 
 
 BINDIR := ./bin
 OBJDIR := ./obj
 DEMODIR := ./demo
+HTMLDIR := ./html
 
 DEMOSRC := $(shell find $(DEMODIR) -name '*.c')
 TARGETS := $(DEMOSRC:$(DEMODIR)/%.c=$(BINDIR)/%)
@@ -23,6 +23,11 @@ $(OBJDIR)/%.o: $(DEMODIR)/%.c
 	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
+doc: html
+
+html:
+	doxygen
+
 .PHONY:
 clean:
-	rm -rf $(BINDIR) $(OBJDIR)
+	rm -rf $(BINDIR) $(OBJDIR) $(HTMLDIR)
