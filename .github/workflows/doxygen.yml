@@ -10,12 +10,14 @@ on:
     paths:
       - Doxyfile
       - MAIN.md
+      - darray.c
       - darray.h
   pull_request:
     branches: [ "main" ]
     paths:
       - Doxyfile
       - MAIN.md
+      - darray.c
       - darray.h
 
   # Allows you to run this workflow manually from the Actions tab
