@@ -9,7 +9,6 @@ definition in the header file. The documentation in this source file is targeted
 to maintainers.
 */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
