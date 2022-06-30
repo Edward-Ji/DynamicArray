@@ -25,9 +25,11 @@ $(OBJDIR)/%.o: $(DEMODIR)/%.c
 
 doc: html
 
-html:
+$(HTMLDIR): Doxyfile MAIN.md darray.c darray.h
+	rm -rf $(HTMLDIR)
 	doxygen
 
-.PHONY:
 clean:
 	rm -rf $(BINDIR) $(OBJDIR) $(HTMLDIR)
+
+.PHONY: doc, clean
