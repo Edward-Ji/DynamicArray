@@ -1,13 +1,29 @@
+/*!
+\file darray.c
+\author Edward Ji
+\date 21 Jun 2022
+\brief The source file of the dynamic array.
+
+\warning Note that some types and functions have no declaration or incomplete
+definition in the header file. The documentation in this source file is targeted
+to maintainers.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "darray.h"
 
+//! Represents a dynamic array structure.
 struct darray {
+    /*! Points to an allocated array of pointers to items. */
     void **itempp;
+    /*! Points to a function that frees an item in the array. */
     consumer item_free;
+    /*! The number of items stored in the array. */
     size_t len;
+    /*! The current capacity of the array. */
     size_t cap;
 };
 
@@ -38,6 +54,11 @@ int darray_set_item_free(darray *arrp, consumer item_free) {
     return 1;
 }
 
+//! Changes the capacity of the dynamic array.
+/*!
+\param len The expected number of items stored in the array.
+\returns The updated capacity of the array, 0 otherwise.
+*/
 static int _darray_resize(darray *arrp, size_t len) {
     if (arrp == NULL) {
         return 0;
