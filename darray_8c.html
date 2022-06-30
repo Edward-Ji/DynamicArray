@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dynamic Array: darray.h File Reference</title>
+<title>Dynamic Array: darray.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,234 +64,110 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">darray.h File Reference</div></div>
+  <div class="headertitle"><div class="title">darray.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Dynamic array of void pointers with automatic memory free.  
+<p>The source file of the dynamic array.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
-</div>
-<p><a href="darray_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a977b521e377a680770389559cef751a2"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a>) (void *itemp)</td></tr>
-<tr class="memdesc:a977b521e377a680770389559cef751a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The consumer function pointer type definition.  <a href="darray_8h.html#a977b521e377a680770389559cef751a2">More...</a><br /></td></tr>
-<tr class="separator:a977b521e377a680770389559cef751a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66e1437a4f161d59e7695bef1f876794"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a66e1437a4f161d59e7695bef1f876794">aggregate</a>) (const void *itemp, void *resp)</td></tr>
-<tr class="memdesc:a66e1437a4f161d59e7695bef1f876794"><td class="mdescLeft">&#160;</td><td class="mdescRight">The aggregate function pointer type definition.  <a href="darray_8h.html#a66e1437a4f161d59e7695bef1f876794">More...</a><br /></td></tr>
-<tr class="separator:a66e1437a4f161d59e7695bef1f876794"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada0ad21f6b90050a4efcbe45d1239844"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a>) (const void *itemp1, const void *itemp2)</td></tr>
-<tr class="memdesc:ada0ad21f6b90050a4efcbe45d1239844"><td class="mdescLeft">&#160;</td><td class="mdescRight">The comparator function pointer type definition.  <a href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">More...</a><br /></td></tr>
-<tr class="separator:ada0ad21f6b90050a4efcbe45d1239844"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd4ab94471d4f014a91f23a2ffe8d5ee"><td class="memItemLeft" align="right" valign="top">typedef void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#abd4ab94471d4f014a91f23a2ffe8d5ee">unary</a>) (const void *itemp)</td></tr>
-<tr class="memdesc:abd4ab94471d4f014a91f23a2ffe8d5ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The unary function pointer type definition.  <a href="darray_8h.html#abd4ab94471d4f014a91f23a2ffe8d5ee">More...</a><br /></td></tr>
-<tr class="separator:abd4ab94471d4f014a91f23a2ffe8d5ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0258059e3991286101c8370d42696cf4"><td class="memItemLeft" align="right" valign="top"><a id="a0258059e3991286101c8370d42696cf4" name="a0258059e3991286101c8370d42696cf4"></a>
-typedef struct <a class="el" href="structdarray.html">darray</a>&#160;</td><td class="memItemRight" valign="bottom"><b>darray</b></td></tr>
-<tr class="memdesc:a0258059e3991286101c8370d42696cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a dynamic array. <br /></td></tr>
-<tr class="separator:a0258059e3991286101c8370d42696cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="darray_8h_source.html">darray.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdarray.html">darray</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a dynamic array structure.  <a href="structdarray.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae92263a7c5d51b6c3172991cd8d958bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdarray.html">darray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#ae92263a7c5d51b6c3172991cd8d958bb">new_darray</a> (<a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a> item_free)</td></tr>
-<tr class="memdesc:ae92263a7c5d51b6c3172991cd8d958bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new dynamic array of void pointers.  <a href="darray_8h.html#ae92263a7c5d51b6c3172991cd8d958bb">More...</a><br /></td></tr>
+<tr class="memitem:ae92263a7c5d51b6c3172991cd8d958bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdarray.html">darray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">new_darray</a> (<a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a> item_free)</td></tr>
+<tr class="memdesc:ae92263a7c5d51b6c3172991cd8d958bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new dynamic array of void pointers.  <a href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">More...</a><br /></td></tr>
 <tr class="separator:ae92263a7c5d51b6c3172991cd8d958bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4096069a308738d8b418ec042ba2839"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#ad4096069a308738d8b418ec042ba2839">darray_set_item_free</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a> item_free)</td></tr>
-<tr class="memdesc:ad4096069a308738d8b418ec042ba2839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the free function.  <a href="darray_8h.html#ad4096069a308738d8b418ec042ba2839">More...</a><br /></td></tr>
+<tr class="memitem:ad4096069a308738d8b418ec042ba2839"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ad4096069a308738d8b418ec042ba2839">darray_set_item_free</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a> item_free)</td></tr>
+<tr class="memdesc:ad4096069a308738d8b418ec042ba2839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the free function.  <a href="darray_8c.html#ad4096069a308738d8b418ec042ba2839">More...</a><br /></td></tr>
 <tr class="separator:ad4096069a308738d8b418ec042ba2839"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89c78d1002a98049ccb9d2fb83e20dc5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a89c78d1002a98049ccb9d2fb83e20dc5">darray_len</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
-<tr class="memdesc:a89c78d1002a98049ccb9d2fb83e20dc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the length of the array.  <a href="darray_8h.html#a89c78d1002a98049ccb9d2fb83e20dc5">More...</a><br /></td></tr>
+<tr class="memitem:adac8dda9d45a67f982663a7b5b4d6dd2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#adac8dda9d45a67f982663a7b5b4d6dd2">_darray_resize</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t len)</td></tr>
+<tr class="memdesc:adac8dda9d45a67f982663a7b5b4d6dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the capacity of the dynamic array.  <a href="darray_8c.html#adac8dda9d45a67f982663a7b5b4d6dd2">More...</a><br /></td></tr>
+<tr class="separator:adac8dda9d45a67f982663a7b5b4d6dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89c78d1002a98049ccb9d2fb83e20dc5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a89c78d1002a98049ccb9d2fb83e20dc5">darray_len</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
+<tr class="memdesc:a89c78d1002a98049ccb9d2fb83e20dc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the length of the array.  <a href="darray_8c.html#a89c78d1002a98049ccb9d2fb83e20dc5">More...</a><br /></td></tr>
 <tr class="separator:a89c78d1002a98049ccb9d2fb83e20dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5125d9702501c6cbb342a82ad2755d65"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a5125d9702501c6cbb342a82ad2755d65">darray_foreach</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a> fp)</td></tr>
-<tr class="memdesc:a5125d9702501c6cbb342a82ad2755d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls each item in the array with a given function.  <a href="darray_8h.html#a5125d9702501c6cbb342a82ad2755d65">More...</a><br /></td></tr>
+<tr class="memitem:a5125d9702501c6cbb342a82ad2755d65"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a5125d9702501c6cbb342a82ad2755d65">darray_foreach</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a> fp)</td></tr>
+<tr class="memdesc:a5125d9702501c6cbb342a82ad2755d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls each item in the array with a given function.  <a href="darray_8c.html#a5125d9702501c6cbb342a82ad2755d65">More...</a><br /></td></tr>
 <tr class="separator:a5125d9702501c6cbb342a82ad2755d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eff466cf1db6a41a4cd06cd249fa47c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a5eff466cf1db6a41a4cd06cd249fa47c">darray_aggregate</a> (<a class="el" href="structdarray.html">darray</a> *arrp, void *resp, <a class="el" href="darray_8h.html#a66e1437a4f161d59e7695bef1f876794">aggregate</a> fp)</td></tr>
-<tr class="memdesc:a5eff466cf1db6a41a4cd06cd249fa47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregates all items into a single result.  <a href="darray_8h.html#a5eff466cf1db6a41a4cd06cd249fa47c">More...</a><br /></td></tr>
+<tr class="memitem:a5eff466cf1db6a41a4cd06cd249fa47c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a5eff466cf1db6a41a4cd06cd249fa47c">darray_aggregate</a> (<a class="el" href="structdarray.html">darray</a> *arrp, void *resp, <a class="el" href="darray_8h.html#a66e1437a4f161d59e7695bef1f876794">aggregate</a> fp)</td></tr>
+<tr class="memdesc:a5eff466cf1db6a41a4cd06cd249fa47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregates all items into a single result.  <a href="darray_8c.html#a5eff466cf1db6a41a4cd06cd249fa47c">More...</a><br /></td></tr>
 <tr class="separator:a5eff466cf1db6a41a4cd06cd249fa47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca35d698e8a495f779655ac7aa42f8f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#aca35d698e8a495f779655ac7aa42f8f9">darray_append</a> (<a class="el" href="structdarray.html">darray</a> *arrp, void *itemp)</td></tr>
-<tr class="memdesc:aca35d698e8a495f779655ac7aa42f8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends an item to the array.  <a href="darray_8h.html#aca35d698e8a495f779655ac7aa42f8f9">More...</a><br /></td></tr>
+<tr class="memitem:aca35d698e8a495f779655ac7aa42f8f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#aca35d698e8a495f779655ac7aa42f8f9">darray_append</a> (<a class="el" href="structdarray.html">darray</a> *arrp, void *itemp)</td></tr>
+<tr class="memdesc:aca35d698e8a495f779655ac7aa42f8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends an item to the array.  <a href="darray_8c.html#aca35d698e8a495f779655ac7aa42f8f9">More...</a><br /></td></tr>
 <tr class="separator:aca35d698e8a495f779655ac7aa42f8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1af95c2945b7faf460ab14ddd68cbc2e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a1af95c2945b7faf460ab14ddd68cbc2e">darray_get</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t index)</td></tr>
-<tr class="memdesc:a1af95c2945b7faf460ab14ddd68cbc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an item in an array using index.  <a href="darray_8h.html#a1af95c2945b7faf460ab14ddd68cbc2e">More...</a><br /></td></tr>
+<tr class="memitem:a1af95c2945b7faf460ab14ddd68cbc2e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a1af95c2945b7faf460ab14ddd68cbc2e">darray_get</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t index)</td></tr>
+<tr class="memdesc:a1af95c2945b7faf460ab14ddd68cbc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an item in an array using index.  <a href="darray_8c.html#a1af95c2945b7faf460ab14ddd68cbc2e">More...</a><br /></td></tr>
 <tr class="separator:a1af95c2945b7faf460ab14ddd68cbc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a449f56df727a8657d71a2c517b1e7aec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a449f56df727a8657d71a2c517b1e7aec">darray_pop</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t index)</td></tr>
-<tr class="memdesc:a449f56df727a8657d71a2c517b1e7aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops an item at a given index.  <a href="darray_8h.html#a449f56df727a8657d71a2c517b1e7aec">More...</a><br /></td></tr>
+<tr class="memitem:a449f56df727a8657d71a2c517b1e7aec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a449f56df727a8657d71a2c517b1e7aec">darray_pop</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t index)</td></tr>
+<tr class="memdesc:a449f56df727a8657d71a2c517b1e7aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops an item at a given index.  <a href="darray_8c.html#a449f56df727a8657d71a2c517b1e7aec">More...</a><br /></td></tr>
 <tr class="separator:a449f56df727a8657d71a2c517b1e7aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefe05778fcc218e8c150a552f374101d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#aefe05778fcc218e8c150a552f374101d">darray_pop_range</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t start, size_t end)</td></tr>
-<tr class="memdesc:aefe05778fcc218e8c150a552f374101d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops items at a given index range.  <a href="darray_8h.html#aefe05778fcc218e8c150a552f374101d">More...</a><br /></td></tr>
+<tr class="memitem:aefe05778fcc218e8c150a552f374101d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#aefe05778fcc218e8c150a552f374101d">darray_pop_range</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t start, size_t end)</td></tr>
+<tr class="memdesc:aefe05778fcc218e8c150a552f374101d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops items at a given index range.  <a href="darray_8c.html#aefe05778fcc218e8c150a552f374101d">More...</a><br /></td></tr>
 <tr class="separator:aefe05778fcc218e8c150a552f374101d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc571f98552c1566025c5eb1aea65974"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#adc571f98552c1566025c5eb1aea65974">darray_insert</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t index, void *itemp)</td></tr>
-<tr class="memdesc:adc571f98552c1566025c5eb1aea65974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an item at a given index.  <a href="darray_8h.html#adc571f98552c1566025c5eb1aea65974">More...</a><br /></td></tr>
+<tr class="memitem:adc571f98552c1566025c5eb1aea65974"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#adc571f98552c1566025c5eb1aea65974">darray_insert</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t index, void *itemp)</td></tr>
+<tr class="memdesc:adc571f98552c1566025c5eb1aea65974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an item at a given index.  <a href="darray_8c.html#adc571f98552c1566025c5eb1aea65974">More...</a><br /></td></tr>
 <tr class="separator:adc571f98552c1566025c5eb1aea65974"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a866045b3e852db49d3f3422201940584"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a866045b3e852db49d3f3422201940584">darray_search</a> (<a class="el" href="structdarray.html">darray</a> *arrp, void *itemp, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> fp, size_t *indexp)</td></tr>
-<tr class="memdesc:a866045b3e852db49d3f3422201940584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for an item in an array that compares equal to anther object.  <a href="darray_8h.html#a866045b3e852db49d3f3422201940584">More...</a><br /></td></tr>
+<tr class="memitem:a866045b3e852db49d3f3422201940584"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a866045b3e852db49d3f3422201940584">darray_search</a> (<a class="el" href="structdarray.html">darray</a> *arrp, void *itemp, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> fp, size_t *indexp)</td></tr>
+<tr class="memdesc:a866045b3e852db49d3f3422201940584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for an item in an array that compares equal to anther object.  <a href="darray_8c.html#a866045b3e852db49d3f3422201940584">More...</a><br /></td></tr>
 <tr class="separator:a866045b3e852db49d3f3422201940584"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a320981405cc6a3346820870cabdb40e5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a320981405cc6a3346820870cabdb40e5">darray_extend</a> (<a class="el" href="structdarray.html">darray</a> *arrp1, <a class="el" href="structdarray.html">darray</a> *arrp2)</td></tr>
-<tr class="memdesc:a320981405cc6a3346820870cabdb40e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends another array to the end of a given array.  <a href="darray_8h.html#a320981405cc6a3346820870cabdb40e5">More...</a><br /></td></tr>
-<tr class="separator:a320981405cc6a3346820870cabdb40e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41d2e231209dda183f18c9f08701dc48"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a41d2e231209dda183f18c9f08701dc48">darray_extend_at</a> (<a class="el" href="structdarray.html">darray</a> *arrp1, size_t index, <a class="el" href="structdarray.html">darray</a> *arrp2)</td></tr>
-<tr class="memdesc:a41d2e231209dda183f18c9f08701dc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends another array at a given index in a given array.  <a href="darray_8h.html#a41d2e231209dda183f18c9f08701dc48">More...</a><br /></td></tr>
+<tr class="memitem:a41d2e231209dda183f18c9f08701dc48"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a41d2e231209dda183f18c9f08701dc48">darray_extend_at</a> (<a class="el" href="structdarray.html">darray</a> *arrp1, size_t index, <a class="el" href="structdarray.html">darray</a> *arrp2)</td></tr>
+<tr class="memdesc:a41d2e231209dda183f18c9f08701dc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends another array at a given index in a given array.  <a href="darray_8c.html#a41d2e231209dda183f18c9f08701dc48">More...</a><br /></td></tr>
 <tr class="separator:a41d2e231209dda183f18c9f08701dc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1a12deaba2b31aeb0bb092f20e15431"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#ac1a12deaba2b31aeb0bb092f20e15431">darray_reverse</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
-<tr class="memdesc:ac1a12deaba2b31aeb0bb092f20e15431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses a given array.  <a href="darray_8h.html#ac1a12deaba2b31aeb0bb092f20e15431">More...</a><br /></td></tr>
+<tr class="memitem:a320981405cc6a3346820870cabdb40e5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a320981405cc6a3346820870cabdb40e5">darray_extend</a> (<a class="el" href="structdarray.html">darray</a> *arrp1, <a class="el" href="structdarray.html">darray</a> *arrp2)</td></tr>
+<tr class="memdesc:a320981405cc6a3346820870cabdb40e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends another array to the end of a given array.  <a href="darray_8c.html#a320981405cc6a3346820870cabdb40e5">More...</a><br /></td></tr>
+<tr class="separator:a320981405cc6a3346820870cabdb40e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1a12deaba2b31aeb0bb092f20e15431"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ac1a12deaba2b31aeb0bb092f20e15431">darray_reverse</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
+<tr class="memdesc:ac1a12deaba2b31aeb0bb092f20e15431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses a given array.  <a href="darray_8c.html#ac1a12deaba2b31aeb0bb092f20e15431">More...</a><br /></td></tr>
 <tr class="separator:ac1a12deaba2b31aeb0bb092f20e15431"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dd07c131b5feb3ff431e08fa5a5ba11"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a8dd07c131b5feb3ff431e08fa5a5ba11">darray_unique</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> fp)</td></tr>
-<tr class="memdesc:a8dd07c131b5feb3ff431e08fa5a5ba11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters out repeated adjacent items.  <a href="darray_8h.html#a8dd07c131b5feb3ff431e08fa5a5ba11">More...</a><br /></td></tr>
+<tr class="memitem:a8dd07c131b5feb3ff431e08fa5a5ba11"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a8dd07c131b5feb3ff431e08fa5a5ba11">darray_unique</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> fp)</td></tr>
+<tr class="memdesc:a8dd07c131b5feb3ff431e08fa5a5ba11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters out repeated adjacent items.  <a href="darray_8c.html#a8dd07c131b5feb3ff431e08fa5a5ba11">More...</a><br /></td></tr>
 <tr class="separator:a8dd07c131b5feb3ff431e08fa5a5ba11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad38ecb004ebbdc96d7d4d165073f53ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#ad38ecb004ebbdc96d7d4d165073f53ac">darray_sort</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> fp)</td></tr>
-<tr class="memdesc:ad38ecb004ebbdc96d7d4d165073f53ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts a given array.  <a href="darray_8h.html#ad38ecb004ebbdc96d7d4d165073f53ac">More...</a><br /></td></tr>
+<tr class="memitem:a6652843e1bf31843bb8e8fc385d0fbbe"><td class="memItemLeft" align="right" valign="top"><a id="a6652843e1bf31843bb8e8fc385d0fbbe" name="a6652843e1bf31843bb8e8fc385d0fbbe"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>_swap_voidp</b> (void **pp1, void **pp2)</td></tr>
+<tr class="separator:a6652843e1bf31843bb8e8fc385d0fbbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5038408086237d99973ddbbf3f82811b"><td class="memItemLeft" align="right" valign="top"><a id="a5038408086237d99973ddbbf3f82811b" name="a5038408086237d99973ddbbf3f82811b"></a>
+static ssize_t&#160;</td><td class="memItemRight" valign="bottom"><b>_partition</b> (void **itempp, ssize_t low, ssize_t high, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> cmp)</td></tr>
+<tr class="separator:a5038408086237d99973ddbbf3f82811b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5308c73bd6e3e40cfd4b01ed5efd2c91"><td class="memItemLeft" align="right" valign="top"><a id="a5308c73bd6e3e40cfd4b01ed5efd2c91" name="a5308c73bd6e3e40cfd4b01ed5efd2c91"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>_darray_qsort</b> (void **itempp, ssize_t low, ssize_t high, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> cmp)</td></tr>
+<tr class="separator:a5308c73bd6e3e40cfd4b01ed5efd2c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad38ecb004ebbdc96d7d4d165073f53ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ad38ecb004ebbdc96d7d4d165073f53ac">darray_sort</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> fp)</td></tr>
+<tr class="memdesc:ad38ecb004ebbdc96d7d4d165073f53ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts a given array.  <a href="darray_8c.html#ad38ecb004ebbdc96d7d4d165073f53ac">More...</a><br /></td></tr>
 <tr class="separator:ad38ecb004ebbdc96d7d4d165073f53ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41390d53dd6bfbeb6ce926208512d38e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdarray.html">darray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a41390d53dd6bfbeb6ce926208512d38e">darray_clone</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#abd4ab94471d4f014a91f23a2ffe8d5ee">unary</a> fp)</td></tr>
-<tr class="memdesc:a41390d53dd6bfbeb6ce926208512d38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a clone of a given array.  <a href="darray_8h.html#a41390d53dd6bfbeb6ce926208512d38e">More...</a><br /></td></tr>
+<tr class="memitem:a41390d53dd6bfbeb6ce926208512d38e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdarray.html">darray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a41390d53dd6bfbeb6ce926208512d38e">darray_clone</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#abd4ab94471d4f014a91f23a2ffe8d5ee">unary</a> fp)</td></tr>
+<tr class="memdesc:a41390d53dd6bfbeb6ce926208512d38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a clone of a given array.  <a href="darray_8c.html#a41390d53dd6bfbeb6ce926208512d38e">More...</a><br /></td></tr>
 <tr class="separator:a41390d53dd6bfbeb6ce926208512d38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80d99b0f6a4f891e06591a5313bc1472"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a80d99b0f6a4f891e06591a5313bc1472">darray_clear</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
-<tr class="memdesc:a80d99b0f6a4f891e06591a5313bc1472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all items from a given array.  <a href="darray_8h.html#a80d99b0f6a4f891e06591a5313bc1472">More...</a><br /></td></tr>
+<tr class="memitem:a80d99b0f6a4f891e06591a5313bc1472"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a80d99b0f6a4f891e06591a5313bc1472">darray_clear</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
+<tr class="memdesc:a80d99b0f6a4f891e06591a5313bc1472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all items from a given array.  <a href="darray_8c.html#a80d99b0f6a4f891e06591a5313bc1472">More...</a><br /></td></tr>
 <tr class="separator:a80d99b0f6a4f891e06591a5313bc1472"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3977fe9965fd0803d53b3c942b138b7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a3977fe9965fd0803d53b3c942b138b7e">del_darray</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
-<tr class="memdesc:a3977fe9965fd0803d53b3c942b138b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a given array.  <a href="darray_8h.html#a3977fe9965fd0803d53b3c942b138b7e">More...</a><br /></td></tr>
+<tr class="memitem:a3977fe9965fd0803d53b3c942b138b7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a3977fe9965fd0803d53b3c942b138b7e">del_darray</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
+<tr class="memdesc:a3977fe9965fd0803d53b3c942b138b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a given array.  <a href="darray_8c.html#a3977fe9965fd0803d53b3c942b138b7e">More...</a><br /></td></tr>
 <tr class="separator:a3977fe9965fd0803d53b3c942b138b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a4bec6e6a0b3ae1a263b06e7a8e2a27d5"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a4bec6e6a0b3ae1a263b06e7a8e2a27d5">sizeof_darray</a></td></tr>
-<tr class="memdesc:a4bec6e6a0b3ae1a263b06e7a8e2a27d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of the dynamic array structure.  <a href="darray_8h.html#a4bec6e6a0b3ae1a263b06e7a8e2a27d5">More...</a><br /></td></tr>
+<tr class="memitem:a4bec6e6a0b3ae1a263b06e7a8e2a27d5"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a4bec6e6a0b3ae1a263b06e7a8e2a27d5">sizeof_darray</a> = sizeof(<a class="el" href="structdarray.html">darray</a>)</td></tr>
+<tr class="memdesc:a4bec6e6a0b3ae1a263b06e7a8e2a27d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of the dynamic array structure.  <a href="darray_8c.html#a4bec6e6a0b3ae1a263b06e7a8e2a27d5">More...</a><br /></td></tr>
 <tr class="separator:a4bec6e6a0b3ae1a263b06e7a8e2a27d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Dynamic array of void pointers with automatic memory free. </p>
+<div class="textblock"><p >The source file of the dynamic array. </p>
 <dl class="section author"><dt>Author</dt><dd>Edward Ji </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>21 Jun 2022 </dd></dl>
-</div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a977b521e377a680770389559cef751a2" name="a977b521e377a680770389559cef751a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a977b521e377a680770389559cef751a2">&#9670;&nbsp;</a></span>consumer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef void(* consumer) (void *itemp)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The consumer function pointer type definition. </p>
-<p >A function of this type should take in a pointer to some object and perform some operation on that object. The function should not return anything.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">itemp</td><td>Pointer to an object in the array.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd>Typically used with <code><a class="el" href="darray_8h.html#a5125d9702501c6cbb342a82ad2755d65" title="Calls each item in the array with a given function.">darray_foreach</a></code>.</dd></dl>
-<p>An example of a consumer function pointer is a function that prints the contents at some given pointer: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> print_int(<span class="keywordtype">void</span> *p) {</div>
-<div class="line">    printf(<span class="stringliteral">&quot;%d&quot;</span>, *((<span class="keywordtype">int</span> *) p));</div>
-<div class="line">}</div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="a66e1437a4f161d59e7695bef1f876794" name="a66e1437a4f161d59e7695bef1f876794"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66e1437a4f161d59e7695bef1f876794">&#9670;&nbsp;</a></span>aggregate</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef void(* aggregate) (const void *itemp, void *resp)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The aggregate function pointer type definition. </p>
-<p >A function of this type should take in a pointer to some object and modifies the result given by the second pointer. The function should not return anything or modify the first object.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">itemp</td><td>A pointer to some object. </td></tr>
-    <tr><td class="paramname">resp</td><td>A pointer to the result.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd>Typically used with <code><a class="el" href="darray_8h.html#a5eff466cf1db6a41a4cd06cd249fa47c" title="Aggregates all items into a single result.">darray_aggregate</a></code>.</dd></dl>
-<p>An example of an aggregate function pointer is a function that takes in a pointer to an integer and adds that integer to a result object at the second pointer. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> int_sum(<span class="keywordtype">void</span> *itemp, <span class="keywordtype">void</span> *resp) {</div>
-<div class="line">    *((<span class="keywordtype">long</span> <span class="keywordtype">long</span> *) resp) += *((<span class="keywordtype">int</span> *) itemp);</div>
-<div class="line">}</div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="ada0ad21f6b90050a4efcbe45d1239844" name="ada0ad21f6b90050a4efcbe45d1239844"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada0ad21f6b90050a4efcbe45d1239844">&#9670;&nbsp;</a></span>comparator</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef int(* comparator) (const void *itemp1, const void *itemp2)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The comparator function pointer type definition. </p>
-<p >A function of this type should take in two pointers to objects and compares them. It should modify neither object nor should it return anything.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">itemp1</td><td>A pointer to some object. </td></tr>
-    <tr><td class="paramname">itemp2</td><td>A pointer to some object to compare against. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><ul>
-<li>A negative number if the first object is smaller;</li>
-<li>Zero if they are equal; or</li>
-<li>A positive number if the first object is bigger.</li>
-</ul>
-</dd></dl>
-<p>An example of a comparator function pointer is a function that takes in two pointers to integers and compares them as per the rules above: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> int_cmp(<span class="keywordtype">void</span> *p1, <span class="keywordtype">void</span> *p2) {</div>
-<div class="line">    <span class="keywordtype">int</span> x = *((<span class="keywordtype">int</span> *) p1);</div>
-<div class="line">    <span class="keywordtype">int</span> y = *((<span class="keywordtype">int</span> *) p2);</div>
-<div class="line">    <span class="keywordflow">return</span> (x &gt; y) - (x &lt; y);</div>
-<div class="line">}</div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The two pointers do not necessarily point to the same type. For example, given a structure with a field <code>name</code> of type <code>char[]</code>. You can write a comparator that compares this field against some string. The <code>has_name</code> function is a valid comparator: <div class="fragment"><div class="line"><span class="keyword">struct </span>person {</div>
-<div class="line">    <span class="keywordtype">char</span> name[42];</div>
-<div class="line">    <span class="keywordtype">int</span> age;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> has_name(<span class="keyword">const</span> <span class="keyword">struct</span> person *person, <span class="keyword">const</span> <span class="keywordtype">char</span> *name) {</div>
-<div class="line">    <span class="keywordflow">return</span> strcmp(person-&gt;name, name);</div>
-<div class="line">}</div>
-</div><!-- fragment --> This also how you would search for a person with a given name using <code>darray_search</code>. </dd></dl>
-
-</div>
-</div>
-<a id="abd4ab94471d4f014a91f23a2ffe8d5ee" name="abd4ab94471d4f014a91f23a2ffe8d5ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd4ab94471d4f014a91f23a2ffe8d5ee">&#9670;&nbsp;</a></span>unary</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef void *(* unary) (const void *itemp)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The unary function pointer type definition. </p>
-<p >A function of this type should take in a pointer to some object and return a pointer to that or some other object (e.g. a copy of the original object). It should not modify the original object.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">itemp</td><td>A pointer to some object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to some other object, or the given object.</dd></dl>
-<p>An example of a unary function pointer is a function that takes in the pointer and returns it. This is useful for creating a shallow copy of an array with <code>darray_clone</code>. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> *identity(<span class="keyword">const</span> <span class="keywordtype">void</span> *p) { <span class="keywordflow">return</span> p; }</div>
-</div><!-- fragment --> 
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<dl class="section date"><dt>Date</dt><dd>21 Jun 2022</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Note that some types and functions have no declaration or incomplete definition in the header file. The documentation in this source file is targeted to maintainers. </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ae92263a7c5d51b6c3172991cd8d958bb" name="ae92263a7c5d51b6c3172991cd8d958bb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae92263a7c5d51b6c3172991cd8d958bb">&#9670;&nbsp;</a></span>new_darray()</h2>
 
@@ -356,6 +232,51 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="adac8dda9d45a67f982663a7b5b4d6dd2" name="adac8dda9d45a67f982663a7b5b4d6dd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adac8dda9d45a67f982663a7b5b4d6dd2">&#9670;&nbsp;</a></span>_darray_resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int _darray_resize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
+          <td class="paramname"><em>arrp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changes the capacity of the dynamic array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">len</td><td>The expected number of items stored in the array. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The updated capacity of the array, 0 otherwise. </dd></dl>
 
 </div>
 </div>
@@ -755,45 +676,6 @@ Variables</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a320981405cc6a3346820870cabdb40e5" name="a320981405cc6a3346820870cabdb40e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a320981405cc6a3346820870cabdb40e5">&#9670;&nbsp;</a></span>darray_extend()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int darray_extend </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Extends another array to the end of a given array. </p>
-<p >In the order of their index, append each item in the second array to the end of the first one.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arrp1</td><td>A pointer to a dynamic array to extend to. </td></tr>
-    <tr><td class="paramname">arrp2</td><td>A pointer to another dynamic array to extend from. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
-
-</div>
-</div>
 <a id="a41d2e231209dda183f18c9f08701dc48" name="a41d2e231209dda183f18c9f08701dc48"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a41d2e231209dda183f18c9f08701dc48">&#9670;&nbsp;</a></span>darray_extend_at()</h2>
 
@@ -832,6 +714,45 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">arrp1</td><td>A pointer to a dynamic array to extend to. </td></tr>
     <tr><td class="paramname">index</td><td>A valid index in the first array to extend at. </td></tr>
+    <tr><td class="paramname">arrp2</td><td>A pointer to another dynamic array to extend from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a320981405cc6a3346820870cabdb40e5" name="a320981405cc6a3346820870cabdb40e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a320981405cc6a3346820870cabdb40e5">&#9670;&nbsp;</a></span>darray_extend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int darray_extend </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
+          <td class="paramname"><em>arrp1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
+          <td class="paramname"><em>arrp2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extends another array to the end of a given array. </p>
+<p >In the order of their index, append each item in the second array to the end of the first one.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arrp1</td><td>A pointer to a dynamic array to extend to. </td></tr>
     <tr><td class="paramname">arrp2</td><td>A pointer to another dynamic array to extend from. </td></tr>
   </table>
   </dd>
@@ -1063,19 +984,11 @@ Variables</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const size_t sizeof_darray</td>
+          <td class="memname">const size_t sizeof_darray = sizeof(<a class="el" href="structdarray.html">darray</a>)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>The size of the dynamic array structure. </p>
