@@ -4,12 +4,16 @@ Dynamic array of void pointers with automatic memory free in C language.
 
 ## Documentation
 
-👉 https://edward-ji.github.io/DynamicArray/
+The documentation is automatically deployed on [GitHub Pages].
+
+To generate the documentations locally, you need Doxygen.  Read the [Doxygen
+Manual] for an installation guide. Then, run `make doc` to generate
+the documentations. The output will be in the `html` directory.
 
 ## Demonstration
 
 Run `make demo` to compile the demonstration source files in the `demo`
-directory. The executable is output into the `bin` directory. For example, there
+directory. The executable will be in the `bin` directory. For example, there
 will be a matrix example, run it with `bin/matrix`.
 
 ## Installation
@@ -29,3 +33,6 @@ curl https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.h \
 curl https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.c \
     -o darray.c
 ```
+
+[Doxygen Manual]: https://www.doxygen.nl/manual/install.html
+[GitHub Pages]: https://edward-ji.github.io/DynamicArray
