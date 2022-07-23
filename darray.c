@@ -28,6 +28,8 @@ struct darray {
 
 const size_t sizeof_darray = sizeof(darray);
 
+darray_error darray_errno;
+
 darray *new_darray(consumer item_free) {
     darray *arrp = malloc(sizeof(darray));
     if (arrp != NULL) {
@@ -36,6 +38,7 @@ darray *new_darray(consumer item_free) {
         arrp->cap = 1;
         arrp->itempp = malloc(sizeof(void *) * arrp->cap);
         if (arrp->itempp == NULL) {
+            darray_errno = DARRAY_EALLOC;
             return NULL;
         }
     }
@@ -45,6 +48,7 @@ darray *new_darray(consumer item_free) {
 
 int darray_set_item_free(darray *arrp, consumer item_free) {
     if (arrp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -60,6 +64,7 @@ int darray_set_item_free(darray *arrp, consumer item_free) {
 */
 static int _darray_resize(darray *arrp, size_t len) {
     if (arrp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -78,6 +83,7 @@ static int _darray_resize(darray *arrp, size_t len) {
     if (cap != arrp->cap) {
         itempp = realloc(itempp, sizeof(void *) * cap);
         if (itempp == NULL) {
+            darray_errno = DARRAY_EALLOC;
             return 0;
         }
         arrp->itempp = itempp;
@@ -89,6 +95,7 @@ static int _darray_resize(darray *arrp, size_t len) {
 
 ssize_t darray_len(darray *arrp) {
     if (arrp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return -1;
     }
     return arrp->len;
@@ -96,6 +103,7 @@ ssize_t darray_len(darray *arrp) {
 
 int darray_foreach(darray *arrp, consumer fp) {
     if (arrp == NULL || fp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -108,6 +116,7 @@ int darray_foreach(darray *arrp, consumer fp) {
 
 void darray_aggregate(darray *arrp, void *resp, aggregate fp) {
     if (arrp == NULL || fp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return;
     }
 
@@ -118,6 +127,7 @@ void darray_aggregate(darray *arrp, void *resp, aggregate fp) {
 
 int darray_append(darray *arrp, void *itemp) {
     if (arrp == NULL || itemp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -133,7 +143,12 @@ int darray_append(darray *arrp, void *itemp) {
 }
 
 void *darray_get(darray *arrp, size_t index) {
-    if (arrp == NULL || index >= arrp->len) {
+    if (arrp == NULL) {
+        darray_errno = DARRAY_ENULLS;
+        return NULL;
+    }
+    if (index >= arrp->len) {
+        darray_errno = DARRAY_EINDEX;
         return NULL;
     }
 
@@ -141,7 +156,12 @@ void *darray_get(darray *arrp, size_t index) {
 }
 
 int darray_pop(darray *arrp, size_t index) {
-    if (arrp == NULL || index >= arrp->len) {
+    if (arrp == NULL) {
+        darray_errno = DARRAY_ENULLS;
+        return 0;
+    }
+    if (index >= arrp->len) {
+        darray_errno = DARRAY_EINDEX;
         return 0;
     }
 
@@ -161,7 +181,12 @@ int darray_pop(darray *arrp, size_t index) {
 }
 
 int darray_pop_range(darray *arrp, size_t start, size_t end) {
-    if (arrp == NULL || start > end || end > arrp->len) {
+    if (arrp == NULL) {
+        darray_errno = DARRAY_ENULLS;
+        return 0;
+    }
+    if (start > end || end > arrp->len) {
+        darray_errno = DARRAY_EINDEX;
         return 0;
     }
 
@@ -183,7 +208,12 @@ int darray_pop_range(darray *arrp, size_t start, size_t end) {
 }
 
 int darray_insert(darray *arrp, size_t index, void *itemp) {
-    if (arrp == NULL || index > arrp->len || itemp == NULL) {
+    if (arrp == NULL || itemp == NULL) {
+        darray_errno = DARRAY_ENULLS;
+        return 0;
+    }
+    if (index > arrp->len) {
+        darray_errno = DARRAY_EINDEX;
         return 0;
     }
 
@@ -203,6 +233,7 @@ int darray_insert(darray *arrp, size_t index, void *itemp) {
 
 int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp) {
     if (arrp == NULL || itemp == NULL || fp == NULL || indexp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -213,11 +244,17 @@ int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp) {
         }
     }
 
+    darray_errno = DARRAY_EEXIST;
     return 0;
 }
 
 int darray_extend_at(darray *arrp1, size_t index, darray *arrp2) {
-    if (arrp1 == NULL || index > arrp1->len || arrp2 == NULL) {
+    if (arrp1 == NULL || arrp2 == NULL) {
+        darray_errno = DARRAY_ENULLS;
+        return 0;
+    }
+    if (index > arrp1->len) {
+        darray_errno = DARRAY_EINDEX;
         return 0;
     }
 
@@ -239,6 +276,7 @@ int darray_extend_at(darray *arrp1, size_t index, darray *arrp2) {
 
 int darray_extend(darray *arrp1, darray *arrp2) {
     if (arrp1 == NULL || arrp2 == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -257,6 +295,7 @@ int darray_extend(darray *arrp1, darray *arrp2) {
 
 int darray_reverse(darray *arrp) {
     if (arrp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -271,6 +310,7 @@ int darray_reverse(darray *arrp) {
 
 int darray_unique(darray *arrp, comparator fp) {
     if (arrp == NULL || fp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -325,6 +365,7 @@ void _darray_qsort(void **itempp, ssize_t low, ssize_t high, comparator cmp) {
 
 int darray_sort(darray *arrp, comparator fp) {
     if (arrp == NULL || fp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -337,6 +378,7 @@ int darray_sort(darray *arrp, comparator fp) {
 
 darray *darray_clone(darray *arrp, unary fp) {
     if (arrp == NULL || fp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return NULL;
     }
 
@@ -354,6 +396,7 @@ darray *darray_clone(darray *arrp, unary fp) {
 
 int darray_clear(darray *arrp) {
     if (arrp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -369,6 +412,7 @@ int darray_clear(darray *arrp) {
 
 int del_darray(darray *arrp) {
     if (arrp == NULL) {
+        darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
@@ -377,4 +421,25 @@ int del_darray(darray *arrp) {
     free(arrp);
 
     return 0;
+}
+
+static const char *const darray_strerr_list[] = {
+    [DARRAY_EALLOC] = "fail to allocate memory",
+    [DARRAY_ENULLS] = "invalid NULL argument",
+    [DARRAY_EINDEX] = "invalid index",
+    [DARRAY_ENOTIN] = "item does not exist"
+};
+
+const char *darray_strerr() {
+    if (darray_errno == DARRAY_ERESET) {
+        return NULL;
+    }
+
+    const char *str = darray_strerr_list[darray_errno];
+    if (str == NULL) {
+        str = "unknown error";
+    }
+
+    darray_errno = DARRAY_ERESET;
+    return str;
 }

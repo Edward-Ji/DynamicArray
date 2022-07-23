@@ -120,6 +120,29 @@ definition is incomplete in this header.
 */
 extern const size_t sizeof_darray;
 
+typedef enum {
+    /*! Error number not set. */
+    DARRAY_ERESET = 0,
+    /*! Fail to allocate memory. */
+    DARRAY_EALLOC,
+    /*! Invalid `NULL` argument to function */
+    DARRAY_ENULLS,
+    /*! Invalid index. */
+    DARRAY_EINDEX,
+    /*! Item does not exist. */
+    DARRAY_ENOTIN,
+} darray_error;
+
+//! The error number.
+/*!
+This variable is set whenever a function fails. Most functions return 0 if
+unsuccessful and sets this error number.
+
+\see The `darray_error` enumerator documents all error codes. The
+`darray_strerr` function returns a meaningful description of the error codes.
+*/
+extern darray_error darray_errno;
+
 //! Creates a new dynamic array of void pointers.
 /*!
 The function allocates a new dynamic array of generic pointers and returns it.
@@ -388,5 +411,15 @@ array structure.
 \param arrp A pointer to a dynamic array to deallocate.
 */
 int del_darray(darray *arrp);
+
+//! Returns a pointer to a string that describes the error number.
+/*!
+This function returns a pointer to a string that describes the error number
+`darray_errno` if it is set. Calling the function resets the error number. If
+the error number is not set, the function returns a null pointer.
+
+\return a pointer to a string that describes the error number.
+*/
+const char *darray_strerr();
 
 #endif
