@@ -367,12 +367,14 @@ int darray_clear(darray *arrp) {
     return 1;
 }
 
-void del_darray(darray *arrp) {
+int del_darray(darray *arrp) {
     if (arrp == NULL) {
-        return;
+        return 0;
     }
 
     darray_clear(arrp);
     free(arrp->itempp);
     free(arrp);
+
+    return 0;
 }

@@ -387,6 +387,6 @@ array structure.
 
 \param arrp A pointer to a dynamic array to deallocate.
 */
-void del_darray(darray *arrp);
+int del_darray(darray *arrp);
 
 #endif
