@@ -194,7 +194,7 @@ This function attempts to return the item at a given index in the array.
 
 \param arrp A pointer to a dynamic array.
 \param index A valid index in the array.
-\returnss The item at the given index in the array if successful, `NULL`
+\returns The item at the given index in the array if successful, `NULL`
 otherwise.
 
 \note The function is unsuccessful if the pointer to an array is `NULL` or the
