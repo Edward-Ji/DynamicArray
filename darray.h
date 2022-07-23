@@ -8,6 +8,7 @@
 #define DARRAY_H
 
 #include <stddef.h>
+#include <sys/types.h>
 
 //! The consumer function pointer type definition.
 /*!
@@ -155,7 +156,7 @@ This function returns the number of items in a given array.
 \param arrp A pointer to a dynamic array.
 \returns The number of items in a given array.
 */
-size_t darray_len(darray *arrp);
+ssize_t darray_len(darray *arrp);
 
 //! Calls each item in the array with a given function.
 /*!

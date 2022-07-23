@@ -87,7 +87,10 @@ static int _darray_resize(darray *arrp, size_t len) {
     return arrp->cap;
 }
 
-size_t darray_len(darray *arrp) {
+ssize_t darray_len(darray *arrp) {
+    if (arrp == NULL) {
+        return -1;
+    }
     return arrp->len;
 }
 
