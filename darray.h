@@ -141,6 +141,10 @@ for temporarily disabling the free behaviour of other dynamic array functions.
 
 \param arrp A pointer to a dynamic array.
 \param item_free A pointer to a function that frees an item.
+\return 1 if successful, 0 otherwise.
+
+\note You can temporarily disable automatic deallocation of array items by
+setting `item_free` to `NULL` and back.
 */
 int darray_set_item_free(darray *arrp, consumer item_free);
 
@@ -161,8 +165,6 @@ sequentially.
 \param arrp A pointer to a dynamic array.
 \param fp A pointer to a consumer function.
 \returns 1 if successful, 0 otherwise.
-
-\note The function is only unsuccessful if the arguments are `NULL`.
 */
 int darray_foreach(darray *arrp, consumer fp);
 
