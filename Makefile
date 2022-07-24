@@ -1,17 +1,28 @@
 CC := gcc
 CFLAGS := -O2 -Wall -Werror
+CFLAGS_DEBUG := -g -Wall -Werror
 
 BINDIR := ./bin
 OBJDIR := ./obj
 DEMODIR := ./demo
+TESTDIR := ./test
 HTMLDIR := ./html
 
 DEMOSRC := $(shell find $(DEMODIR) -name '*.c')
-TARGETS := $(DEMOSRC:$(DEMODIR)/%.c=$(BINDIR)/%)
+DEMOEXE := $(DEMOSRC:$(DEMODIR)/%.c=$(BINDIR)/%)
 
-demo: $(TARGETS)
+TESTSRC := $(shell find $(TESTDIR) -name '*.c')
+TESTEXE := $(TESTSRC:$(TESTDIR)/%.c=$(BINDIR)/%)
 
-$(TARGETS): $(BINDIR)/%: $(OBJDIR)/darray.o $(OBJDIR)/%.o
+demo: $(DEMOEXE)
+
+test: $(TESTEXE)
+
+$(DEMOEXE): $(BINDIR)/%: $(OBJDIR)/darray.o $(OBJDIR)/demo_%.o
+	mkdir -p $(BINDIR)
+	$(CC) $(LDFLAGS) $^ -o $@
+
+$(TESTEXE): $(BINDIR)/%: $(OBJDIR)/darray.o $(OBJDIR)/test_%.o
 	mkdir -p $(BINDIR)
 	$(CC) $(LDFLAGS) $^ -o $@
 
@@ -19,7 +30,11 @@ $(OBJDIR)/darray.o: darray.c
 	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
-$(OBJDIR)/%.o: $(DEMODIR)/%.c
+$(OBJDIR)/demo_%.o: $(DEMODIR)/%.c
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $^ -o $@
+
+$(OBJDIR)/test_%.o: $(TESTDIR)/%.c
 	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
