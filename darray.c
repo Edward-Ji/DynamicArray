@@ -244,7 +244,7 @@ int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp) {
         }
     }
 
-    darray_errno = DARRAY_EEXIST;
+    darray_errno = DARRAY_ENOTIN;
     return 0;
 }
 
