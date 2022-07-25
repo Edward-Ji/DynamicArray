@@ -283,35 +283,35 @@ MU_TEST(test_darray_reverse) {
 }
 
 MU_TEST(test_darray_unique1) {
-    darray *arr = new_darray(free);
-    DARRAY_APPEND_INTS(arr, 0, 0, 0, 1);
-    darray_unique(arr, int_cmp);
-    DARRAY_ASSERT_MATCH(arr, 0, 1);
-    del_darray(arr);
+    darray *arr2 = new_darray(free);
+    DARRAY_APPEND_INTS(arr2, 0, 0, 0, 1);
+    darray_unique(arr2, int_cmp);
+    DARRAY_ASSERT_MATCH(arr2, 0, 1);
+    del_darray(arr2);
 }
 
 MU_TEST(test_darray_unique2) {
-    darray *arr = new_darray(free);
-    DARRAY_APPEND_INTS(arr, 0, 1, 1, 1);
-    darray_unique(arr, int_cmp);
-    DARRAY_ASSERT_MATCH(arr, 0, 1);
-    del_darray(arr);
+    darray *arr2 = new_darray(free);
+    DARRAY_APPEND_INTS(arr2, 0, 1, 1, 1);
+    darray_unique(arr2, int_cmp);
+    DARRAY_ASSERT_MATCH(arr2, 0, 1);
+    del_darray(arr2);
 }
 
 MU_TEST(test_darray_unique3) {
-    darray *arr = new_darray(free);
-    DARRAY_APPEND_INTS(arr, 0, 1, 1, 0);
-    darray_unique(arr, int_cmp);
-    DARRAY_ASSERT_MATCH(arr, 0, 1, 0);
-    del_darray(arr);
+    darray *arr2 = new_darray(free);
+    DARRAY_APPEND_INTS(arr2, 0, 1, 1, 0);
+    darray_unique(arr2, int_cmp);
+    DARRAY_ASSERT_MATCH(arr2, 0, 1, 0);
+    del_darray(arr2);
 }
 
 MU_TEST(test_darray_sort) {
-    darray *arr = new_darray(free);
-    DARRAY_APPEND_INTS(arr, 0, 1, 1, 0);
-    darray_unique(arr, int_cmp);
-    DARRAY_ASSERT_MATCH(arr, 0, 1, 0);
-    del_darray(arr);
+    darray *arr2 = new_darray(free);
+    DARRAY_APPEND_INTS(arr2, 0, 1, 1, 0);
+    darray_unique(arr2, int_cmp);
+    DARRAY_ASSERT_MATCH(arr2, 0, 1, 0);
+    del_darray(arr2);
 }
 
 MU_TEST(test_darray_clone1) {
@@ -368,7 +368,7 @@ MU_TEST_SUITE(darray_test_suite) {
     MU_RUN_TEST(test_darray_clear);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     MU_RUN_SUITE(int_test_suite);
     MU_RUN_SUITE(darray_test_suite);
     MU_REPORT();

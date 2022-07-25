@@ -6,7 +6,7 @@
 #define N_ROWS 3
 #define N_COLS 4
 
-void print_int(int *p) {
+void print_int(const int *p) {
     printf("%d ", *p);
 }
 

@@ -10,7 +10,7 @@ int *new_int(int num) {
     return intp;
 }
 
-void print_int(int *intp) {
+void print_int(const int *intp) {
     printf("%d ", *intp);
 }
 
@@ -24,7 +24,7 @@ int compare_int(const int *p1, const int *p2) {
     }
 }
 
-int *int_clone(int *intp) {
+int *int_clone(const int *intp) {
     int *clonep = (int *) malloc(sizeof(int));
     *clonep = *intp;
 

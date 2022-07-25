@@ -5,7 +5,6 @@
 #include "../darray.h"
 
 #define NAMELEN 31
-#define BUFLEN 64
 
 typedef struct {
     char name[NAMELEN + 1];

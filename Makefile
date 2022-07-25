@@ -2,49 +2,51 @@ CC := gcc
 CFLAGS := -O2 -Wall -Werror
 CFLAGS_DEBUG := -g -Wall -Werror
 
-BINDIR := ./bin
-OBJDIR := ./obj
-DEMODIR := ./demo
-TESTDIR := ./test
-HTMLDIR := ./html
+BIN_DIR := ./bin
+OBJ_DIR := ./obj
+DEMO_DIR := ./demo
+TEST_DIR := ./test
+HTML_DIR := ./html
 
-DEMOSRC := $(shell find $(DEMODIR) -name '*.c')
-DEMOEXE := $(DEMOSRC:$(DEMODIR)/%.c=$(BINDIR)/%)
+DEMO_SRC := $(shell find $(DEMO_DIR) -name '*.c')
+DEMO_EXE := $(DEMO_SRC:$(DEMO_DIR)/%.c=$(BIN_DIR)/%)
 
-TESTSRC := $(shell find $(TESTDIR) -name '*.c')
-TESTEXE := $(TESTSRC:$(TESTDIR)/%.c=$(BINDIR)/%)
+TEST_SRC := $(shell find $(TEST_DIR) -name '*.c')
+TEST_EXE := $(TEST_SRC:$(TEST_DIR)/%.c=$(BIN_DIR)/%)
 
-demo: $(DEMOEXE)
+all: demo test
 
-test: $(TESTEXE)
+demo: $(DEMO_EXE)
 
-$(DEMOEXE): $(BINDIR)/%: $(OBJDIR)/darray.o $(OBJDIR)/demo_%.o
-	mkdir -p $(BINDIR)
+test: $(TEST_EXE)
+
+$(DEMO_EXE): $(BIN_DIR)/%: $(OBJ_DIR)/darray.o $(OBJ_DIR)/demo_%.o
+	mkdir -p $(BIN_DIR)
 	$(CC) $(LDFLAGS) $^ -o $@
 
-$(TESTEXE): $(BINDIR)/%: $(OBJDIR)/darray.o $(OBJDIR)/test_%.o
-	mkdir -p $(BINDIR)
+$(TEST_EXE): $(BIN_DIR)/%: $(OBJ_DIR)/darray.o $(OBJ_DIR)/test_%.o
+	mkdir -p $(BIN_DIR)
 	$(CC) $(LDFLAGS) $^ -o $@
 
-$(OBJDIR)/darray.o: darray.c
-	mkdir -p $(OBJDIR)
+$(OBJ_DIR)/darray.o: darray.c
+	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
-$(OBJDIR)/demo_%.o: $(DEMODIR)/%.c
-	mkdir -p $(OBJDIR)
+$(OBJ_DIR)/demo_%.o: $(DEMO_DIR)/%.c
+	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
-$(OBJDIR)/test_%.o: $(TESTDIR)/%.c
-	mkdir -p $(OBJDIR)
+$(OBJ_DIR)/test_%.o: $(TEST_DIR)/%.c
+	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS_DEBUG) -c $^ -o $@
 
 doc: $(HTML_DIR)
 
-$(HTMLDIR): Doxyfile MAIN.md darray.c darray.h
-	rm -rf $(HTMLDIR)
+$(HTML_DIR): Doxyfile MAIN.md darray.c darray.h
+	rm -rf $(HTML_DIR)
 	doxygen
 
 clean:
-	rm -rf $(BINDIR) $(OBJDIR) $(HTMLDIR)
+	rm -rf $(BIN_DIR) $(OBJ_DIR) $(HTML_DIR)
 
 .PHONY: doc clean

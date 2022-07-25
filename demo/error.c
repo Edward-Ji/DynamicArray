@@ -3,7 +3,7 @@
 
 #include "../darray.h"
 
-int main(int argc, char **argv) {
+int main(void) {
     darray *vec = new_darray(free);
 
     int x = 42;

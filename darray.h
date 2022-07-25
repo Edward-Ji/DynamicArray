@@ -15,7 +15,7 @@
 A function of this type should take in a pointer to some object and perform
 some operation on that object. The function should not return anything.
 
-\param itemp Pointer to an object in the array.
+\param item_ptr Pointer to an object in the array.
 
 \see Typically used with `darray_foreach`.
 
@@ -27,7 +27,7 @@ void print_int(void *p) {
 }
 ```
 */
-typedef void (*consumer)(void *itemp);
+typedef void (*consumer)(void *item_ptr);
 
 //! The aggregate function pointer type definition.
 /*!
@@ -35,7 +35,7 @@ A function of this type should take in a pointer to some object and modifies
 the result given by the second pointer. The function should not return
 anything or modify the first object.
 
-\param itemp A pointer to some object.
+\param item_ptr A pointer to some object.
 \param resp A pointer to the result.
 
 \see Typically used with `darray_aggregate`.
@@ -44,20 +44,20 @@ An example of an aggregate function pointer is a function that takes in a
 pointer to an integer and adds that integer to a result object at the second
 pointer.
 ```
-void int_sum(void *itemp, void *resp) {
-    *((long long *) resp) += *((int *) itemp);
+void int_sum(void *item_ptr, void *resp) {
+    *((long long *) resp) += *((int *) item_ptr);
 }
 ```
 */
-typedef void (*aggregate)(const void *itemp, void *resp);
+typedef void (*aggregate)(const void *item_ptr, void *resp);
 
 //! The comparator function pointer type definition.
 /**
 A function of this type should take in two pointers to objects and compares
 them. It should modify neither object nor should it return anything.
 
-\param itemp1 A pointer to some object.
-\param itemp2 A pointer to some object to compare against.
+\param item_ptr1 A pointer to some object.
+\param item_ptr2 A pointer to some object to compare against.
 \returns
 - A negative number if the first object is smaller;
 - Zero if they are equal; or
@@ -90,7 +90,7 @@ int has_name(const struct person *person, const char *name) {
 This also how you would search for a person with a given name using
 `darray_search`.
 */
-typedef int (*comparator)(const void *itemp1, const void *itemp2);
+typedef int (*comparator)(const void *item_ptr1, const void *item_ptr2);
 
 //! The unary function pointer type definition.
 /*!
@@ -98,7 +98,7 @@ A function of this type should take in a pointer to some object and return a
 pointer to that or some other object (e.g. a copy of the original object). It
 should not modify the original object.
 
-\param itemp A pointer to some object.
+\param item_ptr A pointer to some object.
 \returns A pointer to some other object, or the given object.
 
 An example of a unary function pointer is a function that takes in the pointer
@@ -108,7 +108,7 @@ and returns it. This is useful for creating a shallow copy of an array with
 void *identity(const void *p) { return p; }
 ```
 */
-typedef void *(*unary)(const void *itemp);
+typedef void *(*unary)(const void *item_ptr);
 
 //! Represents a dynamic array.
 typedef struct darray darray;
@@ -139,7 +139,7 @@ This variable is set whenever a function fails. Most functions return 0 if
 unsuccessful and sets this error number.
 
 \see The `darray_error` enumerator documents all error codes. The
-`darray_strerr` function returns a meaningful description of the error codes.
+`darray_str_err` function returns a meaningful description of the error codes.
 */
 extern darray_error darray_errno;
 
@@ -163,62 +163,62 @@ This function sets the function pointer that frees the item if the item pointer
 is removed from the array. You should rarely need to use this function, except
 for temporarily disabling the free behaviour of other dynamic array functions.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \param item_free A pointer to a function that frees an item.
 \return 1 if successful, 0 otherwise.
 
-\note You can temporarily disable automatic deallocation of array items by
+\note You can temporarily disable automatic de-allocation of array items by
 setting `item_free` to `NULL` and back.
 */
-int darray_set_item_free(darray *arrp, consumer item_free);
+int darray_set_item_free(darray *array, consumer item_free);
 
 //! Getter for the length of the array.
 /*!
 This function returns the number of items in a given array.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \returns The number of items in a given array.
 */
-ssize_t darray_len(darray *arrp);
+ssize_t darray_len(darray *array);
 
 //! Calls each item in the array with a given function.
 /*!
 This function calls the given function with every object in the array
 sequentially.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \param fp A pointer to a consumer function.
 \returns 1 if successful, 0 otherwise.
 */
-int darray_foreach(darray *arrp, consumer fp);
+int darray_foreach(darray *array, consumer fp);
 
 //! Aggregates all items into a single result.
 /*!
 This function calls the aggregation function with every item in the array as the
 first argument, and the result pointer as the second argument.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \param resp A pointer to the result object.
 \param fp A pointer to an aggregate function.
 \see How to write an `aggregate` function.
 */
-void darray_aggregate(darray *arrp, void *resp, aggregate fp);
+void darray_aggregate(darray *array, void *resp, aggregate fp);
 
 //! Appends an item to the array.
 /*!
 This function appends an item to the end of an array.
 
-\param arrp A pointer to a dynamic array.
-\param itemp A pointer to an item to be appended.
+\param array A pointer to a dynamic array.
+\param item_ptr A pointer to an item to be appended.
 \returns 1 if successful, 0 otherwise.
 */
-int darray_append(darray *arrp, void *itemp);
+int darray_append(darray *array, void *item_ptr);
 
 //! Gets an item in an array using index.
 /*!
 This function attempts to return the item at a given index in the array.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \param index A valid index in the array.
 \returns The item at the given index in the array if successful, `NULL`
 otherwise.
@@ -226,13 +226,13 @@ otherwise.
 \note The function is unsuccessful if the pointer to an array is `NULL` or the
 index is out of range.
 */
-void *darray_get(darray *arrp, size_t index);
+void *darray_get(darray *array, size_t index);
 
 //! Pops an item at a given index.
 /*!
 This function pops the item at a given index from an array.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \param index A valid index in the array.
 \returns 1 if successful, 0 otherwise.
 
@@ -248,7 +248,7 @@ darray_pop(0); // `free(p)` called
 *p = 0;        // undefined behavior
 ```
 */
-int darray_pop(darray *arrp, size_t index);
+int darray_pop(darray *array, size_t index);
 
 //! Pops items at a given index range.
 /*!
@@ -256,7 +256,7 @@ This function pops the items at a given index range from the array. This
 includes the item at the starting index, the items between the starting index
 and the ending index, but **not** the item at the end index.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \param start An index from which to start popping (inclusive).
 \param end An index at which to stop popping (exclusive).
 \returns 1 if successful, 0 otherwise.
@@ -265,18 +265,18 @@ and the ending index, but **not** the item at the end index.
 the function is not `NULL`. If the function properly deallocates the items,
 accessing any popped object may be undefined behavior.
 */
-int darray_pop_range(darray *arrp, size_t start, size_t end);
+int darray_pop_range(darray *array, size_t start, size_t end);
 
 //! Inserts an item at a given index.
 /*!
 This function inserts an item at an given index in an array.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \param index A valid index to insert at.
-\param itemp A pointer to an item to be appended.
+\param item_ptr A pointer to an item to be appended.
 \returns 1 if successful, 0 otherwise.
 */
-int darray_insert(darray *arrp, size_t index, void *itemp);
+int darray_insert(darray *array, size_t index, void *item_ptr);
 
 //! Searches for an item in an array that compares equal to anther object.
 /*!
@@ -284,10 +284,10 @@ Searches for an item in the array using a given comparator and stores its
 index in the index pointer. The comparator is called with an array item as the
 first argument, and the item to compare against as the second argument.
 
-\param arrp A pointer to a dynamic array.
-\param itemp An object to compare against.
+\param array A pointer to a dynamic array.
+\param item_ptr An object to compare against.
 \param fp A pointer to a function that compares array item against the object.
-\param indexp A pointer to store the index of found item.
+\param idx_ptr A pointer to store the index of found item.
 \returns 1 if there is a match, or 0 otherwise.
 
 \see How to write a `comparator`.
@@ -303,39 +303,40 @@ if (!darray_search(array_pointer, &42, integer_comparator, &index)) {
 printf("42 at index %zu.", index);
 ```
 */
-int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp);
+int darray_search(
+        darray *array, void *item_ptr, comparator fp, size_t *idx_ptr);
 
 //! Extends another array to the end of a given array.
 /*!
 In the order of their index, append each item in the second array to the end of
 the first one.
 
-\param arrp1 A pointer to a dynamic array to extend to.
-\param arrp2 A pointer to another dynamic array to extend from.
+\param array1 A pointer to a dynamic array to extend to.
+\param array2 A pointer to another dynamic array to extend from.
 \return 1 if successful, 0 otherwise.
 */
-int darray_extend(darray *arrp1, darray *arrp2);
+int darray_extend(darray *array1, darray *array2);
 
 //! Extends another array at a given index in a given array.
 /*!
 In the order of their index, insert each item in the second array at the given
 index of the first one.
 
-\param arrp1 A pointer to a dynamic array to extend to.
+\param array1 A pointer to a dynamic array to extend to.
 \param index A valid index in the first array to extend at.
-\param arrp2 A pointer to another dynamic array to extend from.
+\param array2 A pointer to another dynamic array to extend from.
 \return 1 if successful, 0 otherwise.
 */
-int darray_extend_at(darray *arrp1, size_t index, darray *arrp2);
+int darray_extend_at(darray *array1, size_t index, darray *array2);
 
 //! Reverses a given array.
 /*!
 This function reverses a given array **in place**.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \returns 1 if successful, 0 otherwise.
 */
-int darray_reverse(darray *arrp);
+int darray_reverse(darray *array);
 
 //! Filters out repeated adjacent items.
 /*!
@@ -343,33 +344,33 @@ The second and succeeding copies of equal adjacent items are popped from the
 array. The items are considered equal if they return `0` when passed into a
 given comparator function. The function performs the above **in place**.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \param fp A pointer to a function that compares two items in the array.
 \returns 1 if successful, 0 otherwise.
 
 \note The behavior of this function mimics that of the Unix `uniq` utility.
 */
-int darray_unique(darray *arrp, comparator fp);
+int darray_unique(darray *array, comparator fp);
 
 //! Sorts a given array.
 /*!
 Sorts all items in the given array **in place** using a quick sort algorithm.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \param fp A pointer to a function that compares two items in the array.
 \returns 1 if successful, 0 otherwise.
 
 The sorting algorithm is adopted from [Quick Sort.c] by adwiteeya3 on GitHub.
 [Quick Sort.c]: https://gist.github.com/adwiteeya3/f1797534506be672b591f465c3366643
 */
-int darray_sort(darray *arrp, comparator fp);
+int darray_sort(darray *array, comparator fp);
 
 //! Returns a clone of a given array.
 /*!
 This function calls the clone function on each item in the array and returns
 them in a new array. The new array inherits the free function.
 
-\param arrp A pointer to a dynamic array.
+\param array A pointer to a dynamic array.
 \param fp A pointer to a function that, given an item of the array, produces a
 clone.
 \returns A new allocated dynamic array.
@@ -391,26 +392,26 @@ darray_set_item_free(clone1, NULL);            // usually required logically
 clone2 = darray_clone(integer_array, deep);    // creates a deep copy
 ```
 */
-darray *darray_clone(darray *arrp, unary fp);
+darray *darray_clone(darray *array, unary fp);
 
 //! Clears all items from a given array.
 /*!
 This function pops all items from the array and calls the free function on each
 of them.
 
-\param arrp A pointer to a dynamic array to clear.
+\param array A pointer to a dynamic array to clear.
 \returns 1 if successful, 0 otherwise.
 */
-int darray_clear(darray *arrp);
+int darray_clear(darray *array);
 
 //! Deallocates a given array.
 /*!
 This function clears all items from a given array and deallocates the dynamic
 array structure.
 
-\param arrp A pointer to a dynamic array to deallocate.
+\param array A pointer to a dynamic array to deallocate.
 */
-int del_darray(darray *arrp);
+int del_darray(darray *array);
 
 //! Returns a pointer to a string that describes the error number.
 /*!
@@ -418,7 +419,7 @@ This function returns a pointer to a string that describes the error number
 `darray_errno` if it is set. Calling the function resets the error number. If
 the error number is not set, the function returns a null pointer.
 
-\return a pointer to a string that describes the error number.
+\returns a pointer to a string that describes the error number.
 */
 const char *darray_strerr();
 

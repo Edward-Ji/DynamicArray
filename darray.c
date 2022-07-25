@@ -17,7 +17,7 @@ to maintainers.
 //! Represents a dynamic array structure.
 struct darray {
     /*! Points to an allocated array of pointers to items. */
-    void **itempp;
+    void **item_ptr_arr;
     /*! Points to a function that frees an item in the array. */
     consumer item_free;
     /*! The number of items stored in the array. */
@@ -31,28 +31,28 @@ const size_t sizeof_darray = sizeof(darray);
 darray_error darray_errno;
 
 darray *new_darray(consumer item_free) {
-    darray *arrp = malloc(sizeof(darray));
-    if (arrp != NULL) {
-        arrp->item_free = item_free;
-        arrp->len = 0;
-        arrp->cap = 1;
-        arrp->itempp = malloc(sizeof(void *) * arrp->cap);
-        if (arrp->itempp == NULL) {
+    darray *array = malloc(sizeof(darray));
+    if (array != NULL) {
+        array->item_free = item_free;
+        array->len = 0;
+        array->cap = 1;
+        array->item_ptr_arr = malloc(sizeof(void *) * array->cap);
+        if (array->item_ptr_arr == NULL) {
             darray_errno = DARRAY_EALLOC;
             return NULL;
         }
     }
 
-    return arrp;
+    return array;
 }
 
-int darray_set_item_free(darray *arrp, consumer item_free) {
-    if (arrp == NULL) {
+int darray_set_item_free(darray *array, consumer item_free) {
+    if (array == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
-    arrp->item_free = item_free;
+    array->item_free = item_free;
 
     return 1;
 }
@@ -62,14 +62,9 @@ int darray_set_item_free(darray *arrp, consumer item_free) {
 \param len The expected number of items stored in the array.
 \returns The updated capacity of the array, 0 otherwise.
 */
-static int _darray_resize(darray *arrp, size_t len) {
-    if (arrp == NULL) {
-        darray_errno = DARRAY_ENULLS;
-        return 0;
-    }
-
-    void **itempp = arrp->itempp;
-    size_t cap = arrp->cap;
+static int darray_resize(darray *array, size_t len) {
+    void **item_ptr_arr = array->item_ptr_arr;
+    size_t cap = array->cap;
 
     if (len > cap) {
         while (len > cap) {
@@ -80,166 +75,167 @@ static int _darray_resize(darray *arrp, size_t len) {
             cap /= 2;
         }
     }
-    if (cap != arrp->cap) {
-        itempp = realloc(itempp, sizeof(void *) * cap);
-        if (itempp == NULL) {
+    if (cap != array->cap) {
+        item_ptr_arr = realloc(item_ptr_arr, sizeof(void *) * cap);
+        if (item_ptr_arr == NULL) {
             darray_errno = DARRAY_EALLOC;
             return 0;
         }
-        arrp->itempp = itempp;
-        arrp->cap = cap;
+        array->item_ptr_arr = item_ptr_arr;
+        array->cap = cap;
     }
 
-    return arrp->cap;
+    return array->cap;
 }
 
-ssize_t darray_len(darray *arrp) {
-    if (arrp == NULL) {
+ssize_t darray_len(darray *array) {
+    if (array == NULL) {
         darray_errno = DARRAY_ENULLS;
         return -1;
     }
-    return arrp->len;
+    return array->len;
 }
 
-int darray_foreach(darray *arrp, consumer fp) {
-    if (arrp == NULL || fp == NULL) {
+int darray_foreach(darray *array, consumer fp) {
+    if (array == NULL || fp == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
-    for (size_t i = 0; i < arrp->len; i++) {
-        fp(arrp->itempp[i]);
+    for (size_t i = 0; i < array->len; i++) {
+        fp(array->item_ptr_arr[i]);
     }
 
     return 1;
 }
 
-void darray_aggregate(darray *arrp, void *resp, aggregate fp) {
-    if (arrp == NULL || fp == NULL) {
+void darray_aggregate(darray *array, void *resp, aggregate fp) {
+    if (array == NULL || fp == NULL) {
         darray_errno = DARRAY_ENULLS;
         return;
     }
 
-    for (size_t i = 0; i < arrp->len; i++) {
-        fp(arrp->itempp[i], resp);
+    for (size_t i = 0; i < array->len; i++) {
+        fp(array->item_ptr_arr[i], resp);
     }
 }
 
-int darray_append(darray *arrp, void *itemp) {
-    if (arrp == NULL || itemp == NULL) {
+int darray_append(darray *array, void *item_ptr) {
+    if (array == NULL || item_ptr == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
-    if (!_darray_resize(arrp, arrp->len + 1)) {
+    if (!darray_resize(array, array->len + 1)) {
         return 0;
     }
 
-    arrp->itempp[arrp->len] = itemp;
+    array->item_ptr_arr[array->len] = item_ptr;
 
-    arrp->len++;
+    array->len++;
 
     return 1;
 }
 
-void *darray_get(darray *arrp, size_t index) {
-    if (arrp == NULL) {
+void *darray_get(darray *array, size_t index) {
+    if (array == NULL) {
         darray_errno = DARRAY_ENULLS;
         return NULL;
     }
-    if (index >= arrp->len) {
+    if (index >= array->len) {
         darray_errno = DARRAY_EINDEX;
         return NULL;
     }
 
-    return arrp->itempp[index];
+    return array->item_ptr_arr[index];
 }
 
-int darray_pop(darray *arrp, size_t index) {
-    if (arrp == NULL) {
+int darray_pop(darray *array, size_t index) {
+    if (array == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
-    if (index >= arrp->len) {
+    if (index >= array->len) {
         darray_errno = DARRAY_EINDEX;
         return 0;
     }
 
-    if (arrp->item_free != NULL) {
-        arrp->item_free(arrp->itempp[index]);
+    if (array->item_free != NULL) {
+        array->item_free(array->item_ptr_arr[index]);
     }
-    memmove(arrp->itempp + index,
-            arrp->itempp + index + 1,
-            sizeof(void *) * (arrp->len - index - 1));
-    if (!_darray_resize(arrp, arrp->len - 1)) {
+    memmove(array->item_ptr_arr + index,
+            array->item_ptr_arr + index + 1,
+            sizeof(void *) * (array->len - index - 1));
+    if (!darray_resize(array, array->len - 1)) {
         return 0;
     }
 
-    arrp->len--;
+    array->len--;
 
     return 1;
 }
 
-int darray_pop_range(darray *arrp, size_t start, size_t end) {
-    if (arrp == NULL) {
+int darray_pop_range(darray *array, size_t start, size_t end) {
+    if (array == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
-    if (start > end || end > arrp->len) {
+    if (start > end || end > array->len) {
         darray_errno = DARRAY_EINDEX;
         return 0;
     }
 
-    if (arrp->item_free != NULL) {
+    if (array->item_free != NULL) {
         for (size_t i = start; i < end; i++) {
-            arrp->item_free(arrp->itempp[i]);
+            array->item_free(array->item_ptr_arr[i]);
         }
     }
-    memmove(arrp->itempp + start,
-            arrp->itempp + end,
-            sizeof(void *) * (arrp->len - end));
-    if (!_darray_resize(arrp, arrp->len - (end - start))) {
+    memmove(array->item_ptr_arr + start,
+            array->item_ptr_arr + end,
+            sizeof(void *) * (array->len - end));
+    if (!darray_resize(array, array->len - (end - start))) {
         return 0;
     }
 
-    arrp->len -= end - start;
+    array->len -= end - start;
 
     return 1;
 }
 
-int darray_insert(darray *arrp, size_t index, void *itemp) {
-    if (arrp == NULL || itemp == NULL) {
+int darray_insert(darray *array, size_t index, void *item_ptr) {
+    if (array == NULL || item_ptr == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
-    if (index > arrp->len) {
+    if (index > array->len) {
         darray_errno = DARRAY_EINDEX;
         return 0;
     }
 
-    if (!_darray_resize(arrp, arrp->len + 1)) {
+    if (!darray_resize(array, array->len + 1)) {
         return 0;
     }
-    memmove(arrp->itempp + index + 1,
-            arrp->itempp + index,
-            sizeof(void *) * (arrp->len - index));
+    memmove(array->item_ptr_arr + index + 1,
+            array->item_ptr_arr + index,
+            sizeof(void *) * (array->len - index));
 
-    arrp->itempp[index] = itemp;
+    array->item_ptr_arr[index] = item_ptr;
 
-    arrp->len++;
+    array->len++;
 
     return 1;
 }
 
-int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp) {
-    if (arrp == NULL || itemp == NULL || fp == NULL || indexp == NULL) {
+int darray_search(
+        darray *array, void *item_ptr, comparator fp, size_t *idx_ptr) {
+    if (array == NULL || item_ptr == NULL || fp == NULL || idx_ptr == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
-    for (size_t i = 0; i < arrp->len; i++) {
-        if (fp(arrp->itempp[i], itemp) == 0) {
-            *indexp = i;
+    for (size_t i = 0; i < array->len; i++) {
+        if (fp(array->item_ptr_arr[i], item_ptr) == 0) {
+            *idx_ptr = i;
             return 1;
         }
     }
@@ -248,179 +244,179 @@ int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp) {
     return 0;
 }
 
-int darray_extend_at(darray *arrp1, size_t index, darray *arrp2) {
-    if (arrp1 == NULL || arrp2 == NULL) {
+int darray_extend_at(darray *array1, size_t index, darray *array2) {
+    if (array1 == NULL || array2 == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
-    if (index > arrp1->len) {
+    if (index > array1->len) {
         darray_errno = DARRAY_EINDEX;
         return 0;
     }
 
-    if (!_darray_resize(arrp1, arrp1->len + arrp2->len)) {
+    if (!darray_resize(array1, array1->len + array2->len)) {
         return 0;
     }
-    memmove(arrp1->itempp + index + arrp2->len,
-            arrp1->itempp + index,
-            sizeof(void *) * (arrp1->len - index));
+    memmove(array1->item_ptr_arr + index + array2->len,
+            array1->item_ptr_arr + index,
+            sizeof(void *) * (array1->len - index));
 
-    for (size_t i = 0; i < arrp2->len; i++) {
-        arrp1->itempp[index + i] = darray_get(arrp2, i);
+    for (size_t i = 0; i < array2->len; i++) {
+        array1->item_ptr_arr[index + i] = darray_get(array2, i);
     }
 
-    arrp1->len += arrp2->len;
+    array1->len += array2->len;
 
     return 1;
 }
 
-int darray_extend(darray *arrp1, darray *arrp2) {
-    if (arrp1 == NULL || arrp2 == NULL) {
+int darray_extend(darray *array1, darray *array2) {
+    if (array1 == NULL || array2 == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
-    if (!_darray_resize(arrp1, arrp1->len + arrp2->len)) {
+    if (!darray_resize(array1, array1->len + array2->len)) {
         return 0;
     }
 
-    for (size_t i = 0; i < arrp2->len; i++) {
-        arrp1->itempp[arrp1->len + i] = darray_get(arrp2, i);
+    for (size_t i = 0; i < array2->len; i++) {
+        array1->item_ptr_arr[array1->len + i] = darray_get(array2, i);
     }
 
-    arrp1->len += arrp2->len;
+    array1->len += array2->len;
 
     return 1;
 }
 
-int darray_reverse(darray *arrp) {
-    if (arrp == NULL) {
+int darray_reverse(darray *array) {
+    if (array == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
-    for (size_t i = 0; i < arrp->len / 2; i++) {
-        void *temp = arrp->itempp[i];
-        arrp->itempp[i] = arrp->itempp[arrp->len - i - 1];
-        arrp->itempp[arrp->len - i - 1] = temp;
+    for (size_t i = 0; i < array->len / 2; i++) {
+        void *temp = array->item_ptr_arr[i];
+        array->item_ptr_arr[i] = array->item_ptr_arr[array->len - i - 1];
+        array->item_ptr_arr[array->len - i - 1] = temp;
     }
 
     return 1;
 }
 
-int darray_unique(darray *arrp, comparator fp) {
-    if (arrp == NULL || fp == NULL) {
+int darray_unique(darray *array, comparator fp) {
+    if (array == NULL || fp == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
-    void **itempp = arrp->itempp;
+    void **item_ptr_arr = array->item_ptr_arr;
     size_t m = 1;
     size_t i = 1;
-    for (; i < arrp->len; i++) {
-        if (fp(itempp[i-1], itempp[i]) != 0) {
-            if (!darray_pop_range(arrp, m, i)) {
+    for (; i < array->len; i++) {
+        if (fp(item_ptr_arr[i-1], item_ptr_arr[i]) != 0) {
+            if (!darray_pop_range(array, m, i)) {
                 return 0;
             }
             i -= i - m;
             m = i + 1;
         }
     }
-    if (!darray_pop_range(arrp, m, i)) {
+    if (!darray_pop_range(array, m, i)) {
         return 0;
     }
 
     return 1;
 }
 
-static void _swap_voidp(void **pp1, void **pp2) {
+static void swap_voidp(void **pp1, void **pp2) {
     void *temp = *pp1;
     *pp1 = *pp2;
     *pp2 = temp;
 }
 
-static ssize_t _partition(void **itempp,
-                          ssize_t low, ssize_t high, comparator cmp) {
-    void *pivot = itempp[high];
+static ssize_t partition(void **item_ptr_arr,
+                         ssize_t low, ssize_t high, comparator cmp) {
+    void *pivot = item_ptr_arr[high];
     ssize_t i = low - 1;
 
     for (ssize_t j = low; j < high; j++) {
-        if (cmp(itempp[j], pivot) < 0) {
+        if (cmp(item_ptr_arr[j], pivot) < 0) {
             i++;
-            _swap_voidp(itempp + i, itempp + j);
+            swap_voidp(item_ptr_arr + i, item_ptr_arr + j);
         }
     }
-    _swap_voidp(itempp + (i + 1), itempp + high);
+    swap_voidp(item_ptr_arr + (i + 1), item_ptr_arr + high);
     return i + 1;
 }
 
-void _darray_qsort(void **itempp, ssize_t low, ssize_t high, comparator cmp) {
+void darray_qsort(void **item_ptr_arr, ssize_t low, ssize_t high, comparator cmp) {
     if (low < high) {
-        ssize_t pivot_i = _partition(itempp, low, high, cmp);
+        ssize_t pivot_i = partition(item_ptr_arr, low, high, cmp);
 
-        _darray_qsort(itempp, low, pivot_i - 1, cmp);
-        _darray_qsort(itempp, pivot_i + 1, high, cmp);
+        darray_qsort(item_ptr_arr, low, pivot_i - 1, cmp);
+        darray_qsort(item_ptr_arr, pivot_i + 1, high, cmp);
     }
 }
 
-int darray_sort(darray *arrp, comparator fp) {
-    if (arrp == NULL || fp == NULL) {
+int darray_sort(darray *array, comparator fp) {
+    if (array == NULL || fp == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
-    if (arrp->len > 0) {
-        _darray_qsort(arrp->itempp, 0, arrp->len - 1, fp);
+    if (array->len > 0) {
+        darray_qsort(array->item_ptr_arr, 0, array->len - 1, fp);
     }
 
     return 1;
 }
 
-darray *darray_clone(darray *arrp, unary fp) {
-    if (arrp == NULL || fp == NULL) {
+darray *darray_clone(darray *array, unary fp) {
+    if (array == NULL || fp == NULL) {
         darray_errno = DARRAY_ENULLS;
         return NULL;
     }
 
-    darray *clonep = (darray *) malloc(sizeof(darray));
+    darray *clone = (darray *) malloc(sizeof(darray));
 
-    memcpy(clonep, arrp, sizeof(darray));
+    memcpy(clone, array, sizeof(darray));
 
-    clonep->itempp = (void **) malloc(sizeof(void *) * clonep->cap);
-    for (size_t i = 0; i < clonep->len; i++) {
-        clonep->itempp[i] = fp(arrp->itempp[i]);
+    clone->item_ptr_arr = (void **) malloc(sizeof(void *) * clone->cap);
+    for (size_t i = 0; i < clone->len; i++) {
+        clone->item_ptr_arr[i] = fp(array->item_ptr_arr[i]);
     }
 
-    return clonep;
+    return clone;
 }
 
-int darray_clear(darray *arrp) {
-    if (arrp == NULL) {
+int darray_clear(darray *array) {
+    if (array == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
-    for (size_t i = 0; i < arrp->len; i++) {
-        if (arrp->item_free != NULL) {
-            arrp->item_free(arrp->itempp[i]);
+    for (size_t i = 0; i < array->len; i++) {
+        if (array->item_free != NULL) {
+            array->item_free(array->item_ptr_arr[i]);
         }
     }
-    arrp->len = 0;
+    array->len = 0;
 
     return 1;
 }
 
-int del_darray(darray *arrp) {
-    if (arrp == NULL) {
+int del_darray(darray *array) {
+    if (array == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
 
-    darray_clear(arrp);
-    free(arrp->itempp);
-    free(arrp);
+    darray_clear(array);
+    free(array->item_ptr_arr);
+    free(array);
 
-    return 0;
+    return 1;
 }
 
 static const char *const darray_strerr_list[] = {
