@@ -1,0 +1,32 @@
+name: Automated Testing
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'Makefile'
+      - 'darray.[ch]'
+      - 'test/**'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'Makefile'
+      - 'darray.[ch]'
+      - 'test/**'
+  workflow_dispatch:
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: run test
+      run: |
+          docker run --rm -v $PWD:/valgrind karek/valgrind:latest sh -c \
+            'make clean test && \
+             valgrind --leak-check=full \
+                      --show-leak-kinds=all \
+                      --track-origins=yes \
+                      bin/test'

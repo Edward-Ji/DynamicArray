@@ -1,5 +1,7 @@
 # DynamicArray
 
+[![Automated Testing](https://github.com/Edward-Ji/DynamicArray/actions/workflows/test.yml/badge.svg)](https://github.com/Edward-Ji/DynamicArray/actions/workflows/test.yml)
+
 Dynamic array of void pointers with automatic memory free in C language.
 
 ## Documentation
