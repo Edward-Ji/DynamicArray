@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_5fdarray_5fresize_0',['_darray_resize',['../darray_8c.html#adac8dda9d45a67f982663a7b5b4d6dd2',1,'darray.c']]]
+  ['aggregate_0',['aggregate',['../darray_8h.html#a81f027a0a2ec1540d573eb6bdddf7544',1,'darray.h']]]
 ];

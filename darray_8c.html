@@ -85,75 +85,75 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae92263a7c5d51b6c3172991cd8d958bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdarray.html">darray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">new_darray</a> (<a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a> item_free)</td></tr>
+<tr class="memitem:ae92263a7c5d51b6c3172991cd8d958bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdarray.html">darray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">new_darray</a> (<a class="el" href="darray_8h.html#ac25bca5621b5594603e7decb66192a8c">consumer</a> item_free)</td></tr>
 <tr class="memdesc:ae92263a7c5d51b6c3172991cd8d958bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new dynamic array of void pointers.  <a href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">More...</a><br /></td></tr>
 <tr class="separator:ae92263a7c5d51b6c3172991cd8d958bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4096069a308738d8b418ec042ba2839"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ad4096069a308738d8b418ec042ba2839">darray_set_item_free</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a> item_free)</td></tr>
-<tr class="memdesc:ad4096069a308738d8b418ec042ba2839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the free function.  <a href="darray_8c.html#ad4096069a308738d8b418ec042ba2839">More...</a><br /></td></tr>
-<tr class="separator:ad4096069a308738d8b418ec042ba2839"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adac8dda9d45a67f982663a7b5b4d6dd2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#adac8dda9d45a67f982663a7b5b4d6dd2">_darray_resize</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t len)</td></tr>
-<tr class="memdesc:adac8dda9d45a67f982663a7b5b4d6dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the capacity of the dynamic array.  <a href="darray_8c.html#adac8dda9d45a67f982663a7b5b4d6dd2">More...</a><br /></td></tr>
-<tr class="separator:adac8dda9d45a67f982663a7b5b4d6dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8d62f8349501c9c253960f1e1c19f40"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#aa8d62f8349501c9c253960f1e1c19f40">darray_len</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
-<tr class="memdesc:aa8d62f8349501c9c253960f1e1c19f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the length of the array.  <a href="darray_8c.html#aa8d62f8349501c9c253960f1e1c19f40">More...</a><br /></td></tr>
-<tr class="separator:aa8d62f8349501c9c253960f1e1c19f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5125d9702501c6cbb342a82ad2755d65"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a5125d9702501c6cbb342a82ad2755d65">darray_foreach</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a> fp)</td></tr>
-<tr class="memdesc:a5125d9702501c6cbb342a82ad2755d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls each item in the array with a given function.  <a href="darray_8c.html#a5125d9702501c6cbb342a82ad2755d65">More...</a><br /></td></tr>
-<tr class="separator:a5125d9702501c6cbb342a82ad2755d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eff466cf1db6a41a4cd06cd249fa47c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a5eff466cf1db6a41a4cd06cd249fa47c">darray_aggregate</a> (<a class="el" href="structdarray.html">darray</a> *arrp, void *resp, <a class="el" href="darray_8h.html#a66e1437a4f161d59e7695bef1f876794">aggregate</a> fp)</td></tr>
-<tr class="memdesc:a5eff466cf1db6a41a4cd06cd249fa47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregates all items into a single result.  <a href="darray_8c.html#a5eff466cf1db6a41a4cd06cd249fa47c">More...</a><br /></td></tr>
-<tr class="separator:a5eff466cf1db6a41a4cd06cd249fa47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca35d698e8a495f779655ac7aa42f8f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#aca35d698e8a495f779655ac7aa42f8f9">darray_append</a> (<a class="el" href="structdarray.html">darray</a> *arrp, void *itemp)</td></tr>
-<tr class="memdesc:aca35d698e8a495f779655ac7aa42f8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends an item to the array.  <a href="darray_8c.html#aca35d698e8a495f779655ac7aa42f8f9">More...</a><br /></td></tr>
-<tr class="separator:aca35d698e8a495f779655ac7aa42f8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1af95c2945b7faf460ab14ddd68cbc2e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a1af95c2945b7faf460ab14ddd68cbc2e">darray_get</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t index)</td></tr>
-<tr class="memdesc:a1af95c2945b7faf460ab14ddd68cbc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an item in an array using index.  <a href="darray_8c.html#a1af95c2945b7faf460ab14ddd68cbc2e">More...</a><br /></td></tr>
-<tr class="separator:a1af95c2945b7faf460ab14ddd68cbc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a449f56df727a8657d71a2c517b1e7aec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a449f56df727a8657d71a2c517b1e7aec">darray_pop</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t index)</td></tr>
-<tr class="memdesc:a449f56df727a8657d71a2c517b1e7aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops an item at a given index.  <a href="darray_8c.html#a449f56df727a8657d71a2c517b1e7aec">More...</a><br /></td></tr>
-<tr class="separator:a449f56df727a8657d71a2c517b1e7aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefe05778fcc218e8c150a552f374101d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#aefe05778fcc218e8c150a552f374101d">darray_pop_range</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t start, size_t end)</td></tr>
-<tr class="memdesc:aefe05778fcc218e8c150a552f374101d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops items at a given index range.  <a href="darray_8c.html#aefe05778fcc218e8c150a552f374101d">More...</a><br /></td></tr>
-<tr class="separator:aefe05778fcc218e8c150a552f374101d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc571f98552c1566025c5eb1aea65974"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#adc571f98552c1566025c5eb1aea65974">darray_insert</a> (<a class="el" href="structdarray.html">darray</a> *arrp, size_t index, void *itemp)</td></tr>
-<tr class="memdesc:adc571f98552c1566025c5eb1aea65974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an item at a given index.  <a href="darray_8c.html#adc571f98552c1566025c5eb1aea65974">More...</a><br /></td></tr>
-<tr class="separator:adc571f98552c1566025c5eb1aea65974"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a866045b3e852db49d3f3422201940584"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a866045b3e852db49d3f3422201940584">darray_search</a> (<a class="el" href="structdarray.html">darray</a> *arrp, void *itemp, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> fp, size_t *indexp)</td></tr>
-<tr class="memdesc:a866045b3e852db49d3f3422201940584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for an item in an array that compares equal to anther object.  <a href="darray_8c.html#a866045b3e852db49d3f3422201940584">More...</a><br /></td></tr>
-<tr class="separator:a866045b3e852db49d3f3422201940584"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41d2e231209dda183f18c9f08701dc48"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a41d2e231209dda183f18c9f08701dc48">darray_extend_at</a> (<a class="el" href="structdarray.html">darray</a> *arrp1, size_t index, <a class="el" href="structdarray.html">darray</a> *arrp2)</td></tr>
-<tr class="memdesc:a41d2e231209dda183f18c9f08701dc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends another array at a given index in a given array.  <a href="darray_8c.html#a41d2e231209dda183f18c9f08701dc48">More...</a><br /></td></tr>
-<tr class="separator:a41d2e231209dda183f18c9f08701dc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a320981405cc6a3346820870cabdb40e5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a320981405cc6a3346820870cabdb40e5">darray_extend</a> (<a class="el" href="structdarray.html">darray</a> *arrp1, <a class="el" href="structdarray.html">darray</a> *arrp2)</td></tr>
-<tr class="memdesc:a320981405cc6a3346820870cabdb40e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends another array to the end of a given array.  <a href="darray_8c.html#a320981405cc6a3346820870cabdb40e5">More...</a><br /></td></tr>
-<tr class="separator:a320981405cc6a3346820870cabdb40e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1a12deaba2b31aeb0bb092f20e15431"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ac1a12deaba2b31aeb0bb092f20e15431">darray_reverse</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
-<tr class="memdesc:ac1a12deaba2b31aeb0bb092f20e15431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses a given array.  <a href="darray_8c.html#ac1a12deaba2b31aeb0bb092f20e15431">More...</a><br /></td></tr>
-<tr class="separator:ac1a12deaba2b31aeb0bb092f20e15431"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dd07c131b5feb3ff431e08fa5a5ba11"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a8dd07c131b5feb3ff431e08fa5a5ba11">darray_unique</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> fp)</td></tr>
-<tr class="memdesc:a8dd07c131b5feb3ff431e08fa5a5ba11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters out repeated adjacent items.  <a href="darray_8c.html#a8dd07c131b5feb3ff431e08fa5a5ba11">More...</a><br /></td></tr>
-<tr class="separator:a8dd07c131b5feb3ff431e08fa5a5ba11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6652843e1bf31843bb8e8fc385d0fbbe"><td class="memItemLeft" align="right" valign="top"><a id="a6652843e1bf31843bb8e8fc385d0fbbe" name="a6652843e1bf31843bb8e8fc385d0fbbe"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>_swap_voidp</b> (void **pp1, void **pp2)</td></tr>
-<tr class="separator:a6652843e1bf31843bb8e8fc385d0fbbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5038408086237d99973ddbbf3f82811b"><td class="memItemLeft" align="right" valign="top"><a id="a5038408086237d99973ddbbf3f82811b" name="a5038408086237d99973ddbbf3f82811b"></a>
-static ssize_t&#160;</td><td class="memItemRight" valign="bottom"><b>_partition</b> (void **itempp, ssize_t low, ssize_t high, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> cmp)</td></tr>
-<tr class="separator:a5038408086237d99973ddbbf3f82811b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5308c73bd6e3e40cfd4b01ed5efd2c91"><td class="memItemLeft" align="right" valign="top"><a id="a5308c73bd6e3e40cfd4b01ed5efd2c91" name="a5308c73bd6e3e40cfd4b01ed5efd2c91"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>_darray_qsort</b> (void **itempp, ssize_t low, ssize_t high, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> cmp)</td></tr>
-<tr class="separator:a5308c73bd6e3e40cfd4b01ed5efd2c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad38ecb004ebbdc96d7d4d165073f53ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ad38ecb004ebbdc96d7d4d165073f53ac">darray_sort</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a> fp)</td></tr>
-<tr class="memdesc:ad38ecb004ebbdc96d7d4d165073f53ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts a given array.  <a href="darray_8c.html#ad38ecb004ebbdc96d7d4d165073f53ac">More...</a><br /></td></tr>
-<tr class="separator:ad38ecb004ebbdc96d7d4d165073f53ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41390d53dd6bfbeb6ce926208512d38e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdarray.html">darray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a41390d53dd6bfbeb6ce926208512d38e">darray_clone</a> (<a class="el" href="structdarray.html">darray</a> *arrp, <a class="el" href="darray_8h.html#abd4ab94471d4f014a91f23a2ffe8d5ee">unary</a> fp)</td></tr>
-<tr class="memdesc:a41390d53dd6bfbeb6ce926208512d38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a clone of a given array.  <a href="darray_8c.html#a41390d53dd6bfbeb6ce926208512d38e">More...</a><br /></td></tr>
-<tr class="separator:a41390d53dd6bfbeb6ce926208512d38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80d99b0f6a4f891e06591a5313bc1472"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a80d99b0f6a4f891e06591a5313bc1472">darray_clear</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
-<tr class="memdesc:a80d99b0f6a4f891e06591a5313bc1472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all items from a given array.  <a href="darray_8c.html#a80d99b0f6a4f891e06591a5313bc1472">More...</a><br /></td></tr>
-<tr class="separator:a80d99b0f6a4f891e06591a5313bc1472"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66ea18d87bc34d89d4fe5c6b6167fb72"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a66ea18d87bc34d89d4fe5c6b6167fb72">del_darray</a> (<a class="el" href="structdarray.html">darray</a> *arrp)</td></tr>
-<tr class="memdesc:a66ea18d87bc34d89d4fe5c6b6167fb72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a given array.  <a href="darray_8c.html#a66ea18d87bc34d89d4fe5c6b6167fb72">More...</a><br /></td></tr>
-<tr class="separator:a66ea18d87bc34d89d4fe5c6b6167fb72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aa5ccf5ffc71da3bd5ae39e34aa2848"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">darray_set_item_free</a> (<a class="el" href="structdarray.html">darray</a> *array, <a class="el" href="darray_8h.html#ac25bca5621b5594603e7decb66192a8c">consumer</a> item_free)</td></tr>
+<tr class="memdesc:a2aa5ccf5ffc71da3bd5ae39e34aa2848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the free function.  <a href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">More...</a><br /></td></tr>
+<tr class="separator:a2aa5ccf5ffc71da3bd5ae39e34aa2848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ef1f7848b8300855ef481e51d90a617"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a5ef1f7848b8300855ef481e51d90a617">darray_resize</a> (<a class="el" href="structdarray.html">darray</a> *array, size_t len)</td></tr>
+<tr class="memdesc:a5ef1f7848b8300855ef481e51d90a617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the capacity of the dynamic array.  <a href="darray_8c.html#a5ef1f7848b8300855ef481e51d90a617">More...</a><br /></td></tr>
+<tr class="separator:a5ef1f7848b8300855ef481e51d90a617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7131c23d25104eadd550a0593de83803"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a7131c23d25104eadd550a0593de83803">darray_len</a> (<a class="el" href="structdarray.html">darray</a> *array)</td></tr>
+<tr class="memdesc:a7131c23d25104eadd550a0593de83803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the length of the array.  <a href="darray_8c.html#a7131c23d25104eadd550a0593de83803">More...</a><br /></td></tr>
+<tr class="separator:a7131c23d25104eadd550a0593de83803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fad49e7cd9517304e21800cda261a06"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a8fad49e7cd9517304e21800cda261a06">darray_foreach</a> (<a class="el" href="structdarray.html">darray</a> *array, <a class="el" href="darray_8h.html#ac25bca5621b5594603e7decb66192a8c">consumer</a> fp)</td></tr>
+<tr class="memdesc:a8fad49e7cd9517304e21800cda261a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls each item in the array with a given function.  <a href="darray_8c.html#a8fad49e7cd9517304e21800cda261a06">More...</a><br /></td></tr>
+<tr class="separator:a8fad49e7cd9517304e21800cda261a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeaadbad267d9674362131354a178759"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#adeaadbad267d9674362131354a178759">darray_aggregate</a> (<a class="el" href="structdarray.html">darray</a> *array, void *resp, <a class="el" href="darray_8h.html#a81f027a0a2ec1540d573eb6bdddf7544">aggregate</a> fp)</td></tr>
+<tr class="memdesc:adeaadbad267d9674362131354a178759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregates all items into a single result.  <a href="darray_8c.html#adeaadbad267d9674362131354a178759">More...</a><br /></td></tr>
+<tr class="separator:adeaadbad267d9674362131354a178759"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a641d90a542e62e7ddbf03d0e4240c329"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a641d90a542e62e7ddbf03d0e4240c329">darray_append</a> (<a class="el" href="structdarray.html">darray</a> *array, void *item_ptr)</td></tr>
+<tr class="memdesc:a641d90a542e62e7ddbf03d0e4240c329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends an item to the array.  <a href="darray_8c.html#a641d90a542e62e7ddbf03d0e4240c329">More...</a><br /></td></tr>
+<tr class="separator:a641d90a542e62e7ddbf03d0e4240c329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab92760260d46f62fcd98a20bdeebbf10"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ab92760260d46f62fcd98a20bdeebbf10">darray_get</a> (<a class="el" href="structdarray.html">darray</a> *array, size_t index)</td></tr>
+<tr class="memdesc:ab92760260d46f62fcd98a20bdeebbf10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an item in an array using index.  <a href="darray_8c.html#ab92760260d46f62fcd98a20bdeebbf10">More...</a><br /></td></tr>
+<tr class="separator:ab92760260d46f62fcd98a20bdeebbf10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d209e96fad8acb4240b619ef4bf2f57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a2d209e96fad8acb4240b619ef4bf2f57">darray_pop</a> (<a class="el" href="structdarray.html">darray</a> *array, size_t index)</td></tr>
+<tr class="memdesc:a2d209e96fad8acb4240b619ef4bf2f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops an item at a given index.  <a href="darray_8c.html#a2d209e96fad8acb4240b619ef4bf2f57">More...</a><br /></td></tr>
+<tr class="separator:a2d209e96fad8acb4240b619ef4bf2f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c92368130dd3e2474207c2a00551b19"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a4c92368130dd3e2474207c2a00551b19">darray_pop_range</a> (<a class="el" href="structdarray.html">darray</a> *array, size_t start, size_t end)</td></tr>
+<tr class="memdesc:a4c92368130dd3e2474207c2a00551b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops items at a given index range.  <a href="darray_8c.html#a4c92368130dd3e2474207c2a00551b19">More...</a><br /></td></tr>
+<tr class="separator:a4c92368130dd3e2474207c2a00551b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38827e9b623d20adf5bb7c8503bfd243"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a38827e9b623d20adf5bb7c8503bfd243">darray_insert</a> (<a class="el" href="structdarray.html">darray</a> *array, size_t index, void *item_ptr)</td></tr>
+<tr class="memdesc:a38827e9b623d20adf5bb7c8503bfd243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts an item at a given index.  <a href="darray_8c.html#a38827e9b623d20adf5bb7c8503bfd243">More...</a><br /></td></tr>
+<tr class="separator:a38827e9b623d20adf5bb7c8503bfd243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae36523088077ece061b9406bda9993a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ae36523088077ece061b9406bda9993a4">darray_search</a> (<a class="el" href="structdarray.html">darray</a> *array, void *item_ptr, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> fp, size_t *idx_ptr)</td></tr>
+<tr class="memdesc:ae36523088077ece061b9406bda9993a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for an item in an array that compares equal to anther object.  <a href="darray_8c.html#ae36523088077ece061b9406bda9993a4">More...</a><br /></td></tr>
+<tr class="separator:ae36523088077ece061b9406bda9993a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa05c30ef917ceca3824fdc09eec036"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#aefa05c30ef917ceca3824fdc09eec036">darray_extend_at</a> (<a class="el" href="structdarray.html">darray</a> *array1, size_t index, <a class="el" href="structdarray.html">darray</a> *array2)</td></tr>
+<tr class="memdesc:aefa05c30ef917ceca3824fdc09eec036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends another array at a given index in a given array.  <a href="darray_8c.html#aefa05c30ef917ceca3824fdc09eec036">More...</a><br /></td></tr>
+<tr class="separator:aefa05c30ef917ceca3824fdc09eec036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7d24a7df213a684a06a2fa8a07bfbb6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ab7d24a7df213a684a06a2fa8a07bfbb6">darray_extend</a> (<a class="el" href="structdarray.html">darray</a> *array1, <a class="el" href="structdarray.html">darray</a> *array2)</td></tr>
+<tr class="memdesc:ab7d24a7df213a684a06a2fa8a07bfbb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends another array to the end of a given array.  <a href="darray_8c.html#ab7d24a7df213a684a06a2fa8a07bfbb6">More...</a><br /></td></tr>
+<tr class="separator:ab7d24a7df213a684a06a2fa8a07bfbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad40b70e253f204d2c8ae602bf6dd66eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ad40b70e253f204d2c8ae602bf6dd66eb">darray_reverse</a> (<a class="el" href="structdarray.html">darray</a> *array)</td></tr>
+<tr class="memdesc:ad40b70e253f204d2c8ae602bf6dd66eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses a given array.  <a href="darray_8c.html#ad40b70e253f204d2c8ae602bf6dd66eb">More...</a><br /></td></tr>
+<tr class="separator:ad40b70e253f204d2c8ae602bf6dd66eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ed50f26758530adf2838ce77e9caa45"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a9ed50f26758530adf2838ce77e9caa45">darray_unique</a> (<a class="el" href="structdarray.html">darray</a> *array, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> fp)</td></tr>
+<tr class="memdesc:a9ed50f26758530adf2838ce77e9caa45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters out repeated adjacent items.  <a href="darray_8c.html#a9ed50f26758530adf2838ce77e9caa45">More...</a><br /></td></tr>
+<tr class="separator:a9ed50f26758530adf2838ce77e9caa45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a358697da1ef3c6924f2c70962bb77ff8"><td class="memItemLeft" align="right" valign="top"><a id="a358697da1ef3c6924f2c70962bb77ff8" name="a358697da1ef3c6924f2c70962bb77ff8"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>swap_voidp</b> (void **pp1, void **pp2)</td></tr>
+<tr class="separator:a358697da1ef3c6924f2c70962bb77ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9e01b431639840990c39615512856e2"><td class="memItemLeft" align="right" valign="top"><a id="ab9e01b431639840990c39615512856e2" name="ab9e01b431639840990c39615512856e2"></a>
+static ssize_t&#160;</td><td class="memItemRight" valign="bottom"><b>partition</b> (void **item_ptr_arr, ssize_t low, ssize_t high, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> cmp)</td></tr>
+<tr class="separator:ab9e01b431639840990c39615512856e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2408c5eb011c595993f7f52c113c5f54"><td class="memItemLeft" align="right" valign="top"><a id="a2408c5eb011c595993f7f52c113c5f54" name="a2408c5eb011c595993f7f52c113c5f54"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>darray_qsort</b> (void **item_ptr_arr, ssize_t low, ssize_t high, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> cmp)</td></tr>
+<tr class="separator:a2408c5eb011c595993f7f52c113c5f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc9f699ede2f4de86d747678c9b5f774"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#abc9f699ede2f4de86d747678c9b5f774">darray_sort</a> (<a class="el" href="structdarray.html">darray</a> *array, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> fp)</td></tr>
+<tr class="memdesc:abc9f699ede2f4de86d747678c9b5f774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts a given array.  <a href="darray_8c.html#abc9f699ede2f4de86d747678c9b5f774">More...</a><br /></td></tr>
+<tr class="separator:abc9f699ede2f4de86d747678c9b5f774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cebb781d6cc003cfde77a1c8c919e51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdarray.html">darray</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a> (<a class="el" href="structdarray.html">darray</a> *array, <a class="el" href="darray_8h.html#a145514e476a2b1ef91c1a0d199cee1ea">unary</a> fp)</td></tr>
+<tr class="memdesc:a8cebb781d6cc003cfde77a1c8c919e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a clone of a given array.  <a href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">More...</a><br /></td></tr>
+<tr class="separator:a8cebb781d6cc003cfde77a1c8c919e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31f2cb8c11fdf3c701a167c3906d41ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a31f2cb8c11fdf3c701a167c3906d41ca">darray_clear</a> (<a class="el" href="structdarray.html">darray</a> *array)</td></tr>
+<tr class="memdesc:a31f2cb8c11fdf3c701a167c3906d41ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all items from a given array.  <a href="darray_8c.html#a31f2cb8c11fdf3c701a167c3906d41ca">More...</a><br /></td></tr>
+<tr class="separator:a31f2cb8c11fdf3c701a167c3906d41ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af915a40dd74bb39c0e916e933fa4d2d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#af915a40dd74bb39c0e916e933fa4d2d0">del_darray</a> (<a class="el" href="structdarray.html">darray</a> *array)</td></tr>
+<tr class="memdesc:af915a40dd74bb39c0e916e933fa4d2d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a given array.  <a href="darray_8c.html#af915a40dd74bb39c0e916e933fa4d2d0">More...</a><br /></td></tr>
+<tr class="separator:af915a40dd74bb39c0e916e933fa4d2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fbf2da53803031e7b3f4e2cc52bfb92"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a6fbf2da53803031e7b3f4e2cc52bfb92">darray_strerr</a> ()</td></tr>
 <tr class="memdesc:a6fbf2da53803031e7b3f4e2cc52bfb92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to a string that describes the error number.  <a href="darray_8c.html#a6fbf2da53803031e7b3f4e2cc52bfb92">More...</a><br /></td></tr>
 <tr class="separator:a6fbf2da53803031e7b3f4e2cc52bfb92"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,7 +184,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="structdarray.html">darray</a> * new_darray </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="darray_8h.html#ac25bca5621b5594603e7decb66192a8c">consumer</a>&#160;</td>
           <td class="paramname"><em>item_free</em></td><td>)</td>
           <td></td>
         </tr>
@@ -200,12 +200,12 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A new dynamic array object. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd>To deallocate the dynamic array, use <code><a class="el" href="darray_8h.html#a66ea18d87bc34d89d4fe5c6b6167fb72" title="Deallocates a given array.">del_darray</a></code>. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>To deallocate the dynamic array, use <code><a class="el" href="darray_8h.html#af915a40dd74bb39c0e916e933fa4d2d0" title="Deallocates a given array.">del_darray</a></code>. </dd></dl>
 
 </div>
 </div>
-<a id="ad4096069a308738d8b418ec042ba2839" name="ad4096069a308738d8b418ec042ba2839"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4096069a308738d8b418ec042ba2839">&#9670;&nbsp;</a></span>darray_set_item_free()</h2>
+<a id="a2aa5ccf5ffc71da3bd5ae39e34aa2848" name="a2aa5ccf5ffc71da3bd5ae39e34aa2848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aa5ccf5ffc71da3bd5ae39e34aa2848">&#9670;&nbsp;</a></span>darray_set_item_free()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,12 +214,12 @@ Variables</h2></td></tr>
           <td class="memname">int darray_set_item_free </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="darray_8h.html#ac25bca5621b5594603e7decb66192a8c">consumer</a>&#160;</td>
           <td class="paramname"><em>item_free</em>&#160;</td>
         </tr>
         <tr>
@@ -234,18 +234,18 @@ Variables</h2></td></tr>
 <p >This function sets the function pointer that frees the item if the item pointer is removed from the array. You should rarely need to use this function, except for temporarily disabling the free behaviour of other dynamic array functions.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
     <tr><td class="paramname">item_free</td><td>A pointer to a function that frees an item. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>You can temporarily disable automatic deallocation of array items by setting <code>item_free</code> to <code>NULL</code> and back. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>You can temporarily disable automatic de-allocation of array items by setting <code>item_free</code> to <code>NULL</code> and back. </dd></dl>
 
 </div>
 </div>
-<a id="adac8dda9d45a67f982663a7b5b4d6dd2" name="adac8dda9d45a67f982663a7b5b4d6dd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adac8dda9d45a67f982663a7b5b4d6dd2">&#9670;&nbsp;</a></span>_darray_resize()</h2>
+<a id="a5ef1f7848b8300855ef481e51d90a617" name="a5ef1f7848b8300855ef481e51d90a617"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ef1f7848b8300855ef481e51d90a617">&#9670;&nbsp;</a></span>darray_resize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -254,10 +254,10 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int _darray_resize </td>
+          <td class="memname">static int darray_resize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -289,36 +289,37 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aa8d62f8349501c9c253960f1e1c19f40" name="aa8d62f8349501c9c253960f1e1c19f40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8d62f8349501c9c253960f1e1c19f40">&#9670;&nbsp;</a></span>darray_len()</h2>
+<a id="a7131c23d25104eadd550a0593de83803" name="a7131c23d25104eadd550a0593de83803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7131c23d25104eadd550a0593de83803">&#9670;&nbsp;</a></span>darray_len()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ssize_t darray_len </td>
+          <td class="memname">size_t darray_len </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em></td><td>)</td>
+          <td class="paramname"><em>array</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Getter for the length of the array. </p>
-<p >This function returns the number of items in a given array.</p>
+<p >This function returns the number of items in a given array. Returns 0 if the argument is <code>NULL</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of items in a given array. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function does not set <code>darray_errno</code> even if the argument is <code>NULL</code>. </dd></dl>
 
 </div>
 </div>
-<a id="a5125d9702501c6cbb342a82ad2755d65" name="a5125d9702501c6cbb342a82ad2755d65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5125d9702501c6cbb342a82ad2755d65">&#9670;&nbsp;</a></span>darray_foreach()</h2>
+<a id="a8fad49e7cd9517304e21800cda261a06" name="a8fad49e7cd9517304e21800cda261a06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fad49e7cd9517304e21800cda261a06">&#9670;&nbsp;</a></span>darray_foreach()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,12 +328,12 @@ Variables</h2></td></tr>
           <td class="memname">int darray_foreach </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="darray_8h.html#a977b521e377a680770389559cef751a2">consumer</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="darray_8h.html#ac25bca5621b5594603e7decb66192a8c">consumer</a>&#160;</td>
           <td class="paramname"><em>fp</em>&#160;</td>
         </tr>
         <tr>
@@ -347,7 +348,7 @@ Variables</h2></td></tr>
 <p >This function calls the given function with every object in the array sequentially.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
     <tr><td class="paramname">fp</td><td>A pointer to a consumer function. </td></tr>
   </table>
   </dd>
@@ -356,8 +357,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a5eff466cf1db6a41a4cd06cd249fa47c" name="a5eff466cf1db6a41a4cd06cd249fa47c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eff466cf1db6a41a4cd06cd249fa47c">&#9670;&nbsp;</a></span>darray_aggregate()</h2>
+<a id="adeaadbad267d9674362131354a178759" name="adeaadbad267d9674362131354a178759"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeaadbad267d9674362131354a178759">&#9670;&nbsp;</a></span>darray_aggregate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -366,7 +367,7 @@ Variables</h2></td></tr>
           <td class="memname">void darray_aggregate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -377,7 +378,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="darray_8h.html#a66e1437a4f161d59e7695bef1f876794">aggregate</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="darray_8h.html#a81f027a0a2ec1540d573eb6bdddf7544">aggregate</a>&#160;</td>
           <td class="paramname"><em>fp</em>&#160;</td>
         </tr>
         <tr>
@@ -392,18 +393,18 @@ Variables</h2></td></tr>
 <p >This function calls the aggregation function with every item in the array as the first argument, and the result pointer as the second argument.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
     <tr><td class="paramname">resp</td><td>A pointer to the result object. </td></tr>
     <tr><td class="paramname">fp</td><td>A pointer to an aggregate function. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd>How to write an <code><a class="el" href="darray_8h.html#a66e1437a4f161d59e7695bef1f876794" title="The aggregate function pointer type definition.">aggregate</a></code> function. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>How to write an <code><a class="el" href="darray_8h.html#a81f027a0a2ec1540d573eb6bdddf7544" title="The aggregate function pointer type definition.">aggregate</a></code> function. </dd></dl>
 
 </div>
 </div>
-<a id="aca35d698e8a495f779655ac7aa42f8f9" name="aca35d698e8a495f779655ac7aa42f8f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca35d698e8a495f779655ac7aa42f8f9">&#9670;&nbsp;</a></span>darray_append()</h2>
+<a id="a641d90a542e62e7ddbf03d0e4240c329" name="a641d90a542e62e7ddbf03d0e4240c329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a641d90a542e62e7ddbf03d0e4240c329">&#9670;&nbsp;</a></span>darray_append()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -412,13 +413,13 @@ Variables</h2></td></tr>
           <td class="memname">int darray_append </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>itemp</em>&#160;</td>
+          <td class="paramname"><em>item_ptr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -432,8 +433,8 @@ Variables</h2></td></tr>
 <p >This function appends an item to the end of an array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
-    <tr><td class="paramname">itemp</td><td>A pointer to an item to be appended. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">item_ptr</td><td>A pointer to an item to be appended. </td></tr>
   </table>
   </dd>
 </dl>
@@ -441,8 +442,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1af95c2945b7faf460ab14ddd68cbc2e" name="a1af95c2945b7faf460ab14ddd68cbc2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1af95c2945b7faf460ab14ddd68cbc2e">&#9670;&nbsp;</a></span>darray_get()</h2>
+<a id="ab92760260d46f62fcd98a20bdeebbf10" name="ab92760260d46f62fcd98a20bdeebbf10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab92760260d46f62fcd98a20bdeebbf10">&#9670;&nbsp;</a></span>darray_get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -451,7 +452,7 @@ Variables</h2></td></tr>
           <td class="memname">void * darray_get </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -471,7 +472,7 @@ Variables</h2></td></tr>
 <p >This function attempts to return the item at a given index in the array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
     <tr><td class="paramname">index</td><td>A valid index in the array. </td></tr>
   </table>
   </dd>
@@ -481,8 +482,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a449f56df727a8657d71a2c517b1e7aec" name="a449f56df727a8657d71a2c517b1e7aec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a449f56df727a8657d71a2c517b1e7aec">&#9670;&nbsp;</a></span>darray_pop()</h2>
+<a id="a2d209e96fad8acb4240b619ef4bf2f57" name="a2d209e96fad8acb4240b619ef4bf2f57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d209e96fad8acb4240b619ef4bf2f57">&#9670;&nbsp;</a></span>darray_pop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -491,7 +492,7 @@ Variables</h2></td></tr>
           <td class="memname">int darray_pop </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -511,7 +512,7 @@ Variables</h2></td></tr>
 <p >This function pops the item at a given index from an array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
     <tr><td class="paramname">index</td><td>A valid index in the array. </td></tr>
   </table>
   </dd>
@@ -520,18 +521,18 @@ Variables</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>The free function associated with the array is called if it's not <code>NULL</code>. If the function properly deallocates the item, accessing the popped object may be undefined behavior. <div class="fragment"><div class="line">arr = <a class="code hl_function" href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">new_darray</a>(free);</div>
 <div class="line"><span class="keywordtype">int</span> *p = malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
 <div class="line">*p = 42;</div>
-<div class="line"><a class="code hl_function" href="darray_8c.html#aca35d698e8a495f779655ac7aa42f8f9">darray_append</a>(arr, p);</div>
-<div class="line"><a class="code hl_function" href="darray_8c.html#a449f56df727a8657d71a2c517b1e7aec">darray_pop</a>(0); <span class="comment">// `free(p)` called</span></div>
+<div class="line"><a class="code hl_function" href="darray_8c.html#a641d90a542e62e7ddbf03d0e4240c329">darray_append</a>(arr, p);</div>
+<div class="line"><a class="code hl_function" href="darray_8c.html#a2d209e96fad8acb4240b619ef4bf2f57">darray_pop</a>(0); <span class="comment">// `free(p)` called</span></div>
 <div class="line">*p = 0;        <span class="comment">// undefined behavior</span></div>
-<div class="ttc" id="adarray_8c_html_a449f56df727a8657d71a2c517b1e7aec"><div class="ttname"><a href="darray_8c.html#a449f56df727a8657d71a2c517b1e7aec">darray_pop</a></div><div class="ttdeci">int darray_pop(darray *arrp, size_t index)</div><div class="ttdoc">Pops an item at a given index.</div><div class="ttdef"><b>Definition:</b> darray.c:158</div></div>
-<div class="ttc" id="adarray_8c_html_aca35d698e8a495f779655ac7aa42f8f9"><div class="ttname"><a href="darray_8c.html#aca35d698e8a495f779655ac7aa42f8f9">darray_append</a></div><div class="ttdeci">int darray_append(darray *arrp, void *itemp)</div><div class="ttdoc">Appends an item to the array.</div><div class="ttdef"><b>Definition:</b> darray.c:128</div></div>
+<div class="ttc" id="adarray_8c_html_a2d209e96fad8acb4240b619ef4bf2f57"><div class="ttname"><a href="darray_8c.html#a2d209e96fad8acb4240b619ef4bf2f57">darray_pop</a></div><div class="ttdeci">int darray_pop(darray *array, size_t index)</div><div class="ttdoc">Pops an item at a given index.</div><div class="ttdef"><b>Definition:</b> darray.c:152</div></div>
+<div class="ttc" id="adarray_8c_html_a641d90a542e62e7ddbf03d0e4240c329"><div class="ttname"><a href="darray_8c.html#a641d90a542e62e7ddbf03d0e4240c329">darray_append</a></div><div class="ttdeci">int darray_append(darray *array, void *item_ptr)</div><div class="ttdoc">Appends an item to the array.</div><div class="ttdef"><b>Definition:</b> darray.c:122</div></div>
 <div class="ttc" id="adarray_8c_html_ae92263a7c5d51b6c3172991cd8d958bb"><div class="ttname"><a href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">new_darray</a></div><div class="ttdeci">darray * new_darray(consumer item_free)</div><div class="ttdoc">Creates a new dynamic array of void pointers.</div><div class="ttdef"><b>Definition:</b> darray.c:33</div></div>
 </div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
-<a id="aefe05778fcc218e8c150a552f374101d" name="aefe05778fcc218e8c150a552f374101d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefe05778fcc218e8c150a552f374101d">&#9670;&nbsp;</a></span>darray_pop_range()</h2>
+<a id="a4c92368130dd3e2474207c2a00551b19" name="a4c92368130dd3e2474207c2a00551b19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c92368130dd3e2474207c2a00551b19">&#9670;&nbsp;</a></span>darray_pop_range()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,7 +541,7 @@ Variables</h2></td></tr>
           <td class="memname">int darray_pop_range </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -566,7 +567,7 @@ Variables</h2></td></tr>
 <p >This function pops the items at a given index range from the array. This includes the item at the starting index, the items between the starting index and the ending index, but <b>not</b> the item at the end index.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
     <tr><td class="paramname">start</td><td>An index from which to start popping (inclusive). </td></tr>
     <tr><td class="paramname">end</td><td>An index at which to stop popping (exclusive). </td></tr>
   </table>
@@ -577,8 +578,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="adc571f98552c1566025c5eb1aea65974" name="adc571f98552c1566025c5eb1aea65974"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc571f98552c1566025c5eb1aea65974">&#9670;&nbsp;</a></span>darray_insert()</h2>
+<a id="a38827e9b623d20adf5bb7c8503bfd243" name="a38827e9b623d20adf5bb7c8503bfd243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38827e9b623d20adf5bb7c8503bfd243">&#9670;&nbsp;</a></span>darray_insert()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -587,7 +588,7 @@ Variables</h2></td></tr>
           <td class="memname">int darray_insert </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -599,7 +600,7 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>itemp</em>&#160;</td>
+          <td class="paramname"><em>item_ptr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -613,9 +614,9 @@ Variables</h2></td></tr>
 <p >This function inserts an item at an given index in an array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
     <tr><td class="paramname">index</td><td>A valid index to insert at. </td></tr>
-    <tr><td class="paramname">itemp</td><td>A pointer to an item to be appended. </td></tr>
+    <tr><td class="paramname">item_ptr</td><td>A pointer to an item to be appended. </td></tr>
   </table>
   </dd>
 </dl>
@@ -623,8 +624,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a866045b3e852db49d3f3422201940584" name="a866045b3e852db49d3f3422201940584"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a866045b3e852db49d3f3422201940584">&#9670;&nbsp;</a></span>darray_search()</h2>
+<a id="ae36523088077ece061b9406bda9993a4" name="ae36523088077ece061b9406bda9993a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae36523088077ece061b9406bda9993a4">&#9670;&nbsp;</a></span>darray_search()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -633,25 +634,25 @@ Variables</h2></td></tr>
           <td class="memname">int darray_search </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>itemp</em>, </td>
+          <td class="paramname"><em>item_ptr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a>&#160;</td>
           <td class="paramname"><em>fp</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>indexp</em>&#160;</td>
+          <td class="paramname"><em>idx_ptr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -665,28 +666,28 @@ Variables</h2></td></tr>
 <p >Searches for an item in the array using a given comparator and stores its index in the index pointer. The comparator is called with an array item as the first argument, and the item to compare against as the second argument.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
-    <tr><td class="paramname">itemp</td><td>An object to compare against. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">item_ptr</td><td>An object to compare against. </td></tr>
     <tr><td class="paramname">fp</td><td>A pointer to a function that compares array item against the object. </td></tr>
-    <tr><td class="paramname">indexp</td><td>A pointer to store the index of found item. </td></tr>
+    <tr><td class="paramname">idx_ptr</td><td>A pointer to store the index of found item. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if there is a match, or 0 otherwise.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>How to write a <code><a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844" title="The comparator function pointer type definition.">comparator</a></code>.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>How to write a <code><a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd" title="The comparator function pointer type definition.">comparator</a></code>.</dd></dl>
 <p>For example, to find the index of <code>42</code> in some integer array: </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> target = 42;</div>
 <div class="line"><span class="keywordtype">size_t</span> index;</div>
-<div class="line"><span class="keywordflow">if</span> (!<a class="code hl_function" href="darray_8c.html#a866045b3e852db49d3f3422201940584">darray_search</a>(array_pointer, &amp;42, integer_comparator, &amp;index)) {</div>
+<div class="line"><span class="keywordflow">if</span> (!<a class="code hl_function" href="darray_8c.html#ae36523088077ece061b9406bda9993a4">darray_search</a>(array_pointer, &amp;42, integer_comparator, &amp;index)) {</div>
 <div class="line">    printf(<span class="stringliteral">&quot;42 not in array!&quot;</span>);</div>
 <div class="line">    exit(1);</div>
 <div class="line">}</div>
 <div class="line">printf(<span class="stringliteral">&quot;42 at index %zu.&quot;</span>, index);</div>
-<div class="ttc" id="adarray_8c_html_a866045b3e852db49d3f3422201940584"><div class="ttname"><a href="darray_8c.html#a866045b3e852db49d3f3422201940584">darray_search</a></div><div class="ttdeci">int darray_search(darray *arrp, void *itemp, comparator fp, size_t *indexp)</div><div class="ttdoc">Searches for an item in an array that compares equal to anther object.</div><div class="ttdef"><b>Definition:</b> darray.c:234</div></div>
+<div class="ttc" id="adarray_8c_html_ae36523088077ece061b9406bda9993a4"><div class="ttname"><a href="darray_8c.html#ae36523088077ece061b9406bda9993a4">darray_search</a></div><div class="ttdeci">int darray_search(darray *array, void *item_ptr, comparator fp, size_t *idx_ptr)</div><div class="ttdoc">Searches for an item in an array that compares equal to anther object.</div><div class="ttdef"><b>Definition:</b> darray.c:228</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a41d2e231209dda183f18c9f08701dc48" name="a41d2e231209dda183f18c9f08701dc48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41d2e231209dda183f18c9f08701dc48">&#9670;&nbsp;</a></span>darray_extend_at()</h2>
+<a id="aefa05c30ef917ceca3824fdc09eec036" name="aefa05c30ef917ceca3824fdc09eec036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefa05c30ef917ceca3824fdc09eec036">&#9670;&nbsp;</a></span>darray_extend_at()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -695,7 +696,7 @@ Variables</h2></td></tr>
           <td class="memname">int darray_extend_at </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp1</em>, </td>
+          <td class="paramname"><em>array1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -707,7 +708,7 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp2</em>&#160;</td>
+          <td class="paramname"><em>array2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -721,9 +722,9 @@ Variables</h2></td></tr>
 <p >In the order of their index, insert each item in the second array at the given index of the first one.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp1</td><td>A pointer to a dynamic array to extend to. </td></tr>
+    <tr><td class="paramname">array1</td><td>A pointer to a dynamic array to extend to. </td></tr>
     <tr><td class="paramname">index</td><td>A valid index in the first array to extend at. </td></tr>
-    <tr><td class="paramname">arrp2</td><td>A pointer to another dynamic array to extend from. </td></tr>
+    <tr><td class="paramname">array2</td><td>A pointer to another dynamic array to extend from. </td></tr>
   </table>
   </dd>
 </dl>
@@ -731,8 +732,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a320981405cc6a3346820870cabdb40e5" name="a320981405cc6a3346820870cabdb40e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a320981405cc6a3346820870cabdb40e5">&#9670;&nbsp;</a></span>darray_extend()</h2>
+<a id="ab7d24a7df213a684a06a2fa8a07bfbb6" name="ab7d24a7df213a684a06a2fa8a07bfbb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d24a7df213a684a06a2fa8a07bfbb6">&#9670;&nbsp;</a></span>darray_extend()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -741,13 +742,13 @@ Variables</h2></td></tr>
           <td class="memname">int darray_extend </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp1</em>, </td>
+          <td class="paramname"><em>array1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp2</em>&#160;</td>
+          <td class="paramname"><em>array2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -761,8 +762,8 @@ Variables</h2></td></tr>
 <p >In the order of their index, append each item in the second array to the end of the first one.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp1</td><td>A pointer to a dynamic array to extend to. </td></tr>
-    <tr><td class="paramname">arrp2</td><td>A pointer to another dynamic array to extend from. </td></tr>
+    <tr><td class="paramname">array1</td><td>A pointer to a dynamic array to extend to. </td></tr>
+    <tr><td class="paramname">array2</td><td>A pointer to another dynamic array to extend from. </td></tr>
   </table>
   </dd>
 </dl>
@@ -770,8 +771,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ac1a12deaba2b31aeb0bb092f20e15431" name="ac1a12deaba2b31aeb0bb092f20e15431"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1a12deaba2b31aeb0bb092f20e15431">&#9670;&nbsp;</a></span>darray_reverse()</h2>
+<a id="ad40b70e253f204d2c8ae602bf6dd66eb" name="ad40b70e253f204d2c8ae602bf6dd66eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad40b70e253f204d2c8ae602bf6dd66eb">&#9670;&nbsp;</a></span>darray_reverse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -780,7 +781,7 @@ Variables</h2></td></tr>
           <td class="memname">int darray_reverse </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em></td><td>)</td>
+          <td class="paramname"><em>array</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -790,7 +791,7 @@ Variables</h2></td></tr>
 <p >This function reverses a given array <b>in place</b>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
   </table>
   </dd>
 </dl>
@@ -798,8 +799,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a8dd07c131b5feb3ff431e08fa5a5ba11" name="a8dd07c131b5feb3ff431e08fa5a5ba11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dd07c131b5feb3ff431e08fa5a5ba11">&#9670;&nbsp;</a></span>darray_unique()</h2>
+<a id="a9ed50f26758530adf2838ce77e9caa45" name="a9ed50f26758530adf2838ce77e9caa45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ed50f26758530adf2838ce77e9caa45">&#9670;&nbsp;</a></span>darray_unique()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -808,12 +809,12 @@ Variables</h2></td></tr>
           <td class="memname">int darray_unique </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a>&#160;</td>
           <td class="paramname"><em>fp</em>&#160;</td>
         </tr>
         <tr>
@@ -828,7 +829,7 @@ Variables</h2></td></tr>
 <p >The second and succeeding copies of equal adjacent items are popped from the array. The items are considered equal if they return <code>0</code> when passed into a given comparator function. The function performs the above <b>in place</b>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
     <tr><td class="paramname">fp</td><td>A pointer to a function that compares two items in the array. </td></tr>
   </table>
   </dd>
@@ -838,8 +839,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad38ecb004ebbdc96d7d4d165073f53ac" name="ad38ecb004ebbdc96d7d4d165073f53ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad38ecb004ebbdc96d7d4d165073f53ac">&#9670;&nbsp;</a></span>darray_sort()</h2>
+<a id="abc9f699ede2f4de86d747678c9b5f774" name="abc9f699ede2f4de86d747678c9b5f774"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc9f699ede2f4de86d747678c9b5f774">&#9670;&nbsp;</a></span>darray_sort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -848,12 +849,12 @@ Variables</h2></td></tr>
           <td class="memname">int darray_sort </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="darray_8h.html#ada0ad21f6b90050a4efcbe45d1239844">comparator</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a>&#160;</td>
           <td class="paramname"><em>fp</em>&#160;</td>
         </tr>
         <tr>
@@ -868,7 +869,7 @@ Variables</h2></td></tr>
 <p >Sorts all items in the given array <b>in place</b> using a quick sort algorithm.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
     <tr><td class="paramname">fp</td><td>A pointer to a function that compares two items in the array. </td></tr>
   </table>
   </dd>
@@ -878,8 +879,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a41390d53dd6bfbeb6ce926208512d38e" name="a41390d53dd6bfbeb6ce926208512d38e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41390d53dd6bfbeb6ce926208512d38e">&#9670;&nbsp;</a></span>darray_clone()</h2>
+<a id="a8cebb781d6cc003cfde77a1c8c919e51" name="a8cebb781d6cc003cfde77a1c8c919e51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cebb781d6cc003cfde77a1c8c919e51">&#9670;&nbsp;</a></span>darray_clone()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -888,12 +889,12 @@ Variables</h2></td></tr>
           <td class="memname"><a class="el" href="structdarray.html">darray</a> * darray_clone </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em>, </td>
+          <td class="paramname"><em>array</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="darray_8h.html#abd4ab94471d4f014a91f23a2ffe8d5ee">unary</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="darray_8h.html#a145514e476a2b1ef91c1a0d199cee1ea">unary</a>&#160;</td>
           <td class="paramname"><em>fp</em>&#160;</td>
         </tr>
         <tr>
@@ -908,7 +909,7 @@ Variables</h2></td></tr>
 <p >This function calls the clone function on each item in the array and returns them in a new array. The new array inherits the free function.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array. </td></tr>
     <tr><td class="paramname">fp</td><td>A pointer to a function that, given an item of the array, produces a clone. </td></tr>
   </table>
   </dd>
@@ -923,17 +924,17 @@ Variables</h2></td></tr>
 <div class="line"> </div>
 <div class="line">integer_array = <a class="code hl_function" href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">new_darray</a>(free);</div>
 <div class="line"><span class="comment">// Omit: adding integer items to the array.</span></div>
-<div class="line">clone1 = <a class="code hl_function" href="darray_8c.html#a41390d53dd6bfbeb6ce926208512d38e">darray_clone</a>(integer_array, shallow); <span class="comment">// creates a shallow copy</span></div>
-<div class="line"><a class="code hl_function" href="darray_8c.html#ad4096069a308738d8b418ec042ba2839">darray_set_item_free</a>(clone1, NULL);            <span class="comment">// usually required logically</span></div>
-<div class="line">clone2 = <a class="code hl_function" href="darray_8c.html#a41390d53dd6bfbeb6ce926208512d38e">darray_clone</a>(integer_array, deep);    <span class="comment">// creates a deep copy</span></div>
-<div class="ttc" id="adarray_8c_html_a41390d53dd6bfbeb6ce926208512d38e"><div class="ttname"><a href="darray_8c.html#a41390d53dd6bfbeb6ce926208512d38e">darray_clone</a></div><div class="ttdeci">darray * darray_clone(darray *arrp, unary fp)</div><div class="ttdoc">Returns a clone of a given array.</div><div class="ttdef"><b>Definition:</b> darray.c:379</div></div>
-<div class="ttc" id="adarray_8c_html_ad4096069a308738d8b418ec042ba2839"><div class="ttname"><a href="darray_8c.html#ad4096069a308738d8b418ec042ba2839">darray_set_item_free</a></div><div class="ttdeci">int darray_set_item_free(darray *arrp, consumer item_free)</div><div class="ttdoc">Sets the free function.</div><div class="ttdef"><b>Definition:</b> darray.c:49</div></div>
+<div class="line">clone1 = <a class="code hl_function" href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a>(integer_array, shallow); <span class="comment">// creates a shallow copy</span></div>
+<div class="line"><a class="code hl_function" href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">darray_set_item_free</a>(clone1, NULL);            <span class="comment">// usually required logically</span></div>
+<div class="line">clone2 = <a class="code hl_function" href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a>(integer_array, deep);    <span class="comment">// creates a deep copy</span></div>
+<div class="ttc" id="adarray_8c_html_a2aa5ccf5ffc71da3bd5ae39e34aa2848"><div class="ttname"><a href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">darray_set_item_free</a></div><div class="ttdeci">int darray_set_item_free(darray *array, consumer item_free)</div><div class="ttdoc">Sets the free function.</div><div class="ttdef"><b>Definition:</b> darray.c:49</div></div>
+<div class="ttc" id="adarray_8c_html_a8cebb781d6cc003cfde77a1c8c919e51"><div class="ttname"><a href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a></div><div class="ttdeci">darray * darray_clone(darray *array, unary fp)</div><div class="ttdoc">Returns a clone of a given array.</div><div class="ttdef"><b>Definition:</b> darray.c:374</div></div>
 </div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
-<a id="a80d99b0f6a4f891e06591a5313bc1472" name="a80d99b0f6a4f891e06591a5313bc1472"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80d99b0f6a4f891e06591a5313bc1472">&#9670;&nbsp;</a></span>darray_clear()</h2>
+<a id="a31f2cb8c11fdf3c701a167c3906d41ca" name="a31f2cb8c11fdf3c701a167c3906d41ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31f2cb8c11fdf3c701a167c3906d41ca">&#9670;&nbsp;</a></span>darray_clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -942,7 +943,7 @@ Variables</h2></td></tr>
           <td class="memname">int darray_clear </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em></td><td>)</td>
+          <td class="paramname"><em>array</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -952,7 +953,7 @@ Variables</h2></td></tr>
 <p >This function pops all items from the array and calls the free function on each of them.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array to clear. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array to clear. </td></tr>
   </table>
   </dd>
 </dl>
@@ -960,8 +961,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a66ea18d87bc34d89d4fe5c6b6167fb72" name="a66ea18d87bc34d89d4fe5c6b6167fb72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66ea18d87bc34d89d4fe5c6b6167fb72">&#9670;&nbsp;</a></span>del_darray()</h2>
+<a id="af915a40dd74bb39c0e916e933fa4d2d0" name="af915a40dd74bb39c0e916e933fa4d2d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af915a40dd74bb39c0e916e933fa4d2d0">&#9670;&nbsp;</a></span>del_darray()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -970,7 +971,7 @@ Variables</h2></td></tr>
           <td class="memname">int del_darray </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
-          <td class="paramname"><em>arrp</em></td><td>)</td>
+          <td class="paramname"><em>array</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -980,7 +981,7 @@ Variables</h2></td></tr>
 <p >This function clears all items from a given array and deallocates the dynamic array structure.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arrp</td><td>A pointer to a dynamic array to deallocate. </td></tr>
+    <tr><td class="paramname">array</td><td>A pointer to a dynamic array to deallocate. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1040,7 +1041,7 @@ Variables</h2></td></tr>
 
 <p>The error number. </p>
 <p >This variable is set whenever a function fails. Most functions return 0 if unsuccessful and sets this error number.</p>
-<dl class="section see"><dt>See also</dt><dd>The <code><a class="el" href="darray_8h.html#a99021a15faa0456754015bb28a601f4c">darray_error</a></code> enumerator documents all error codes. The <code><a class="el" href="darray_8h.html#a6fbf2da53803031e7b3f4e2cc52bfb92" title="Returns a pointer to a string that describes the error number.">darray_strerr</a></code> function returns a meaningful description of the error codes. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>The <code><a class="el" href="darray_8h.html#a99021a15faa0456754015bb28a601f4c">darray_error</a></code> enumerator documents all error codes. The <code>darray_str_err</code> function returns a meaningful description of the error codes. </dd></dl>
 
 </div>
 </div>

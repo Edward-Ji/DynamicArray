@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['new_5fdarray_0',['new_darray',['../darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb',1,'new_darray(consumer item_free):&#160;darray.c'],['../darray_8h.html#ae92263a7c5d51b6c3172991cd8d958bb',1,'new_darray(consumer item_free):&#160;darray.c']]]
+  ['sizeof_5fdarray_0',['sizeof_darray',['../darray_8c.html#a4bec6e6a0b3ae1a263b06e7a8e2a27d5',1,'sizeof_darray():&#160;darray.c'],['../darray_8h.html#a4bec6e6a0b3ae1a263b06e7a8e2a27d5',1,'sizeof_darray():&#160;darray.c']]]
 ];
