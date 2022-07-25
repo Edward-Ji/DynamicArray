@@ -38,7 +38,7 @@ $(OBJDIR)/test_%.o: $(TESTDIR)/%.c
 	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS_DEBUG) -c $^ -o $@
 
-doc: html
+doc: $(HTML_DIR)
 
 $(HTMLDIR): Doxyfile MAIN.md darray.c darray.h
 	rm -rf $(HTMLDIR)
@@ -47,4 +47,4 @@ $(HTMLDIR): Doxyfile MAIN.md darray.c darray.h
 clean:
 	rm -rf $(BINDIR) $(OBJDIR) $(HTMLDIR)
 
-.PHONY: doc, clean
+.PHONY: doc clean
