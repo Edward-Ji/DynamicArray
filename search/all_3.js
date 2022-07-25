@@ -30,5 +30,5 @@ var searchData=
   ['darray_5funique_27',['darray_unique',['../darray_8c.html#a8dd07c131b5feb3ff431e08fa5a5ba11',1,'darray_unique(darray *arrp, comparator fp):&#160;darray.c'],['../darray_8h.html#a8dd07c131b5feb3ff431e08fa5a5ba11',1,'darray_unique(darray *arrp, comparator fp):&#160;darray.c']]],
   ['del_5fdarray_28',['del_darray',['../darray_8c.html#a66ea18d87bc34d89d4fe5c6b6167fb72',1,'del_darray(darray *arrp):&#160;darray.c'],['../darray_8h.html#a66ea18d87bc34d89d4fe5c6b6167fb72',1,'del_darray(darray *arrp):&#160;darray.c']]],
   ['dynamic_20array_29',['Dynamic Array',['../index.html',1,'']]],
-  ['dynamicarray_30',['DynamicArray',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['dynamicarray_30',['DynamicArray',['../md_README.html',1,'']]]
 ];

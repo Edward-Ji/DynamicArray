@@ -84,6 +84,17 @@ Installation</h1>
 <div class="line">    -o darray.h</div>
 <div class="line">curl https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.c \</div>
 <div class="line">    -o darray.c</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+Testing</h1>
+<p >Run the following command to run the automated unit tests:</p>
+<div class="fragment"><div class="line">make test &amp;&amp; bin/test</div>
+</div><!-- fragment --><p ><b>After</b> passing all tests, use <a href="https://valgrind.org">Valgrind</a> to also check for memory leaks:</p>
+<div class="fragment"><div class="line">make test &amp;&amp; \</div>
+<div class="line">valgrind --leak-check=full \</div>
+<div class="line">         --show-leak-kinds=all \</div>
+<div class="line">         --track-origins=yes \</div>
+<div class="line">         --verbose \</div>
+<div class="line">         bin/test</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
