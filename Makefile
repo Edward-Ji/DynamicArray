@@ -36,7 +36,7 @@ $(OBJDIR)/demo_%.o: $(DEMODIR)/%.c
 
 $(OBJDIR)/test_%.o: $(TESTDIR)/%.c
 	mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) $(CFLAGS_DEBUG) -c $^ -o $@
 
 doc: html
 
