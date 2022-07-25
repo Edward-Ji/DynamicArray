@@ -36,3 +36,24 @@ curl https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.c \
 
 [Doxygen Manual]: https://www.doxygen.nl/manual/install.html
 [GitHub Pages]: https://edward-ji.github.io/DynamicArray
+
+## Testing
+
+Run the following command to run the automated unit tests:
+
+```
+make test && bin/test
+```
+
+**After** passing all tests, use [Valgrind] to also check for memory leaks:
+
+```
+make test && \
+valgrind --leak-check=full \
+         --show-leak-kinds=all \
+         --track-origins=yes \
+         --verbose \
+         bin/test
+```
+
+[valgrind]: https://valgrind.org
