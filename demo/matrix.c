@@ -28,9 +28,9 @@ int main() {
 
     darray *matirxp = new_darray((consumer) del_darray);
     darray *rowp;
-    for (size_t i = 0; i < N_ROWS; i++) {
+    for (int i = 0; i < N_ROWS; i++) {
         rowp = new_darray(free);
-        for (size_t j = 0; j < N_COLS; j++) {
+        for (int j = 0; j < N_COLS; j++) {
             num = i * N_COLS + j;
             darray_append(rowp, new_int(num));
         }

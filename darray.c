@@ -85,13 +85,12 @@ static int darray_resize(darray *array, size_t len) {
         array->cap = cap;
     }
 
-    return array->cap;
+    return array->cap != 0;
 }
 
-ssize_t darray_len(darray *array) {
+size_t darray_len(darray *array) {
     if (array == NULL) {
-        darray_errno = DARRAY_ENULLS;
-        return -1;
+        return 0;
     }
     return array->len;
 }

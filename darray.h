@@ -174,12 +174,14 @@ int darray_set_item_free(darray *array, consumer item_free);
 
 //! Getter for the length of the array.
 /*!
-This function returns the number of items in a given array.
+This function returns the number of items in a given array. Returns 0 if the
+argument is `NULL`.
 
 \param array A pointer to a dynamic array.
 \returns The number of items in a given array.
+\note This function does not set `darray_errno` even if the argument is `NULL`.
 */
-ssize_t darray_len(darray *array);
+size_t darray_len(darray *array);
 
 //! Calls each item in the array with a given function.
 /*!

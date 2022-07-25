@@ -66,7 +66,8 @@ int main() {
 
     unsigned age_sum = 0;
     darray_aggregate(students, &age_sum, (aggregate) student_age_add);
-    printf("Average age\n%lf\n\n", (double) age_sum / darray_len(students));
+    printf("Average age\n%lf\n\n",
+           (double) age_sum / (double) darray_len(students));
 
     del_darray(old_folks);
 
