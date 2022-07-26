@@ -42,11 +42,10 @@ $(OBJ_DIR)/test_%.o: $(TEST_DIR)/%.c
 
 doc: $(HTML_DIR)
 
-$(HTML_DIR): Doxyfile MAIN.md darray.c darray.h
-	rm -rf $(HTML_DIR)
+$(HTML_DIR):
 	doxygen
 
 clean:
 	rm -rf $(BIN_DIR) $(OBJ_DIR) $(HTML_DIR)
 
-.PHONY: doc clean
+.PHONY: html clean
