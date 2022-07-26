@@ -1,13 +1,14 @@
 # Dynamic Array
 
-Dynamic array of void pointers with automatic memory free in C language.
+An implementation of a dynamic array of void pointers in C language.
 
-Demonstrations are available on [GitHub][GitHubDemo].
+## Abstract
 
-For users, see `darray.h` for a list of all type definitions and function
-declarations available for users.
+By providing an item free function when creating the array, you need not worry
+about deallocating the memory manually when removing items from the array, the
+functions will handle it for you. Being dynamic, the array automatically resizes
+if it has insufficient or excess capacity. The implementation also mimics a
+functional programming approach by accepting function pointers to iteratively
+operate on data.
 
-For developers, also see `darray.c` for more documentations on the internal
-specifics of the dynamic array.
-
-[GitHubDemo]: https://github.com/Edward-Ji/DynamicArray#demonstration
+[GitHub]: https://github.com/Edward-Ji/DynamicArray

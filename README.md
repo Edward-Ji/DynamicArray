@@ -2,14 +2,23 @@
 
 [![Automated Testing](https://github.com/Edward-Ji/DynamicArray/actions/workflows/test.yml/badge.svg)](https://github.com/Edward-Ji/DynamicArray/actions/workflows/test.yml)
 
-Dynamic array of void pointers with automatic memory free in C language.
+An implementation of a dynamic array of void pointers in C language.
+
+## Abstract
+
+By providing an item free function when creating the array, you need not worry
+about deallocating the memory manually when removing items from the array, the
+functions will handle it for you. Being dynamic, the array automatically resizes
+if it has insufficient or excess capacity. The implementation also mimics a
+functional programming approach by accepting function pointers to iteratively
+operate on data.
 
 ## Documentation
 
 The documentation is automatically deployed on [GitHub Pages].
 
-To generate the documentations locally, you need Doxygen.  Read the [Doxygen
-Manual] for an installation guide. Then, run `make doc` to generate
+To generate the documentations locally, you need Doxygen. Read the
+[Doxygen Manual] for an installation guide. Then, run `make doc` to generate
 the documentations. The output will be in the `html` directory.
 
 ## Demonstration
