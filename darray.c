@@ -108,15 +108,17 @@ int darray_foreach(darray *array, consumer fp) {
     return 1;
 }
 
-void darray_aggregate(darray *array, void *resp, aggregate fp) {
+int darray_aggregate(darray *array, void *resp, aggregate fp) {
     if (array == NULL || fp == NULL) {
         darray_errno = DARRAY_ENULLS;
-        return;
+        return 0;
     }
 
     for (size_t i = 0; i < array->len; i++) {
         fp(array->item_ptr_arr[i], resp);
     }
+
+    return 1;
 }
 
 int darray_append(darray *array, void *item_ptr) {

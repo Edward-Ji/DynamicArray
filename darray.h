@@ -202,9 +202,10 @@ first argument, and the result pointer as the second argument.
 \param array A pointer to a dynamic array.
 \param resp A pointer to the result object.
 \param fp A pointer to an aggregate function.
+\returns 1 if successful, 0 otherwise.
 \see How to write an `aggregate` function.
 */
-void darray_aggregate(darray *array, void *resp, aggregate fp);
+int darray_aggregate(darray *array, void *resp, aggregate fp);
 
 //! Appends an item to the array.
 /*!
