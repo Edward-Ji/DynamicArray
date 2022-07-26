@@ -125,9 +125,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a8fad49e7cd9517304e21800cda261a06"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a8fad49e7cd9517304e21800cda261a06">darray_foreach</a> (<a class="el" href="structdarray.html">darray</a> *array, <a class="el" href="darray_8h.html#ac25bca5621b5594603e7decb66192a8c">consumer</a> fp)</td></tr>
 <tr class="memdesc:a8fad49e7cd9517304e21800cda261a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls each item in the array with a given function.  <a href="darray_8h.html#a8fad49e7cd9517304e21800cda261a06">More...</a><br /></td></tr>
 <tr class="separator:a8fad49e7cd9517304e21800cda261a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adeaadbad267d9674362131354a178759"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#adeaadbad267d9674362131354a178759">darray_aggregate</a> (<a class="el" href="structdarray.html">darray</a> *array, void *resp, <a class="el" href="darray_8h.html#a81f027a0a2ec1540d573eb6bdddf7544">aggregate</a> fp)</td></tr>
-<tr class="memdesc:adeaadbad267d9674362131354a178759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregates all items into a single result.  <a href="darray_8h.html#adeaadbad267d9674362131354a178759">More...</a><br /></td></tr>
-<tr class="separator:adeaadbad267d9674362131354a178759"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff3c91bb122bce6726fcafbc78de05d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#aff3c91bb122bce6726fcafbc78de05d1">darray_aggregate</a> (<a class="el" href="structdarray.html">darray</a> *array, void *resp, <a class="el" href="darray_8h.html#a81f027a0a2ec1540d573eb6bdddf7544">aggregate</a> fp)</td></tr>
+<tr class="memdesc:aff3c91bb122bce6726fcafbc78de05d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregates all items into a single result.  <a href="darray_8h.html#aff3c91bb122bce6726fcafbc78de05d1">More...</a><br /></td></tr>
+<tr class="separator:aff3c91bb122bce6726fcafbc78de05d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a641d90a542e62e7ddbf03d0e4240c329"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8h.html#a641d90a542e62e7ddbf03d0e4240c329">darray_append</a> (<a class="el" href="structdarray.html">darray</a> *array, void *item_ptr)</td></tr>
 <tr class="memdesc:a641d90a542e62e7ddbf03d0e4240c329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends an item to the array.  <a href="darray_8h.html#a641d90a542e62e7ddbf03d0e4240c329">More...</a><br /></td></tr>
 <tr class="separator:a641d90a542e62e7ddbf03d0e4240c329"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -236,7 +236,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd>Typically used with <code><a class="el" href="darray_8h.html#adeaadbad267d9674362131354a178759" title="Aggregates all items into a single result.">darray_aggregate</a></code>.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Typically used with <code><a class="el" href="darray_8h.html#aff3c91bb122bce6726fcafbc78de05d1" title="Aggregates all items into a single result.">darray_aggregate</a></code>.</dd></dl>
 <p>An example of an aggregate function pointer is a function that takes in a pointer to an integer and adds that integer to a result object at the second pointer. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> int_sum(<span class="keywordtype">void</span> *item_ptr, <span class="keywordtype">void</span> *resp) {</div>
 <div class="line">    *((<span class="keywordtype">long</span> <span class="keywordtype">long</span> *) resp) += *((<span class="keywordtype">int</span> *) item_ptr);</div>
 <div class="line">}</div>
@@ -477,14 +477,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="adeaadbad267d9674362131354a178759" name="adeaadbad267d9674362131354a178759"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adeaadbad267d9674362131354a178759">&#9670;&nbsp;</a></span>darray_aggregate()</h2>
+<a id="aff3c91bb122bce6726fcafbc78de05d1" name="aff3c91bb122bce6726fcafbc78de05d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff3c91bb122bce6726fcafbc78de05d1">&#9670;&nbsp;</a></span>darray_aggregate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void darray_aggregate </td>
+          <td class="memname">int darray_aggregate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdarray.html">darray</a> *&#160;</td>
           <td class="paramname"><em>array</em>, </td>
@@ -519,6 +519,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>How to write an <code><a class="el" href="darray_8h.html#a81f027a0a2ec1540d573eb6bdddf7544" title="The aggregate function pointer type definition.">aggregate</a></code> function. </dd></dl>
 
 </div>
@@ -644,8 +645,8 @@ Variables</h2></td></tr>
 <div class="line"><a class="code hl_function" href="darray_8c.html#a641d90a542e62e7ddbf03d0e4240c329">darray_append</a>(arr, p);</div>
 <div class="line"><a class="code hl_function" href="darray_8c.html#a2d209e96fad8acb4240b619ef4bf2f57">darray_pop</a>(0); <span class="comment">// `free(p)` called</span></div>
 <div class="line">*p = 0;        <span class="comment">// undefined behavior</span></div>
-<div class="ttc" id="adarray_8c_html_a2d209e96fad8acb4240b619ef4bf2f57"><div class="ttname"><a href="darray_8c.html#a2d209e96fad8acb4240b619ef4bf2f57">darray_pop</a></div><div class="ttdeci">int darray_pop(darray *array, size_t index)</div><div class="ttdoc">Pops an item at a given index.</div><div class="ttdef"><b>Definition:</b> darray.c:152</div></div>
-<div class="ttc" id="adarray_8c_html_a641d90a542e62e7ddbf03d0e4240c329"><div class="ttname"><a href="darray_8c.html#a641d90a542e62e7ddbf03d0e4240c329">darray_append</a></div><div class="ttdeci">int darray_append(darray *array, void *item_ptr)</div><div class="ttdoc">Appends an item to the array.</div><div class="ttdef"><b>Definition:</b> darray.c:122</div></div>
+<div class="ttc" id="adarray_8c_html_a2d209e96fad8acb4240b619ef4bf2f57"><div class="ttname"><a href="darray_8c.html#a2d209e96fad8acb4240b619ef4bf2f57">darray_pop</a></div><div class="ttdeci">int darray_pop(darray *array, size_t index)</div><div class="ttdoc">Pops an item at a given index.</div><div class="ttdef"><b>Definition:</b> darray.c:154</div></div>
+<div class="ttc" id="adarray_8c_html_a641d90a542e62e7ddbf03d0e4240c329"><div class="ttname"><a href="darray_8c.html#a641d90a542e62e7ddbf03d0e4240c329">darray_append</a></div><div class="ttdeci">int darray_append(darray *array, void *item_ptr)</div><div class="ttdoc">Appends an item to the array.</div><div class="ttdef"><b>Definition:</b> darray.c:124</div></div>
 <div class="ttc" id="adarray_8c_html_ae92263a7c5d51b6c3172991cd8d958bb"><div class="ttname"><a href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">new_darray</a></div><div class="ttdeci">darray * new_darray(consumer item_free)</div><div class="ttdoc">Creates a new dynamic array of void pointers.</div><div class="ttdef"><b>Definition:</b> darray.c:33</div></div>
 </div><!-- fragment --> </dd></dl>
 
@@ -802,7 +803,7 @@ Variables</h2></td></tr>
 <div class="line">    exit(1);</div>
 <div class="line">}</div>
 <div class="line">printf(<span class="stringliteral">&quot;42 at index %zu.&quot;</span>, index);</div>
-<div class="ttc" id="adarray_8c_html_ae36523088077ece061b9406bda9993a4"><div class="ttname"><a href="darray_8c.html#ae36523088077ece061b9406bda9993a4">darray_search</a></div><div class="ttdeci">int darray_search(darray *array, void *item_ptr, comparator fp, size_t *idx_ptr)</div><div class="ttdoc">Searches for an item in an array that compares equal to anther object.</div><div class="ttdef"><b>Definition:</b> darray.c:228</div></div>
+<div class="ttc" id="adarray_8c_html_ae36523088077ece061b9406bda9993a4"><div class="ttname"><a href="darray_8c.html#ae36523088077ece061b9406bda9993a4">darray_search</a></div><div class="ttdeci">int darray_search(darray *array, void *item_ptr, comparator fp, size_t *idx_ptr)</div><div class="ttdoc">Searches for an item in an array that compares equal to anther object.</div><div class="ttdef"><b>Definition:</b> darray.c:230</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -1048,7 +1049,7 @@ Variables</h2></td></tr>
 <div class="line"><a class="code hl_function" href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">darray_set_item_free</a>(clone1, NULL);            <span class="comment">// usually required logically</span></div>
 <div class="line">clone2 = <a class="code hl_function" href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a>(integer_array, deep);    <span class="comment">// creates a deep copy</span></div>
 <div class="ttc" id="adarray_8c_html_a2aa5ccf5ffc71da3bd5ae39e34aa2848"><div class="ttname"><a href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">darray_set_item_free</a></div><div class="ttdeci">int darray_set_item_free(darray *array, consumer item_free)</div><div class="ttdoc">Sets the free function.</div><div class="ttdef"><b>Definition:</b> darray.c:49</div></div>
-<div class="ttc" id="adarray_8c_html_a8cebb781d6cc003cfde77a1c8c919e51"><div class="ttname"><a href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a></div><div class="ttdeci">darray * darray_clone(darray *array, unary fp)</div><div class="ttdoc">Returns a clone of a given array.</div><div class="ttdef"><b>Definition:</b> darray.c:374</div></div>
+<div class="ttc" id="adarray_8c_html_a8cebb781d6cc003cfde77a1c8c919e51"><div class="ttname"><a href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a></div><div class="ttdeci">darray * darray_clone(darray *array, unary fp)</div><div class="ttdoc">Returns a clone of a given array.</div><div class="ttdef"><b>Definition:</b> darray.c:376</div></div>
 </div><!-- fragment --> </dd></dl>
 
 </div>

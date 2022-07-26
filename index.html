@@ -66,10 +66,10 @@ $(function() {
   <div class="headertitle"><div class="title">Dynamic Array </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_MAIN"></a> Dynamic array of void pointers with automatic memory free in C language.</p>
-<p >Demonstrations are available on <a href="https://github.com/Edward-Ji/DynamicArray#demonstration">GitHub</a>.</p>
-<p >For users, see <code><a class="el" href="darray_8h.html" title="Dynamic array of void pointers with automatic memory free.">darray.h</a></code> for a list of all type definitions and function declarations available for users.</p>
-<p >For developers, also see <code><a class="el" href="darray_8c.html" title="The source file of the dynamic array.">darray.c</a></code> for more documentations on the internal specifics of the dynamic array. </p>
+<div class="textblock"><p ><a class="anchor" id="md_MAIN"></a> An implementation of a dynamic array of void pointers in C language.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Abstract</h1>
+<p >By providing an item free function when creating the array, you need not worry about deallocating the memory manually when removing items from the array, the functions will handle it for you. Being dynamic, the array automatically resizes if it has insufficient or excess capacity. The implementation also mimics a functional programming approach by accepting function pointers to iteratively operate on data. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

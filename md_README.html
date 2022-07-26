@@ -67,15 +67,18 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p ><a href="https://github.com/Edward-Ji/DynamicArray/actions/workflows/test.yml"><img src="https://github.com/Edward-Ji/DynamicArray/actions/workflows/test.yml/badge.svg" alt="Automated Testing" style="pointer-events: none;" class="inline"/></a></p>
-<p >Dynamic array of void pointers with automatic memory free in C language.</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<p >An implementation of a dynamic array of void pointers in C language.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Abstract</h1>
+<p >By providing an item free function when creating the array, you need not worry about deallocating the memory manually when removing items from the array, the functions will handle it for you. Being dynamic, the array automatically resizes if it has insufficient or excess capacity. The implementation also mimics a functional programming approach by accepting function pointers to iteratively operate on data.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Documentation</h1>
 <p >The documentation is automatically deployed on <a href="https://edward-ji.github.io/DynamicArray">GitHub Pages</a>.</p>
-<p >To generate the documentations locally, you need Doxygen. Read the [Doxygen Manual] for an installation guide. Then, run <code>make doc</code> to generate the documentations. The output will be in the <code>html</code> directory.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<p >To generate the documentations locally, you need Doxygen. Read the <a href="https://www.doxygen.nl/manual/install.html">Doxygen Manual</a> for an installation guide. Then, run <code>make doc</code> to generate the documentations. The output will be in the <code>html</code> directory.</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Demonstration</h1>
 <p >Run <code>make demo</code> to compile the demonstration source files in the <code>demo</code> directory. The executable will be in the <code>bin</code> directory. For example, there will be a matrix example, run it with <code>bin/matrix</code>.</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md6"></a>
 Installation</h1>
 <p >Simply download the source file and header file to your project directory with</p>
 <div class="fragment"><div class="line">wget https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.h</div>
@@ -85,7 +88,7 @@ Installation</h1>
 <div class="line">    -o darray.h</div>
 <div class="line">curl https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.c \</div>
 <div class="line">    -o darray.c</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
 Testing</h1>
 <p >Run the following command to run the automated unit tests:</p>
 <div class="fragment"><div class="line">make test &amp;&amp; bin/test</div>
