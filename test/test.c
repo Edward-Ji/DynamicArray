@@ -149,63 +149,63 @@ MU_TEST(test_darray_len) {
 
 MU_TEST(test_darray_foreach) {
     add_int_static(NULL);
-    darray_foreach(arr, add_int_static);
+    mu_assert_int_eq(1, darray_foreach(arr, add_int_static));
     mu_check(sum == 0 + 1 + 2 + 3 + 4);
 }
 
 MU_TEST(test_darray_aggregate) {
     long long res = 0;
-    darray_aggregate(arr, &res, add_int_agg);
+    mu_assert_int_eq(1, darray_aggregate(arr, &res, add_int_agg));
     mu_check(res == 0 + 1 + 2 + 3 + 4);
 }
 
 MU_TEST(test_darray_pop1) {
-    darray_pop(arr, 0);
+    mu_assert_int_eq(1, darray_pop(arr, 0));
     DARRAY_ASSERT_MATCH(arr, 1, 2, 3, 4);
 }
 
 MU_TEST(test_darray_pop2) {
-    darray_pop(arr, 2);
+    mu_assert_int_eq(1, darray_pop(arr, 2));
     DARRAY_ASSERT_MATCH(arr, 0, 1, 3, 4);
 }
 
 MU_TEST(test_darray_pop3) {
-    darray_pop(arr, 4);
+    mu_assert_int_eq(1, darray_pop(arr, 4));
     DARRAY_ASSERT_MATCH(arr, 0, 1, 2, 3);
 }
 
 MU_TEST(test_darray_pop_range1) {
-    darray_pop_range(arr, 0, 5);
+    mu_assert_int_eq(1, darray_pop_range(arr, 0, 5));
     DARRAY_ASSERT_MATCH(arr);
 }
 
 MU_TEST(test_darray_pop_range2) {
-    darray_pop_range(arr, 1, 5);
+    mu_assert_int_eq(1, darray_pop_range(arr, 1, 5));
     DARRAY_ASSERT_MATCH(arr, 0);
 }
 
 MU_TEST(test_darray_pop_range3) {
-    darray_pop_range(arr, 0, 4);
+    mu_assert_int_eq(1, darray_pop_range(arr, 0, 4));
     DARRAY_ASSERT_MATCH(arr, 4);
 }
 
 MU_TEST(test_darray_pop_range4) {
-    darray_pop_range(arr, 1, 4);
+    mu_assert_int_eq(1, darray_pop_range(arr, 1, 4));
     DARRAY_ASSERT_MATCH(arr, 0, 4);
 }
 
 MU_TEST(test_darray_insert1) {
-    darray_insert(arr, 0, new_int(-1));
+    mu_assert_int_eq(1, darray_insert(arr, 0, new_int(-1)));
     DARRAY_ASSERT_MATCH(arr, -1, 0, 1, 2, 3, 4);
 }
 
 MU_TEST(test_darray_insert2) {
-    darray_insert(arr, 2, new_int(-1));
+    mu_assert_int_eq(1, darray_insert(arr, 2, new_int(-1)));
     DARRAY_ASSERT_MATCH(arr, 0, 1, -1, 2, 3, 4);
 }
 
 MU_TEST(test_darray_insert3) {
-    darray_insert(arr, 5, new_int(-1));
+    mu_assert_int_eq(1, darray_insert(arr, 5, new_int(-1)));
     DARRAY_ASSERT_MATCH(arr, 0, 1, 2, 3, 4, -1);
 }
 
@@ -232,14 +232,14 @@ MU_TEST(test_darray_search3) {
 
 MU_TEST(test_darray_extend1) {
     darray *arr2 = new_darray(NULL);
-    darray_extend(arr, arr2);
+    mu_assert_int_eq(1, darray_extend(arr, arr2));
     DARRAY_ASSERT_MATCH(arr, 0, 1, 2, 3, 4);
     del_darray(arr2);
 }
 
 MU_TEST(test_darray_extend2) {
     darray *arr2 = new_darray(NULL);
-    darray_append(arr2, new_int(5));
+    mu_assert_int_eq(1, darray_append(arr2, new_int(5)));
     darray_extend(arr, arr2);
     DARRAY_ASSERT_MATCH(arr, 0, 1, 2, 3, 4, 5);
     del_darray(arr2);
@@ -248,7 +248,7 @@ MU_TEST(test_darray_extend2) {
 MU_TEST(test_darray_extend3) {
     darray *arr2 = new_darray(NULL);
     DARRAY_APPEND_INTS(arr2, 5, 6);
-    darray_extend(arr, arr2);
+    mu_assert_int_eq(1, darray_extend(arr, arr2));
     DARRAY_ASSERT_MATCH(arr, 0, 1, 2, 3, 4, 5, 6);
     del_darray(arr2);
 }
@@ -256,15 +256,15 @@ MU_TEST(test_darray_extend3) {
 MU_TEST(test_darray_extend_at1) {
     darray *arr2 = new_darray(NULL);
     DARRAY_APPEND_INTS(arr2, -2, -1);
-    darray_extend_at(arr, 0, arr2);
+    mu_assert_int_eq(1, darray_extend_at(arr, 0, arr2));
     DARRAY_ASSERT_MATCH(arr, -2, -1, 0, 1, 2, 3, 4);
     del_darray(arr2);
 }
 
 MU_TEST(test_darray_extend_at2) {
     darray *arr2 = new_darray(NULL);
-    darray_append(arr2, new_int(42));
-    darray_extend_at(arr, 2, arr2);
+    mu_assert_int_eq(1, darray_append(arr2, new_int(42)));
+    mu_assert_int_eq(1, darray_extend_at(arr, 2, arr2));
     DARRAY_ASSERT_MATCH(arr, 0, 1, 42, 2, 3, 4);
     del_darray(arr2);
 }
@@ -272,20 +272,20 @@ MU_TEST(test_darray_extend_at2) {
 MU_TEST(test_darray_extend_at3) {
     darray *arr2 = new_darray(NULL);
     DARRAY_APPEND_INTS(arr2, 5, 6);
-    darray_extend_at(arr, 5, arr2);
+    mu_assert_int_eq(1, darray_extend_at(arr, 5, arr2));
     DARRAY_ASSERT_MATCH(arr, 0, 1, 2, 3, 4, 5, 6);
     del_darray(arr2);
 }
 
 MU_TEST(test_darray_reverse) {
-    darray_reverse(arr);
+    mu_assert_int_eq(1, darray_reverse(arr));
     DARRAY_ASSERT_MATCH(arr, 4, 3, 2, 1, 0);
 }
 
 MU_TEST(test_darray_unique1) {
     darray *arr2 = new_darray(free);
     DARRAY_APPEND_INTS(arr2, 0, 0, 0, 1);
-    darray_unique(arr2, int_cmp);
+    mu_assert_int_eq(1, darray_unique(arr2, int_cmp));
     DARRAY_ASSERT_MATCH(arr2, 0, 1);
     del_darray(arr2);
 }
@@ -293,7 +293,7 @@ MU_TEST(test_darray_unique1) {
 MU_TEST(test_darray_unique2) {
     darray *arr2 = new_darray(free);
     DARRAY_APPEND_INTS(arr2, 0, 1, 1, 1);
-    darray_unique(arr2, int_cmp);
+    mu_assert_int_eq(1, darray_unique(arr2, int_cmp));
     DARRAY_ASSERT_MATCH(arr2, 0, 1);
     del_darray(arr2);
 }
@@ -301,7 +301,7 @@ MU_TEST(test_darray_unique2) {
 MU_TEST(test_darray_unique3) {
     darray *arr2 = new_darray(free);
     DARRAY_APPEND_INTS(arr2, 0, 1, 1, 0);
-    darray_unique(arr2, int_cmp);
+    mu_assert_int_eq(1, darray_unique(arr2, int_cmp));
     DARRAY_ASSERT_MATCH(arr2, 0, 1, 0);
     del_darray(arr2);
 }
@@ -309,7 +309,7 @@ MU_TEST(test_darray_unique3) {
 MU_TEST(test_darray_sort) {
     darray *arr2 = new_darray(free);
     DARRAY_APPEND_INTS(arr2, 0, 1, 1, 0);
-    darray_unique(arr2, int_cmp);
+    mu_assert_int_eq(1, darray_unique(arr2, int_cmp));
     DARRAY_ASSERT_MATCH(arr2, 0, 1, 0);
     del_darray(arr2);
 }
