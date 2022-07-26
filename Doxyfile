@@ -3,6 +3,7 @@ PROJECT_BRIEF          = "Dynamic array of void pointers with automatic " \
                          "memory free in C language"
 EXTRACT_STATIC         = YES
 SORT_MEMBER_DOCS       = NO
-EXCLUDE                = demo/*
+RECURSIVE              = YES
+EXCLUDE_PATTERNS       = */test/* */demo/*
 USE_MDFILE_AS_MAINPAGE = MAIN.md
 GENERATE_LATEX         = NO
