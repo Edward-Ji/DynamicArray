@@ -1,112 +1,171 @@
+/*!
+\file vector.c
+\author Edward Ji
+\date 21 Jun 2022
+
+\brief
+A demonstration of the typical use cases of all dynamic array functions.
+
+\stdout
+```
+new_darray(free)
+	vec1 = [ 41 ]
+	sum = 0
+darray_append(vec1, new_int(1)) returns 1
+	vec1 = [ 41 1 ]
+darray_insert(vec1, 0, new_int(2)) returns 1
+	vec1 = [ 2 41 1 ]
+darray_foreach(vec1, int_inc) returns 1
+	vec1 = [ 3 42 2 ]
+darray_aggregate(vec1, &sum, int_add_agg) returns 1
+	vec1 = [ 3 42 2 ]
+	sum = 47
+darray_search(vec1, &val, int_cmp, &idx) returns 1
+	vec1 = [ 3 42 2 ]
+	val = 42
+	idx = 1
+p1 = darray_get(vec1, 1)
+	vec1 = [ 3 42 2 ]
+	*p1 = 42
+darray_extend(vec1, vec2) returns 1
+	vec1 = [ 3 42 2 2 1 ]
+	vec2 = [ 2 1 ]
+darray_extend_at(vec1, 0, vec3) returns 1
+	vec1 = [ 1 2 3 42 2 2 1 ]
+	vec3 = [ 1 2 ]
+darray_reverse(vec1) returns 1
+	vec1 = [ 1 2 2 42 3 2 1 ]
+darray_unique(vec1, int_cmp) returns 1
+	vec1 = [ 1 2 42 3 2 1 ]
+darray_sort(vec1, int_cmp) returns 1
+	vec1 = [ 1 1 2 2 3 42 ]
+vec4 = darray_clone(vec1, int_cpy_deep)
+	vec1 = [ 1 1 2 2 3 42 ]
+	vec4 = [ 1 1 2 2 3 42 ]
+darray_clear(vec1) returns 1
+	vec1 = [ ]
+	vec4 = [ 1 1 2 2 3 42 ]
+```
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "../darray.h"
 
-int *new_int(int num) {
-    int *intp = (int *) malloc(sizeof(int));
-    *intp = num;
+#define RUN_PRINT_EXPR(expr, arr) do {                                         \
+    printf(#expr " returns %d\n\t" #arr " = ", (expr));                        \
+    print_int_arr(arr);                                                        \
+} while (0)
 
-    return intp;
+#define RUN_PRINT_STAT(stat, arr) do {                                         \
+    stat;                                                                      \
+    printf(#stat "\n\t" #arr " = ");                                           \
+    print_int_arr(arr);                                                        \
+} while (0)
+
+int *new_int(int val) {
+    int *p = (int *) malloc(sizeof(int));
+    *p = val;
+
+    return p;
 }
 
-void print_int(const int *intp) {
-    printf("%d ", *intp);
+void print_int(void *p) {
+    printf("%d ", *((int *) p));
 }
 
-int compare_int(const int *p1, const int *p2) {
-    if (*p1 < *p2) {
-        return -1;
-    } else if (*p1 == *p2) {
-        return 0;
-    } else {
-        return 1;
-    }
+void int_inc(void *p) {
+    (*((int *) p))++;
 }
 
-int *int_clone(const int *intp) {
-    int *clonep = (int *) malloc(sizeof(int));
-    *clonep = *intp;
+int int_cmp(const void *p1, const void *p2) {
+    const int *ip1 = p1;
+    const int *ip2 = p2;
 
-    return clonep;
+    return (*ip1 > *ip2) - (*ip1 < *ip2);
+}
+
+void int_add_agg(const void *p1, void *p2) {
+    *((long long *) p2) += *((int *) p1);
+}
+
+void *int_cpy_deep(const void *p) {
+    int *cpy = (int *) malloc(sizeof(int));
+    *cpy = *((int *)p);
+
+    return cpy;
+}
+
+void print_int_arr(darray *arr) {
+    printf("[ ");
+    darray_foreach(arr, print_int);
+    printf("]\n");
 }
 
 int main() {
     darray *vec1 = new_darray(free);
     darray *vec2 = new_darray(NULL);
-    darray *vec3;
+    darray *vec3 = new_darray(NULL);
+    darray *vec4;
+    long long sum = 0;
 
-    darray_append(vec1, new_int(2));
-    darray_append(vec1, new_int(3));
-    darray_append(vec1, new_int(4));
+    darray_append(vec1, new_int(41));
+    darray_append(vec2, new_int(2));
+    darray_append(vec2, new_int(1));
+    darray_append(vec3, new_int(1));
+    darray_append(vec3, new_int(2));
 
-    darray_insert(vec2, 0, new_int(1));
-    darray_insert(vec2, 0, new_int(0));
+    printf("new_darray(free)\n");
+    printf("\tvec1 = ");
+    print_int_arr(vec1);
+    printf("\tsum = %lld\n", sum);
 
-    darray_extend_at(vec1, 0, vec2);
+    RUN_PRINT_EXPR(darray_append(vec1, new_int(1)), vec1);
 
-    darray_clear(vec2);
-    darray_append(vec2, new_int(5));
-    darray_append(vec2, new_int(5));
-    darray_append(vec2, new_int(6));
-    darray_append(vec2, new_int(6));
-    darray_append(vec2, new_int(6));
+    RUN_PRINT_EXPR(darray_insert(vec1, 0, new_int(2)), vec1);
 
-    puts("vector 2 before unique");
-    darray_foreach(vec2, (consumer) print_int);
-    puts("\n");
+    RUN_PRINT_EXPR(darray_foreach(vec1, int_inc), vec1);
 
-    darray_set_item_free(vec2, free);
-    darray_unique(vec2, (comparator) compare_int);
-    darray_set_item_free(vec2, NULL);
+    RUN_PRINT_EXPR(darray_aggregate(vec1, &sum, int_add_agg), vec1);
+    printf("\tsum = %lld\n", sum);
 
-    puts("vector 2 after unique");
-    darray_foreach(vec2, (consumer) print_int);
-    puts("\n");
+    int val = 42;
+    size_t idx;
+    RUN_PRINT_EXPR(darray_search(vec1, &val, int_cmp, &idx), vec1);
+    printf("\tval = %d\n", val);
+    printf("\tidx = %zu\n", idx);
 
-    darray_extend(vec1, vec2);
+    int *p1;
+    RUN_PRINT_STAT(p1 = darray_get(vec1, 1), vec1);
+    printf("\t*p1 = %d\n", *p1);
 
-    puts("vector 1 after extending vector 2");
-    darray_foreach(vec1, (consumer) print_int);
-    puts("\n");
+    RUN_PRINT_EXPR(darray_extend(vec1, vec2), vec1);
+    printf("\tvec2 = ");
+    print_int_arr(vec2);
 
-    darray_reverse(vec1);
+    RUN_PRINT_EXPR(darray_extend_at(vec1, 0, vec3), vec1);
+    printf("\tvec3 = ");
+    print_int_arr(vec3);
 
-    puts("vector 1 after reversing");
-    darray_foreach(vec1, (consumer) print_int);
-    puts("\n");
+    RUN_PRINT_EXPR(darray_reverse(vec1), vec1);
 
-    darray_sort(vec1, (comparator) compare_int);
+    RUN_PRINT_EXPR(darray_unique(vec1, int_cmp), vec1);
 
-    puts("vector 1 after sorting");
-    darray_foreach(vec1, (consumer) print_int);
-    puts("\n");
+    RUN_PRINT_EXPR(darray_sort(vec1, int_cmp), vec1);
 
-    darray_pop_range(vec1, 3, 7);
+    RUN_PRINT_STAT(vec4 = darray_clone(vec1, int_cpy_deep), vec1);
+    printf("\tvec4 = ");
+    print_int_arr(vec4);
 
-    puts("vector 1 after poping range [3, 7)");
-    darray_foreach(vec1, (consumer) print_int);
-    puts("\n");
-
-    vec3 = darray_clone(vec1, (unary) int_clone);
-
-    puts("vector 3 as a clone of vector 1");
-    darray_foreach(vec3, (consumer) print_int);
-    puts("\n");
-
-    darray_clear(vec3);
-
-    puts("vector 3 after clearing vector 3");
-    darray_foreach(vec3, (consumer) print_int);
-    puts("\n");
-
-    puts("vector 1 after clearing vector 3");
-    darray_foreach(vec1, (consumer) print_int);
-    puts("\n");
+    RUN_PRINT_EXPR(darray_clear(vec1), vec1);
+    printf("\tvec4 = ");
+    print_int_arr(vec4);
 
     del_darray(vec1);
     del_darray(vec2);
     del_darray(vec3);
+    del_darray(vec4);
 
     return 0;
 }

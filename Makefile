@@ -1,6 +1,7 @@
 CC := gcc
 CFLAGS := -O2 -Wall -Werror
 CFLAGS_DEBUG := -g -Wall -Werror
+LDFLAGS := -lm
 
 BIN_DIR := ./bin
 OBJ_DIR := ./obj
@@ -22,19 +23,19 @@ test: $(TEST_EXE)
 
 $(DEMO_EXE): $(BIN_DIR)/%: $(OBJ_DIR)/darray.o $(OBJ_DIR)/demo_%.o
 	mkdir -p $(BIN_DIR)
-	$(CC) $(LDFLAGS) $^ -o $@
+	$(CC) $^ -o $@ $(LDFLAGS)
 
 $(TEST_EXE): $(BIN_DIR)/%: $(OBJ_DIR)/darray.o $(OBJ_DIR)/test_%.o
 	mkdir -p $(BIN_DIR)
-	$(CC) $(LDFLAGS) $^ -o $@
+	$(CC) $^ -o $@ $(LDFLAGS)
 
 $(OBJ_DIR)/darray.o: darray.c
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) -c $^ -o $@ $(CFLAGS)
 
 $(OBJ_DIR)/demo_%.o: $(DEMO_DIR)/%.c
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) -c $^ -o $@ $(CFLAGS)
 
 $(OBJ_DIR)/test_%.o: $(TEST_DIR)/%.c
 	mkdir -p $(OBJ_DIR)

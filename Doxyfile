@@ -1,9 +1,12 @@
 PROJECT_NAME           = "Dynamic Array"
 PROJECT_BRIEF          = "Dynamic array of void pointers with automatic " \
                          "memory free in C language"
+ALIASES                = stdout="\par Standard Output"
 EXTRACT_STATIC         = YES
 SORT_MEMBER_DOCS       = NO
 RECURSIVE              = YES
-EXCLUDE_PATTERNS       = */test/* */demo/*
+EXCLUDE_PATTERNS       = */test/*
+EXAMPLE_PATH           = ./demo
 USE_MDFILE_AS_MAINPAGE = MAIN.md
+SOURCE_BROWSER         = YES
 GENERATE_LATEX         = NO
