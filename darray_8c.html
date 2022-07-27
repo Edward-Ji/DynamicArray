@@ -71,12 +71,14 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The source file of the dynamic array.  
+<p>The source code of dynamic array of void pointers.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="darray_8h_source.html">darray.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="darray_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdarray.html">darray</a></td></tr>
@@ -133,14 +135,11 @@ Functions</h2></td></tr>
 <tr class="memitem:a9ed50f26758530adf2838ce77e9caa45"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a9ed50f26758530adf2838ce77e9caa45">darray_unique</a> (<a class="el" href="structdarray.html">darray</a> *array, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> fp)</td></tr>
 <tr class="memdesc:a9ed50f26758530adf2838ce77e9caa45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters out repeated adjacent items.  <a href="darray_8c.html#a9ed50f26758530adf2838ce77e9caa45">More...</a><br /></td></tr>
 <tr class="separator:a9ed50f26758530adf2838ce77e9caa45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a358697da1ef3c6924f2c70962bb77ff8"><td class="memItemLeft" align="right" valign="top"><a id="a358697da1ef3c6924f2c70962bb77ff8" name="a358697da1ef3c6924f2c70962bb77ff8"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>swap_voidp</b> (void **pp1, void **pp2)</td></tr>
+<tr class="memitem:a358697da1ef3c6924f2c70962bb77ff8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a358697da1ef3c6924f2c70962bb77ff8">swap_voidp</a> (void **pp1, void **pp2)</td></tr>
 <tr class="separator:a358697da1ef3c6924f2c70962bb77ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9e01b431639840990c39615512856e2"><td class="memItemLeft" align="right" valign="top"><a id="ab9e01b431639840990c39615512856e2" name="ab9e01b431639840990c39615512856e2"></a>
-static ssize_t&#160;</td><td class="memItemRight" valign="bottom"><b>partition</b> (void **item_ptr_arr, ssize_t low, ssize_t high, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> cmp)</td></tr>
+<tr class="memitem:ab9e01b431639840990c39615512856e2"><td class="memItemLeft" align="right" valign="top">static ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#ab9e01b431639840990c39615512856e2">partition</a> (void **item_ptr_arr, ssize_t low, ssize_t high, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> cmp)</td></tr>
 <tr class="separator:ab9e01b431639840990c39615512856e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2408c5eb011c595993f7f52c113c5f54"><td class="memItemLeft" align="right" valign="top"><a id="a2408c5eb011c595993f7f52c113c5f54" name="a2408c5eb011c595993f7f52c113c5f54"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>darray_qsort</b> (void **item_ptr_arr, ssize_t low, ssize_t high, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> cmp)</td></tr>
+<tr class="memitem:a2408c5eb011c595993f7f52c113c5f54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a2408c5eb011c595993f7f52c113c5f54">darray_qsort</a> (void **item_ptr_arr, ssize_t low, ssize_t high, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> cmp)</td></tr>
 <tr class="separator:a2408c5eb011c595993f7f52c113c5f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc9f699ede2f4de86d747678c9b5f774"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#abc9f699ede2f4de86d747678c9b5f774">darray_sort</a> (<a class="el" href="structdarray.html">darray</a> *array, <a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a> fp)</td></tr>
 <tr class="memdesc:abc9f699ede2f4de86d747678c9b5f774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts a given array.  <a href="darray_8c.html#abc9f699ede2f4de86d747678c9b5f774">More...</a><br /></td></tr>
@@ -170,10 +169,12 @@ Variables</h2></td></tr>
 <tr class="separator:a893cacc1d131c88aac2c6d890e6fe063"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The source file of the dynamic array. </p>
+<div class="textblock"><p >The source code of dynamic array of void pointers. </p>
 <dl class="section author"><dt>Author</dt><dd>Edward Ji </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>21 Jun 2022</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Note that some types and functions have no declaration or incomplete definition in the header file. The documentation in this source file is targeted to maintainers. </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ae92263a7c5d51b6c3172991cd8d958bb" name="ae92263a7c5d51b6c3172991cd8d958bb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae92263a7c5d51b6c3172991cd8d958bb">&#9670;&nbsp;</a></span>new_darray()</h2>
@@ -201,6 +202,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A new dynamic array object. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>To deallocate the dynamic array, use <code><a class="el" href="darray_8h.html#af915a40dd74bb39c0e916e933fa4d2d0" title="Deallocates a given array.">del_darray</a></code>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00033">33</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -241,6 +244,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>You can temporarily disable automatic de-allocation of array items by setting <code>item_free</code> to <code>NULL</code> and back. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00049">49</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -287,6 +292,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The updated capacity of the array, 0 otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00065">65</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <a id="a7131c23d25104eadd550a0593de83803" name="a7131c23d25104eadd550a0593de83803"></a>
@@ -315,6 +322,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of items in a given array. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function does not set <code>darray_errno</code> even if the argument is <code>NULL</code>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00091">91</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -354,6 +363,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00098">98</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -402,6 +413,8 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>How to write an <code><a class="el" href="darray_8h.html#a81f027a0a2ec1540d573eb6bdddf7544" title="The aggregate function pointer type definition.">aggregate</a></code> function. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00111">111</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <a id="a641d90a542e62e7ddbf03d0e4240c329" name="a641d90a542e62e7ddbf03d0e4240c329"></a>
@@ -440,6 +453,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00124">124</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -480,6 +495,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The item at the given index in the array if successful, <code>NULL</code> otherwise.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The function is unsuccessful if the pointer to an array is <code>NULL</code> or the index is out of range. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00141">141</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -525,10 +542,12 @@ Variables</h2></td></tr>
 <div class="line"><a class="code hl_function" href="darray_8c.html#a641d90a542e62e7ddbf03d0e4240c329">darray_append</a>(arr, p);</div>
 <div class="line"><a class="code hl_function" href="darray_8c.html#a2d209e96fad8acb4240b619ef4bf2f57">darray_pop</a>(0); <span class="comment">// `free(p)` called</span></div>
 <div class="line">*p = 0;        <span class="comment">// undefined behavior</span></div>
-<div class="ttc" id="adarray_8c_html_a2d209e96fad8acb4240b619ef4bf2f57"><div class="ttname"><a href="darray_8c.html#a2d209e96fad8acb4240b619ef4bf2f57">darray_pop</a></div><div class="ttdeci">int darray_pop(darray *array, size_t index)</div><div class="ttdoc">Pops an item at a given index.</div><div class="ttdef"><b>Definition:</b> darray.c:154</div></div>
-<div class="ttc" id="adarray_8c_html_a641d90a542e62e7ddbf03d0e4240c329"><div class="ttname"><a href="darray_8c.html#a641d90a542e62e7ddbf03d0e4240c329">darray_append</a></div><div class="ttdeci">int darray_append(darray *array, void *item_ptr)</div><div class="ttdoc">Appends an item to the array.</div><div class="ttdef"><b>Definition:</b> darray.c:124</div></div>
-<div class="ttc" id="adarray_8c_html_ae92263a7c5d51b6c3172991cd8d958bb"><div class="ttname"><a href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">new_darray</a></div><div class="ttdeci">darray * new_darray(consumer item_free)</div><div class="ttdoc">Creates a new dynamic array of void pointers.</div><div class="ttdef"><b>Definition:</b> darray.c:33</div></div>
+<div class="ttc" id="adarray_8c_html_a2d209e96fad8acb4240b619ef4bf2f57"><div class="ttname"><a href="darray_8c.html#a2d209e96fad8acb4240b619ef4bf2f57">darray_pop</a></div><div class="ttdeci">int darray_pop(darray *array, size_t index)</div><div class="ttdoc">Pops an item at a given index.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00154">darray.c:154</a></div></div>
+<div class="ttc" id="adarray_8c_html_a641d90a542e62e7ddbf03d0e4240c329"><div class="ttname"><a href="darray_8c.html#a641d90a542e62e7ddbf03d0e4240c329">darray_append</a></div><div class="ttdeci">int darray_append(darray *array, void *item_ptr)</div><div class="ttdoc">Appends an item to the array.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00124">darray.c:124</a></div></div>
+<div class="ttc" id="adarray_8c_html_ae92263a7c5d51b6c3172991cd8d958bb"><div class="ttname"><a href="darray_8c.html#ae92263a7c5d51b6c3172991cd8d958bb">new_darray</a></div><div class="ttdeci">darray * new_darray(consumer item_free)</div><div class="ttdoc">Creates a new dynamic array of void pointers.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00033">darray.c:33</a></div></div>
 </div><!-- fragment --> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00154">154</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -577,6 +596,8 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>The free function associated with the array is called for each item if the function is not <code>NULL</code>. If the function properly deallocates the items, accessing any popped object may be undefined behavior. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00179">179</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <a id="a38827e9b623d20adf5bb7c8503bfd243" name="a38827e9b623d20adf5bb7c8503bfd243"></a>
@@ -622,6 +643,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00206">206</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -683,8 +706,10 @@ Variables</h2></td></tr>
 <div class="line">    exit(1);</div>
 <div class="line">}</div>
 <div class="line">printf(<span class="stringliteral">&quot;42 at index %zu.&quot;</span>, index);</div>
-<div class="ttc" id="adarray_8c_html_ae36523088077ece061b9406bda9993a4"><div class="ttname"><a href="darray_8c.html#ae36523088077ece061b9406bda9993a4">darray_search</a></div><div class="ttdeci">int darray_search(darray *array, void *item_ptr, comparator fp, size_t *idx_ptr)</div><div class="ttdoc">Searches for an item in an array that compares equal to anther object.</div><div class="ttdef"><b>Definition:</b> darray.c:230</div></div>
+<div class="ttc" id="adarray_8c_html_ae36523088077ece061b9406bda9993a4"><div class="ttname"><a href="darray_8c.html#ae36523088077ece061b9406bda9993a4">darray_search</a></div><div class="ttdeci">int darray_search(darray *array, void *item_ptr, comparator fp, size_t *idx_ptr)</div><div class="ttdoc">Searches for an item in an array that compares equal to anther object.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00230">darray.c:230</a></div></div>
 </div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00230">230</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <a id="aefa05c30ef917ceca3824fdc09eec036" name="aefa05c30ef917ceca3824fdc09eec036"></a>
@@ -731,6 +756,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00248">248</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <a id="ab7d24a7df213a684a06a2fa8a07bfbb6" name="ab7d24a7df213a684a06a2fa8a07bfbb6"></a>
@@ -770,6 +797,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00274">274</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <a id="ad40b70e253f204d2c8ae602bf6dd66eb" name="ad40b70e253f204d2c8ae602bf6dd66eb"></a>
@@ -797,6 +826,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00293">293</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -838,6 +869,138 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The behavior of this function mimics that of the Unix <code>uniq</code> utility. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00308">308</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
+</div>
+</div>
+<a id="a358697da1ef3c6924f2c70962bb77ff8" name="a358697da1ef3c6924f2c70962bb77ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a358697da1ef3c6924f2c70962bb77ff8">&#9670;&nbsp;</a></span>swap_voidp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void swap_voidp </td>
+          <td>(</td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>pp1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>pp2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00333">333</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
+</div>
+</div>
+<a id="ab9e01b431639840990c39615512856e2" name="ab9e01b431639840990c39615512856e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9e01b431639840990c39615512856e2">&#9670;&nbsp;</a></span>partition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ssize_t partition </td>
+          <td>(</td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>item_ptr_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ssize_t&#160;</td>
+          <td class="paramname"><em>low</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ssize_t&#160;</td>
+          <td class="paramname"><em>high</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00339">339</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
+</div>
+</div>
+<a id="a2408c5eb011c595993f7f52c113c5f54" name="a2408c5eb011c595993f7f52c113c5f54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2408c5eb011c595993f7f52c113c5f54">&#9670;&nbsp;</a></span>darray_qsort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void darray_qsort </td>
+          <td>(</td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>item_ptr_arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ssize_t&#160;</td>
+          <td class="paramname"><em>low</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ssize_t&#160;</td>
+          <td class="paramname"><em>high</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="darray_8h.html#a96696ef6479dff70ef363a390131f6cd">comparator</a>&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00354">354</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <a id="abc9f699ede2f4de86d747678c9b5f774" name="abc9f699ede2f4de86d747678c9b5f774"></a>
@@ -877,6 +1040,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise.</dd></dl>
 <p>The sorting algorithm is adopted from <a href="https://gist.github.com/adwiteeya3/f1797534506be672b591f465c3366643">Quick Sort.c</a> by adwiteeya3 on GitHub. </p>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00363">363</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -928,9 +1093,11 @@ Variables</h2></td></tr>
 <div class="line">clone1 = <a class="code hl_function" href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a>(integer_array, shallow); <span class="comment">// creates a shallow copy</span></div>
 <div class="line"><a class="code hl_function" href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">darray_set_item_free</a>(clone1, NULL);            <span class="comment">// usually required logically</span></div>
 <div class="line">clone2 = <a class="code hl_function" href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a>(integer_array, deep);    <span class="comment">// creates a deep copy</span></div>
-<div class="ttc" id="adarray_8c_html_a2aa5ccf5ffc71da3bd5ae39e34aa2848"><div class="ttname"><a href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">darray_set_item_free</a></div><div class="ttdeci">int darray_set_item_free(darray *array, consumer item_free)</div><div class="ttdoc">Sets the free function.</div><div class="ttdef"><b>Definition:</b> darray.c:49</div></div>
-<div class="ttc" id="adarray_8c_html_a8cebb781d6cc003cfde77a1c8c919e51"><div class="ttname"><a href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a></div><div class="ttdeci">darray * darray_clone(darray *array, unary fp)</div><div class="ttdoc">Returns a clone of a given array.</div><div class="ttdef"><b>Definition:</b> darray.c:376</div></div>
+<div class="ttc" id="adarray_8c_html_a2aa5ccf5ffc71da3bd5ae39e34aa2848"><div class="ttname"><a href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">darray_set_item_free</a></div><div class="ttdeci">int darray_set_item_free(darray *array, consumer item_free)</div><div class="ttdoc">Sets the free function.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00049">darray.c:49</a></div></div>
+<div class="ttc" id="adarray_8c_html_a8cebb781d6cc003cfde77a1c8c919e51"><div class="ttname"><a href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a></div><div class="ttdeci">darray * darray_clone(darray *array, unary fp)</div><div class="ttdoc">Returns a clone of a given array.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00376">darray.c:376</a></div></div>
 </div><!-- fragment --> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00376">376</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -960,6 +1127,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00394">394</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <a id="af915a40dd74bb39c0e916e933fa4d2d0" name="af915a40dd74bb39c0e916e933fa4d2d0"></a>
@@ -987,6 +1156,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00410">410</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <a id="a6fbf2da53803031e7b3f4e2cc52bfb92" name="a6fbf2da53803031e7b3f4e2cc52bfb92"></a>
@@ -1008,6 +1179,8 @@ Variables</h2></td></tr>
 <p >This function returns a pointer to a string that describes the error number <code>darray_errno</code> if it is set. Calling the function resets the error number. If the error number is not set, the function returns a null pointer.</p>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to a string that describes the error number. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00430">430</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -1026,6 +1199,8 @@ Variables</h2></td></tr>
 <p>The size of the dynamic array structure. </p>
 <p >Use this instead of <code>sizeof(darray)</code> because the dynamic array structure definition is incomplete in this header. </p>
 
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00029">29</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 <a id="a106a97da7e5130af90502e7f534bc9a9" name="a106a97da7e5130af90502e7f534bc9a9"></a>
@@ -1043,6 +1218,8 @@ Variables</h2></td></tr>
 <p>The error number. </p>
 <p >This variable is set whenever a function fails. Most functions return 0 if unsuccessful and sets this error number.</p>
 <dl class="section see"><dt>See also</dt><dd>The <code><a class="el" href="darray_8h.html#a99021a15faa0456754015bb28a601f4c">darray_error</a></code> enumerator documents all error codes. The <code>darray_str_err</code> function returns a meaningful description of the error codes. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00031">31</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -1071,11 +1248,13 @@ Variables</h2></td></tr>
 <div class="line">    [<a class="code hl_enumvalue" href="darray_8h.html#a99021a15faa0456754015bb28a601f4cae13bec232e386bcf5e1c6fdf49d2c908">DARRAY_EINDEX</a>] = <span class="stringliteral">&quot;invalid index&quot;</span>,</div>
 <div class="line">    [<a class="code hl_enumvalue" href="darray_8h.html#a99021a15faa0456754015bb28a601f4caff8d5ebbe2ae18eaa3bc825e5abdc3ce">DARRAY_ENOTIN</a>] = <span class="stringliteral">&quot;item does not exist&quot;</span></div>
 <div class="line">}</div>
-<div class="ttc" id="adarray_8h_html_a99021a15faa0456754015bb28a601f4ca1b72648c4e02a5a619b14a47a4808f7b"><div class="ttname"><a href="darray_8h.html#a99021a15faa0456754015bb28a601f4ca1b72648c4e02a5a619b14a47a4808f7b">DARRAY_EALLOC</a></div><div class="ttdeci">@ DARRAY_EALLOC</div><div class="ttdef"><b>Definition:</b> darray.h:127</div></div>
-<div class="ttc" id="adarray_8h_html_a99021a15faa0456754015bb28a601f4ca2b76a038b976f43caa075544d1cbce2b"><div class="ttname"><a href="darray_8h.html#a99021a15faa0456754015bb28a601f4ca2b76a038b976f43caa075544d1cbce2b">DARRAY_ENULLS</a></div><div class="ttdeci">@ DARRAY_ENULLS</div><div class="ttdef"><b>Definition:</b> darray.h:129</div></div>
-<div class="ttc" id="adarray_8h_html_a99021a15faa0456754015bb28a601f4cae13bec232e386bcf5e1c6fdf49d2c908"><div class="ttname"><a href="darray_8h.html#a99021a15faa0456754015bb28a601f4cae13bec232e386bcf5e1c6fdf49d2c908">DARRAY_EINDEX</a></div><div class="ttdeci">@ DARRAY_EINDEX</div><div class="ttdef"><b>Definition:</b> darray.h:131</div></div>
-<div class="ttc" id="adarray_8h_html_a99021a15faa0456754015bb28a601f4caff8d5ebbe2ae18eaa3bc825e5abdc3ce"><div class="ttname"><a href="darray_8h.html#a99021a15faa0456754015bb28a601f4caff8d5ebbe2ae18eaa3bc825e5abdc3ce">DARRAY_ENOTIN</a></div><div class="ttdeci">@ DARRAY_ENOTIN</div><div class="ttdef"><b>Definition:</b> darray.h:133</div></div>
+<div class="ttc" id="adarray_8h_html_a99021a15faa0456754015bb28a601f4ca1b72648c4e02a5a619b14a47a4808f7b"><div class="ttname"><a href="darray_8h.html#a99021a15faa0456754015bb28a601f4ca1b72648c4e02a5a619b14a47a4808f7b">DARRAY_EALLOC</a></div><div class="ttdeci">@ DARRAY_EALLOC</div><div class="ttdef"><b>Definition:</b> <a href="darray_8h_source.html#l00128">darray.h:128</a></div></div>
+<div class="ttc" id="adarray_8h_html_a99021a15faa0456754015bb28a601f4ca2b76a038b976f43caa075544d1cbce2b"><div class="ttname"><a href="darray_8h.html#a99021a15faa0456754015bb28a601f4ca2b76a038b976f43caa075544d1cbce2b">DARRAY_ENULLS</a></div><div class="ttdeci">@ DARRAY_ENULLS</div><div class="ttdef"><b>Definition:</b> <a href="darray_8h_source.html#l00130">darray.h:130</a></div></div>
+<div class="ttc" id="adarray_8h_html_a99021a15faa0456754015bb28a601f4cae13bec232e386bcf5e1c6fdf49d2c908"><div class="ttname"><a href="darray_8h.html#a99021a15faa0456754015bb28a601f4cae13bec232e386bcf5e1c6fdf49d2c908">DARRAY_EINDEX</a></div><div class="ttdeci">@ DARRAY_EINDEX</div><div class="ttdef"><b>Definition:</b> <a href="darray_8h_source.html#l00132">darray.h:132</a></div></div>
+<div class="ttc" id="adarray_8h_html_a99021a15faa0456754015bb28a601f4caff8d5ebbe2ae18eaa3bc825e5abdc3ce"><div class="ttname"><a href="darray_8h.html#a99021a15faa0456754015bb28a601f4caff8d5ebbe2ae18eaa3bc825e5abdc3ce">DARRAY_ENOTIN</a></div><div class="ttdeci">@ DARRAY_ENOTIN</div><div class="ttdef"><b>Definition:</b> <a href="darray_8h_source.html#l00134">darray.h:134</a></div></div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00423">423</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
