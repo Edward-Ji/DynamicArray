@@ -8,17 +8,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - Doxyfile
-      - MAIN.md
-      - darray.c
-      - darray.h
+      - '!test/**'
   pull_request:
     branches: [ "main" ]
     paths:
-      - Doxyfile
-      - MAIN.md
-      - darray.c
-      - darray.h
+      - '!test/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
