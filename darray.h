@@ -2,8 +2,9 @@
 \file darray.h
 \author Edward Ji
 \date 21 Jun 2022
-\brief Dynamic array of void pointers with automatic memory free.
+\brief The header file of dynamic array of void pointers.
 */
+
 #ifndef DARRAY_H
 #define DARRAY_H
 

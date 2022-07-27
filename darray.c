@@ -2,7 +2,7 @@
 \file darray.c
 \author Edward Ji
 \date 21 Jun 2022
-\brief The source file of the dynamic array.
+\brief The source code of dynamic array of void pointers.
 
 \warning Note that some types and functions have no declaration or incomplete
 definition in the header file. The documentation in this source file is targeted
