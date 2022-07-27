@@ -103,20 +103,20 @@ $(function() {
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">    return cpy;                                                                \</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">}</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#define MAKE_DTYPE_CHAR     MAKE_DTYPE(char,               char,     &quot;%c &quot;</span>)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define MAKE_DTYPE_SCHAR    MAKE_DTYPE(signed char,        schar,    &quot;%hhi &quot;</span>)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define MAKE_DTYPE_UCHAR    MAKE_DTYPE(unsigned char,      uchar,    &quot;%hhu &quot;</span>)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#define MAKE_DTYPE_SHORT    MAKE_DTYPE(short,              short,    &quot;%hi &quot;</span>)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#define MAKE_DTYPE_USHORT   MAKE_DTYPE(unsigned short,     ushort,   &quot;%hu &quot;</span>)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#define MAKE_DTYPE_INT      MAKE_DTYPE(int,                int,      &quot;%d &quot;</span>)</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define MAKE_DTYPE_UNSIGNED MAKE_DTYPE(unsigned,           unsigned, &quot;%u &quot;</span>)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define MAKE_DTYPE_LONG     MAKE_DTYPE(long,               long,     &quot;%ld &quot;</span>)</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define MAKE_DTYPE_ULONG    MAKE_DTYPE(unsigned long,      ulong,    &quot;%lu &quot;</span>)</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define MAKE_DTYPE_LLONG    MAKE_DTYPE(long long,          llong,    &quot;%lld &quot;</span>)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#define MAKE_DTYPE_ULLONG   MAKE_DTYPE(unsigned long long, ullong,   &quot;%llu &quot;</span>)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define MAKE_DTYPE_FLOAT    MAKE_DTYPE(float,              float,    &quot;%g &quot;</span>)</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#define MAKE_DTYPE_DOUBLE   MAKE_DTYPE(double,             double,   &quot;%lg &quot;</span>)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define MAKE_DTYPE_LDOUBLE  MAKE_DTYPE(long double,        ldouble,  &quot;%Lg &quot;</span>)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#define MAKE_DTYPE_CHAR()     MAKE_DTYPE(char,               char,     &quot;%c &quot;</span>)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define MAKE_DTYPE_SCHAR()    MAKE_DTYPE(signed char,        schar,    &quot;%hhi &quot;</span>)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define MAKE_DTYPE_UCHAR()    MAKE_DTYPE(unsigned char,      uchar,    &quot;%hhu &quot;</span>)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#define MAKE_DTYPE_SHORT()    MAKE_DTYPE(short,              short,    &quot;%hi &quot;</span>)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#define MAKE_DTYPE_USHORT()   MAKE_DTYPE(unsigned short,     ushort,   &quot;%hu &quot;</span>)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#define MAKE_DTYPE_INT()      MAKE_DTYPE(int,                int,      &quot;%d &quot;</span>)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define MAKE_DTYPE_UNSIGNED() MAKE_DTYPE(unsigned,           unsigned, &quot;%u &quot;</span>)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define MAKE_DTYPE_LONG()     MAKE_DTYPE(long,               long,     &quot;%ld &quot;</span>)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define MAKE_DTYPE_ULONG()    MAKE_DTYPE(unsigned long,      ulong,    &quot;%lu &quot;</span>)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define MAKE_DTYPE_LLONG()    MAKE_DTYPE(long long,          llong,    &quot;%lld &quot;</span>)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#define MAKE_DTYPE_ULLONG()   MAKE_DTYPE(unsigned long long, ullong,   &quot;%llu &quot;</span>)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define MAKE_DTYPE_FLOAT()    MAKE_DTYPE(float,              float,    &quot;%g &quot;</span>)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#define MAKE_DTYPE_DOUBLE()   MAKE_DTYPE(double,             double,   &quot;%lg &quot;</span>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define MAKE_DTYPE_LDOUBLE()  MAKE_DTYPE(long double,        ldouble,  &quot;%Lg &quot;</span>)</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
