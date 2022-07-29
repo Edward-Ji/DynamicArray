@@ -1,4 +1,4 @@
-# DynamicArray
+# Dynamic Array
 
 [![Automated Testing](https://github.com/Edward-Ji/DynamicArray/actions/workflows/test.yml/badge.svg)](https://github.com/Edward-Ji/DynamicArray/actions/workflows/test.yml)
 
@@ -13,44 +13,60 @@ if it has insufficient or excess capacity. The implementation also mimics a
 functional programming approach by accepting function pointers to iteratively
 operate on data.
 
-## Documentation
+## Getting Started
 
-The documentation is automatically deployed on [GitHub Pages].
+### Installation
 
-To generate the documentations locally, you need Doxygen. Read the
-[Doxygen Manual] for an installation guide. Then, run `make doc` to generate
-the documentations. The output will be in the `html` directory.
-
-## Demonstration
-
-Run `make demo` to compile the demonstration source files in the `demo`
-directory. The executable will be in the `bin` directory. For example, there
-will be a matrix example, run it with `bin/matrix`.
-
-## Installation
-
-Simply download the source file and header file to your project directory with
+Simply download the source file and the header file to your project directory.
+For example, with `wget`:
 
 ```
 wget https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.h
 wget https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.c
 ```
 
-or
+You can also download other files (e.g. `util/dtype.h`).
 
-```
-curl https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.h \
-    -o darray.h
-curl https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.c \
-    -o darray.c
-```
+### Documentation
 
-[Doxygen Manual]: https://www.doxygen.nl/manual/install.html
-[GitHub Pages]: https://edward-ji.github.io/DynamicArray
+The full documentation is automatically deployed on [GitHub Pages].
 
-## Testing
+### Conventions
 
-Run the following command to run the automated unit tests:
+All the dynamic array functions follow the rules below except for `new_darray`
+and `del_darray`. These rules make it easier to memorize the functions and their
+signature.
+
+- They start with `darray_`.
+- Their arguments usually appear in the following order:
+    * A pointer to the dynamic array to operate on;
+    * An index in that array;
+    * An item to perform the operation with, or another array;
+    * A function pointer for operation, aggregation, comparison etc.
+- They usually return 1 on success and 0 on failure. Most functions set
+  `darray_errno` on failure.
+
+## Build From Source
+
+This project uses GNU make utility to build the documentation, demonstrations
+and test.
+
+### Build Doc
+
+To generate the documentations locally, you need Doxygen. Read the
+[Doxygen Manual] for an installation guide. Then, run `make doc` to generate
+the documentations. To see the documentations, open `html/index.html` in the
+browser.
+
+### Make Demo
+
+Run `make demo` to compile the demonstration source files in the `demo`
+directory. The executable will be in the `bin` directory. For example, there
+will be a vector example, run it with `bin/vector`.
+
+### Make Test
+
+Run the following command to build and run the automated unit tests:
 
 ```
 make test && bin/test
@@ -67,4 +83,6 @@ valgrind --leak-check=full \
          bin/test
 ```
 
-[valgrind]: https://valgrind.org
+[Doxygen Manual]: https://www.doxygen.nl/manual/install.html
+[GitHub Pages]: https://edward-ji.github.io/DynamicArray
+[Valgrind]: https://valgrind.org
