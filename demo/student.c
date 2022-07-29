@@ -196,12 +196,19 @@ void sort(darray *students) {
     }
 }
 
+void help() {
+    printf("\tlist: show all the students in a table\n"
+           "\tsearch: show the first student with matching field value\n"
+           "\tsort: sort students by their values in a certain field\n"
+           "\tquit: exit the program\n");
+}
+
 int main() {
     darray *students = read_csv(CSV_NAME);
 
     char buffer[BUF_LEN];
     do {
-        printf("list, search, sort, quit: ");
+        printf("list, search, sort, help, quit: ");
         if (fgets(buffer, BUF_LEN, stdin) == NULL) {
             break;
         }
@@ -212,6 +219,8 @@ int main() {
             search(students);
         } else if (strcmp(buffer, "sort") == 0) {
             sort(students);
+        } else if (strcmp(buffer, "help") == 0) {
+            help();
         } else if (strcmp(buffer, "quit") == 0) {
             break;
         } else {
