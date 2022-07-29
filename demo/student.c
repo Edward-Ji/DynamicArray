@@ -120,14 +120,21 @@ void list(darray *students) {
 }
 
 void search_id(darray *students) {
-    int id;
-    size_t idx;
     printf("<id>: ");
-    if (scanf("%d", &id) != 1) {
+
+    char buffer[BUF_LEN] = { 0 };
+    if (fgets(buffer, BUF_LEN, stdin) == NULL) {
+        puts("missing id");
+        return;
+    }
+
+    int id;
+    if (sscanf(buffer, "%d", &id) != 1) {
         puts("invalid id");
         return;
     }
 
+    size_t idx;
     if (darray_search(students, &id, student_has_id, &idx) == 0) {
         puts("not found");
         return;
