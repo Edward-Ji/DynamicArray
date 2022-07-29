@@ -97,16 +97,16 @@ Conventions</h2>
 <li>They usually return 1 on success and 0 on failure. Most functions set <code>darray_errno</code> on failure.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md8"></a>
-Build From Source</h1>
-<p >This project uses GNU make utility to build the documentation, demonstrations and test.</p>
+Run From Source</h1>
+<p >This project uses GNU make utility to build and run the documentation, demonstrations and test.</p>
 <h2><a class="anchor" id="autotoc_md9"></a>
-Build Doc</h2>
+Documentations</h2>
 <p >To generate the documentations locally, you need Doxygen. Read the <a href="https://www.doxygen.nl/manual/install.html">Doxygen Manual</a> for an installation guide. Then, run <code>make doc</code> to generate the documentations. To see the documentations, open <code>html/index.html</code> in the browser.</p>
 <h2><a class="anchor" id="autotoc_md10"></a>
-Make Demo</h2>
+Demonstrations</h2>
 <p >Run <code>make demo</code> to compile the demonstration source files in the <code>demo</code> directory. The executable will be in the <code>bin</code> directory. For example, there will be a vector example, run it with <code>bin/vector</code>.</p>
 <h2><a class="anchor" id="autotoc_md11"></a>
-Make Test</h2>
+Automated Testing</h2>
 <p >Run the following command to build and run the automated unit tests:</p>
 <div class="fragment"><div class="line">make test &amp;&amp; bin/test</div>
 </div><!-- fragment --><p ><b>After</b> passing all tests, use <a href="https://valgrind.org">Valgrind</a> to also check for memory leaks:</p>
