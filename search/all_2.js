@@ -32,6 +32,5 @@ var searchData=
   ['del_5fdarray_29',['del_darray',['../darray_8c.html#af915a40dd74bb39c0e916e933fa4d2d0',1,'del_darray(darray *array):&#160;darray.c'],['../darray_8h.html#af915a40dd74bb39c0e916e933fa4d2d0',1,'del_darray(darray *array):&#160;darray.c']]],
   ['dtype_2ec_30',['dtype.c',['../dtype_8c.html',1,'']]],
   ['dtype_2eh_31',['dtype.h',['../dtype_8h.html',1,'']]],
-  ['dynamic_20array_32',['Dynamic Array',['../index.html',1,'']]],
-  ['dynamicarray_33',['DynamicArray',['../md_README.html',1,'']]]
+  ['dynamic_20array_32',['Dynamic Array',['../index.html',1,'(Global Namespace)'],['../md_README.html',1,'(Global Namespace)']]]
 ];

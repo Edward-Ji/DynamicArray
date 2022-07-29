@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dynamic Array: DynamicArray</title>
+<title>Dynamic Array: Dynamic Array</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 
 </div><!-- top -->
 <div><div class="header">
-  <div class="headertitle"><div class="title">DynamicArray </div></div>
+  <div class="headertitle"><div class="title">Dynamic Array </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p ><a href="https://github.com/Edward-Ji/DynamicArray/actions/workflows/test.yml"><img src="https://github.com/Edward-Ji/DynamicArray/actions/workflows/test.yml/badge.svg" alt="Automated Testing" style="pointer-events: none;" class="inline"/></a></p>
@@ -72,25 +72,42 @@ $(function() {
 Abstract</h1>
 <p >By providing an item free function when creating the array, you need not worry about deallocating the memory manually when removing items from the array, the functions will handle it for you. Being dynamic, the array automatically resizes if it has insufficient or excess capacity. The implementation also mimics a functional programming approach by accepting function pointers to iteratively operate on data.</p>
 <h1><a class="anchor" id="autotoc_md4"></a>
-Documentation</h1>
-<p >The documentation is automatically deployed on <a href="https://edward-ji.github.io/DynamicArray">GitHub Pages</a>.</p>
-<p >To generate the documentations locally, you need Doxygen. Read the <a href="https://www.doxygen.nl/manual/install.html">Doxygen Manual</a> for an installation guide. Then, run <code>make doc</code> to generate the documentations. The output will be in the <code>html</code> directory.</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
-Demonstration</h1>
-<p >Run <code>make demo</code> to compile the demonstration source files in the <code>demo</code> directory. The executable will be in the <code>bin</code> directory. For example, there will be a matrix example, run it with <code>bin/matrix</code>.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
-Installation</h1>
-<p >Simply download the source file and header file to your project directory with</p>
+Getting Started</h1>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Installation</h2>
+<p >Simply download the source file and the header file to your project directory. For example, with <code>wget</code>:</p>
 <div class="fragment"><div class="line">wget https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.h</div>
 <div class="line">wget https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.c</div>
-</div><!-- fragment --><p >or</p>
-<div class="fragment"><div class="line">curl https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.h \</div>
-<div class="line">    -o darray.h</div>
-<div class="line">curl https://raw.githubusercontent.com/Edward-Ji/DynamicArray/main/darray.c \</div>
-<div class="line">    -o darray.c</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
-Testing</h1>
-<p >Run the following command to run the automated unit tests:</p>
+</div><!-- fragment --><p >You can also download other files (e.g. <code><a class="el" href="dtype_8h.html" title="Some utility macros for generating wrapper functions around C data types.">util/dtype.h</a></code>).</p>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Documentation</h2>
+<p >The full documentation is automatically deployed on <a href="https://edward-ji.github.io/DynamicArray">GitHub Pages</a>.</p>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Conventions</h2>
+<p >All the dynamic array functions follow the rules below except for <code>new_darray</code> and <code>del_darray</code>. These rules make it easier to memorize the functions and their signature.</p>
+<ul>
+<li>They start with <code>darray_</code>.</li>
+<li>Their arguments usually appear in the following order:<ul>
+<li>A pointer to the dynamic array to operate on;</li>
+<li>An index in that array;</li>
+<li>An item to perform the operation with, or another array;</li>
+<li>A function pointer for operation, aggregation, comparison etc.</li>
+</ul>
+</li>
+<li>They usually return 1 on success and 0 on failure. Most functions set <code>darray_errno</code> on failure.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Build From Source</h1>
+<p >This project uses GNU make utility to build the documentation, demonstrations and test.</p>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Build Doc</h2>
+<p >To generate the documentations locally, you need Doxygen. Read the <a href="https://www.doxygen.nl/manual/install.html">Doxygen Manual</a> for an installation guide. Then, run <code>make doc</code> to generate the documentations. To see the documentations, open <code>html/index.html</code> in the browser.</p>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Make Demo</h2>
+<p >Run <code>make demo</code> to compile the demonstration source files in the <code>demo</code> directory. The executable will be in the <code>bin</code> directory. For example, there will be a vector example, run it with <code>bin/vector</code>.</p>
+<h2><a class="anchor" id="autotoc_md11"></a>
+Make Test</h2>
+<p >Run the following command to build and run the automated unit tests:</p>
 <div class="fragment"><div class="line">make test &amp;&amp; bin/test</div>
 </div><!-- fragment --><p ><b>After</b> passing all tests, use <a href="https://valgrind.org">Valgrind</a> to also check for memory leaks:</p>
 <div class="fragment"><div class="line">make test &amp;&amp; \</div>
