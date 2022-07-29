@@ -46,25 +46,25 @@ signature.
 - They usually return 1 on success and 0 on failure. Most functions set
   `darray_errno` on failure.
 
-## Build From Source
+## Run From Source
 
-This project uses GNU make utility to build the documentation, demonstrations
-and test.
+This project uses GNU make utility to build and run the documentation,
+demonstrations and test.
 
-### Build Doc
+### Documentations
 
 To generate the documentations locally, you need Doxygen. Read the
 [Doxygen Manual] for an installation guide. Then, run `make doc` to generate
 the documentations. To see the documentations, open `html/index.html` in the
 browser.
 
-### Make Demo
+### Demonstrations
 
 Run `make demo` to compile the demonstration source files in the `demo`
 directory. The executable will be in the `bin` directory. For example, there
 will be a vector example, run it with `bin/vector`.
 
-### Make Test
+### Automated Testing
 
 Run the following command to build and run the automated unit tests:
 
