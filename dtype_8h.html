@@ -160,6 +160,7 @@ Macros</h2></td></tr>
 <div class="line">}                                                                              \</div>
 <div class="line">                                                                               \</div>
 <div class="line">void print_##alph(<span class="keywordtype">void</span> *p1) {                                                  \</div>
+<div class="line">    if (p1 == NULL) <span class="keywordflow">return</span>;                                                    \</div>
 <div class="line">    printf(fmt, *((type *) p1));                                               \</div>
 <div class="line">}                                                                              \</div>
 <div class="line">                                                                               \</div>
@@ -170,9 +171,12 @@ Macros</h2></td></tr>
 <div class="line">    return (*tp1 &gt; *tp2) - (*tp1 &lt; *tp2);                                      \</div>
 <div class="line">}                                                                              \</div>
 <div class="line">                                                                               \</div>
-<div class="line">void *alph##_cpy(<span class="keyword">const</span> <span class="keywordtype">void</span> *p) { <span class="keywordflow">return</span> (<span class="keywordtype">void</span> *) p; }                         \</div>
+<div class="line">void *alph##_cpy(<span class="keyword">const</span> <span class="keywordtype">void</span> *p) {                                              \</div>
+<div class="line">    return (<span class="keywordtype">void</span> *) p;                                                         \</div>
+<div class="line">}                                                                              \</div>
 <div class="line">                                                                               \</div>
 <div class="line">void *alph##_cpy_deep(<span class="keyword">const</span> <span class="keywordtype">void</span> *p) {                                         \</div>
+<div class="line">    if (p == NULL) <span class="keywordflow">return</span> NULL;                                                \</div>
 <div class="line">    type *cpy = (type *) malloc(<span class="keyword">sizeof</span>(type));                                 \</div>
 <div class="line">    *cpy = *((type *) p);                                                      \</div>
 <div class="line">    return cpy;                                                                \</div>
@@ -197,7 +201,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00040">40</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00044">44</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +220,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00041">41</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00045">45</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +239,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00042">42</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00046">46</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -254,7 +258,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00043">43</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00047">47</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -273,7 +277,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00044">44</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00048">48</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -292,7 +296,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00045">45</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00049">49</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -311,7 +315,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00046">46</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00050">50</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -330,7 +334,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00047">47</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00051">51</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +353,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00048">48</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00052">52</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -368,7 +372,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00049">49</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00053">53</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -387,7 +391,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00050">50</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00054">54</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -406,7 +410,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00051">51</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00055">55</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -425,7 +429,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00052">52</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00056">56</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
@@ -444,7 +448,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00053">53</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dtype_8h_source.html#l00057">57</a> of file <a class="el" href="dtype_8h_source.html">dtype.h</a>.</p>
 
 </div>
 </div>
