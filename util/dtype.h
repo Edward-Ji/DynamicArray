@@ -19,6 +19,7 @@ type *new_##alph(type x) {                                                     \
 }                                                                              \
                                                                                \
 void print_##alph(void *p1) {                                                  \
+    if (p1 == NULL) return;                                                    \
     printf(fmt, *((type *) p1));                                               \
 }                                                                              \
                                                                                \
@@ -29,9 +30,12 @@ int alph##_cmp(const void *p1, const void *p2) {                               \
     return (*tp1 > *tp2) - (*tp1 < *tp2);                                      \
 }                                                                              \
                                                                                \
-void *alph##_cpy(const void *p) { return (void *) p; }                         \
+void *alph##_cpy(const void *p) {                                              \
+    return (void *) p;                                                         \
+}                                                                              \
                                                                                \
 void *alph##_cpy_deep(const void *p) {                                         \
+    if (p == NULL) return NULL;                                                \
     type *cpy = (type *) malloc(sizeof(type));                                 \
     *cpy = *((type *) p);                                                      \
     return cpy;                                                                \
