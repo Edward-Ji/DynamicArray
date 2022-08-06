@@ -417,6 +417,15 @@ array structure.
 */
 int del_darray(darray *array);
 
+//! Returns and resets the error number.
+/*!
+This function returns the error number. Calling the function resets the error
+number.
+
+\returns An error number.
+*/
+int darray_geterr();
+
 //! Returns a pointer to a string that describes the error number.
 /*!
 This function returns a pointer to a string that describes the error number

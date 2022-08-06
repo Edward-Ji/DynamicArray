@@ -427,6 +427,12 @@ static const char *const darray_strerr_list[] = {
     [DARRAY_ENOTIN] = "item does not exist"
 };
 
+int darray_geterr() {
+    int errno = darray_errno;
+    darray_errno = DARRAY_ERESET;
+    return errno;
+}
+
 const char *darray_strerr() {
     if (darray_errno == DARRAY_ERESET) {
         return NULL;
