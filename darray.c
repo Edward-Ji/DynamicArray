@@ -181,9 +181,12 @@ int darray_pop_range(darray *array, size_t start, size_t end) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
-    if (start > end || end > array->len) {
+    if (end > array->len) {
         darray_errno = DARRAY_EINDEX;
         return 0;
+    }
+    if (start >= end) {
+        return 1;
     }
 
     if (array->item_free != NULL) {

@@ -225,6 +225,11 @@ MU_TEST(test_darray_pop_range_4) {
     DARRAY_ASSERT_MATCH(arr, 0, 4);
 }
 
+MU_TEST(test_darray_pop_range_5) {
+    mu_assert_int_eq(1, darray_pop_range(arr, 4, 1));
+    DARRAY_ASSERT_MATCH(arr, 0, 1, 2, 3, 4);
+}
+
 MU_TEST(test_darray_pop_range_e1) {
     mu_assert_int_eq(0, darray_pop_range(NULL, 0, 0));
     mu_assert_int_eq(DARRAY_ENULLS, darray_geterr());
