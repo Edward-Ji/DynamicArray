@@ -432,7 +432,7 @@ This function returns a pointer to a string that describes the error number
 `darray_errno` if it is set. Calling the function resets the error number. If
 the error number is not set, the function returns a null pointer.
 
-\returns a pointer to a string that describes the error number.
+\returns A pointer to a string that describes the error number.
 */
 const char *darray_strerr();
 
