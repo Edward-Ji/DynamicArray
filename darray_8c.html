@@ -153,6 +153,9 @@ Functions</h2></td></tr>
 <tr class="memitem:af915a40dd74bb39c0e916e933fa4d2d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#af915a40dd74bb39c0e916e933fa4d2d0">del_darray</a> (<a class="el" href="structdarray.html">darray</a> *array)</td></tr>
 <tr class="memdesc:af915a40dd74bb39c0e916e933fa4d2d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a given array.  <a href="darray_8c.html#af915a40dd74bb39c0e916e933fa4d2d0">More...</a><br /></td></tr>
 <tr class="separator:af915a40dd74bb39c0e916e933fa4d2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafdfefb37e45875cd6d6b0422d839019"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#aafdfefb37e45875cd6d6b0422d839019">darray_geterr</a> ()</td></tr>
+<tr class="memdesc:aafdfefb37e45875cd6d6b0422d839019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns and resets the error number.  <a href="darray_8c.html#aafdfefb37e45875cd6d6b0422d839019">More...</a><br /></td></tr>
+<tr class="separator:aafdfefb37e45875cd6d6b0422d839019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fbf2da53803031e7b3f4e2cc52bfb92"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="darray_8c.html#a6fbf2da53803031e7b3f4e2cc52bfb92">darray_strerr</a> ()</td></tr>
 <tr class="memdesc:a6fbf2da53803031e7b3f4e2cc52bfb92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to a string that describes the error number.  <a href="darray_8c.html#a6fbf2da53803031e7b3f4e2cc52bfb92">More...</a><br /></td></tr>
 <tr class="separator:a6fbf2da53803031e7b3f4e2cc52bfb92"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -644,7 +647,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00206">206</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00209">209</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -706,9 +709,9 @@ Variables</h2></td></tr>
 <div class="line">    exit(1);</div>
 <div class="line">}</div>
 <div class="line">printf(<span class="stringliteral">&quot;42 at index %zu.&quot;</span>, index);</div>
-<div class="ttc" id="adarray_8c_html_ae36523088077ece061b9406bda9993a4"><div class="ttname"><a href="darray_8c.html#ae36523088077ece061b9406bda9993a4">darray_search</a></div><div class="ttdeci">int darray_search(darray *array, void *item_ptr, comparator fp, size_t *idx_ptr)</div><div class="ttdoc">Searches for an item in an array that compares equal to anther object.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00230">darray.c:230</a></div></div>
+<div class="ttc" id="adarray_8c_html_ae36523088077ece061b9406bda9993a4"><div class="ttname"><a href="darray_8c.html#ae36523088077ece061b9406bda9993a4">darray_search</a></div><div class="ttdeci">int darray_search(darray *array, void *item_ptr, comparator fp, size_t *idx_ptr)</div><div class="ttdoc">Searches for an item in an array that compares equal to anther object.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00233">darray.c:233</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00230">230</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00233">233</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -756,7 +759,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00248">248</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00251">251</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -797,7 +800,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00274">274</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00277">277</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -827,7 +830,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00293">293</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00296">296</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -869,7 +872,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The behavior of this function mimics that of the Unix <code>uniq</code> utility. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00308">308</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00311">311</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -907,7 +910,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00333">333</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00336">336</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -957,7 +960,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00339">339</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00342">342</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -999,7 +1002,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00354">354</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00357">357</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -1041,7 +1044,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise.</dd></dl>
 <p>The sorting algorithm is adopted from <a href="https://gist.github.com/adwiteeya3/f1797534506be672b591f465c3366643">Quick Sort.c</a> by adwiteeya3 on GitHub. </p>
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00363">363</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00366">366</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -1094,10 +1097,10 @@ Variables</h2></td></tr>
 <div class="line"><a class="code hl_function" href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">darray_set_item_free</a>(clone1, NULL);            <span class="comment">// usually required logically</span></div>
 <div class="line">clone2 = <a class="code hl_function" href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a>(integer_array, deep);    <span class="comment">// creates a deep copy</span></div>
 <div class="ttc" id="adarray_8c_html_a2aa5ccf5ffc71da3bd5ae39e34aa2848"><div class="ttname"><a href="darray_8c.html#a2aa5ccf5ffc71da3bd5ae39e34aa2848">darray_set_item_free</a></div><div class="ttdeci">int darray_set_item_free(darray *array, consumer item_free)</div><div class="ttdoc">Sets the free function.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00049">darray.c:49</a></div></div>
-<div class="ttc" id="adarray_8c_html_a8cebb781d6cc003cfde77a1c8c919e51"><div class="ttname"><a href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a></div><div class="ttdeci">darray * darray_clone(darray *array, unary fp)</div><div class="ttdoc">Returns a clone of a given array.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00376">darray.c:376</a></div></div>
+<div class="ttc" id="adarray_8c_html_a8cebb781d6cc003cfde77a1c8c919e51"><div class="ttname"><a href="darray_8c.html#a8cebb781d6cc003cfde77a1c8c919e51">darray_clone</a></div><div class="ttdeci">darray * darray_clone(darray *array, unary fp)</div><div class="ttdoc">Returns a clone of a given array.</div><div class="ttdef"><b>Definition:</b> <a href="darray_8c_source.html#l00379">darray.c:379</a></div></div>
 </div><!-- fragment --> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00376">376</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00379">379</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -1127,7 +1130,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if successful, 0 otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00394">394</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00397">397</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -1156,7 +1159,30 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00410">410</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00413">413</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+
+</div>
+</div>
+<a id="aafdfefb37e45875cd6d6b0422d839019" name="aafdfefb37e45875cd6d6b0422d839019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafdfefb37e45875cd6d6b0422d839019">&#9670;&nbsp;</a></span>darray_geterr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int darray_geterr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns and resets the error number. </p>
+<p >This function returns the error number. Calling the function resets the error number.</p>
+<dl class="section return"><dt>Returns</dt><dd>An error number. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00433">433</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -1177,9 +1203,9 @@ Variables</h2></td></tr>
 
 <p>Returns a pointer to a string that describes the error number. </p>
 <p >This function returns a pointer to a string that describes the error number <code>darray_errno</code> if it is set. Calling the function resets the error number. If the error number is not set, the function returns a null pointer.</p>
-<dl class="section return"><dt>Returns</dt><dd>a pointer to a string that describes the error number. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a string that describes the error number. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00430">430</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00439">439</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
@@ -1253,7 +1279,7 @@ Variables</h2></td></tr>
 <div class="ttc" id="adarray_8h_html_a99021a15faa0456754015bb28a601f4cae13bec232e386bcf5e1c6fdf49d2c908"><div class="ttname"><a href="darray_8h.html#a99021a15faa0456754015bb28a601f4cae13bec232e386bcf5e1c6fdf49d2c908">DARRAY_EINDEX</a></div><div class="ttdeci">@ DARRAY_EINDEX</div><div class="ttdef"><b>Definition:</b> <a href="darray_8h_source.html#l00132">darray.h:132</a></div></div>
 <div class="ttc" id="adarray_8h_html_a99021a15faa0456754015bb28a601f4caff8d5ebbe2ae18eaa3bc825e5abdc3ce"><div class="ttname"><a href="darray_8h.html#a99021a15faa0456754015bb28a601f4caff8d5ebbe2ae18eaa3bc825e5abdc3ce">DARRAY_ENOTIN</a></div><div class="ttdeci">@ DARRAY_ENOTIN</div><div class="ttdef"><b>Definition:</b> <a href="darray_8h_source.html#l00134">darray.h:134</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00423">423</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="darray_8c_source.html#l00426">426</a> of file <a class="el" href="darray_8c_source.html">darray.c</a>.</p>
 
 </div>
 </div>
