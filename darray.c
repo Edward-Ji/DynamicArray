@@ -109,7 +109,7 @@ int darray_foreach(darray *array, consumer fp) {
 }
 
 int darray_aggregate(darray *array, void *resp, aggregate fp) {
-    if (array == NULL || fp == NULL) {
+    if (array == NULL || resp == NULL || fp == NULL) {
         darray_errno = DARRAY_ENULLS;
         return 0;
     }
